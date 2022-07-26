@@ -30,6 +30,7 @@ chapters:
 - file: docs/qmpaths.md
   sections:
   - file: "docs/quantum_mechanics/Classical hydrogen.ipynb"
+  - file: "docs/quantum_mechanics/schrodinger_equation.ipynb"
   - file: "docs/quantum_mechanics/eigenfunctions_eigenstates.ipynb"
   - file: "docs/quantum_mechanics/Quantum_thinking.ipynb"
   - file: "docs/quantum_mechanics/hybridization.ipynb"
