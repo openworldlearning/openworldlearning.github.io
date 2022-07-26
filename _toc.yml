@@ -1,0 +1,35 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: docs/developers.md
+- file: docs/internals/getting_started.md
+  sections:
+  - file: docs/internals/conventions.md
+  - file: docs/internals/writing.md
+  - file: docs/internals/literature.md
+  - file: docs/internals/markdown.md
+  - file: docs/internals/github.md
+  - file: docs/internals/github_uio.md
+  - file: pdocs/internals/pip.md
+- file: docs/software/software.md
+  sections:
+  - file: docs/software/gpr/GPR_intro.ipynb
+  - file: docs/software/gpr/polynomial_regression.ipynb
+  - file: docs/software/gpr/Covariance.ipynb
+  - file: docs/software/gpr/Kernels.ipynb 
+  - file: docs/software/gpr/quick_gpr_tutorial.ipynb
+  - file: docs/software/bubblebox/mdbox_tutorial.md
+- file: docs/thermpaths.md
+  sections:
+  - file: docs/thermodynamics/KE_to_Temp_math.ipynb
+  - file: docs/thermodynamics/KE_to_Temp_math_final.ipynb
+  - file: docs/thermodynamics/bubblebox_learning.ipynb
+- file: docs/qmpaths.md
+  sections:
+  - file: "docs/quantum_mechanics/Classical hydrogen.ipynb"
+  - file: "docs/quantum_mechanics/eigenfunctions_eigenstates.ipynb"
+  - file: "docs/quantum_mechanics/Quantum_thinking.ipynb"
+  - file: "docs/quantum_mechanics/hybridization.ipynb"
