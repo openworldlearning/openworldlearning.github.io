@@ -51,6 +51,7 @@ chapters:
   sections:
   - file: docs/experiment/experimental_data.ipynb
   - file: "docs/experiment/Analytical Chemistry II .ipynb"
+  - file: "docs/experiment/Implementing AI in a Lab Setting.ipynb"
 - file: docs/numerical_calculus.ipynb
   sections:
   - file: docs/numerical_calculus/numerical_derivatives.ipynb
