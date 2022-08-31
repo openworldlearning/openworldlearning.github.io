@@ -55,3 +55,4 @@ chapters:
 - file: docs/numerical_calculus.ipynb
   sections:
   - file: docs/numerical_calculus/numerical_derivatives.ipynb
+  - file: docs/numerical_calculus/numerical_integration.ipynb
