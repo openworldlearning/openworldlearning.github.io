@@ -34,7 +34,7 @@ jobs:
           git config user.email "github-actions-bot@users.noreply.github.com"
           REPOSITORY_PATH="https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           
-          git checkout master 
+          git checkout main 
           jupyter-book build .
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
