@@ -61,7 +61,7 @@ button:hover, a:hover {
     <h2>Hanan Gharayba</h2>
     <p class="title">Chemistry (bachelor)</p>
     <a href="https://github.com/HananGharayba"><i class="fa fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/hanan-gharayba-6a5799207/"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.linkedin.com/in/hanangharayba"><i class="fa fa-linkedin"></i></a>
   </div>
 
   <div class="card">
