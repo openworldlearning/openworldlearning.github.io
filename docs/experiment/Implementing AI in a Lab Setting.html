@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Treating experimental data &#8212; Open World Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/experiment/Implementing AI in a Lab Setting';</script>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/openworldlearning/openworldlearning.github.io/main/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Numerical calculus" href="../numerical_calculus.html" />
+    <link rel="prev" title="Treating experimental data" href="experimental_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/owl_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/owl_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    What is Open World Learning?
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developers.html">Developers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../internals/getting_started.html">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../internals/workflow.html">Development workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/conventions.html">Conventions</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../internals/writing.html">Writing for students</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/literature.html">Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/markdown.html">Writing and styling documents and notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/github.html">Github</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../internals/github_uio.html">Github at the University</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../software/software.html">Software tailored for learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../software/gpr/AI_in_the_lab.html">AI in the lab with btjenesten.gpr</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/polynomial_regression.html">Polynomial regression and its restrictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/GPR_intro.html">An introduction to Gaussian process regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/Covariance.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/Kernels.html">Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/quick_gpr_tutorial.html">Quick tutorial on the Gaussian process regression module from btjenesten</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software/bubblebox/mdbox_tutorial.html">Molecular dynamics with BubbleBox.mdbox</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../software/braketlab/braketlab.html">Quantum mechanics with BraketLab</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../general_chemistry.html">General chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../thermpaths.html">Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/KE_to_Temp_math.html">How is <span class="math notranslate nohighlight">\(K_E =  \frac{3}{2} k_BT\)</span> for gas?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/KE_to_Temp_math_final.html">How does temperature relate to kinetic energy in gases?</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qmpaths.html">Basic quantum mechanics</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/Quantum_thinking.html">How to think inside of the quantum world!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/linear_combinations.html">Dirac notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/Classical%20hydrogen.html">Limitations of classical mechanics in chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/doubleslit.html">A double slit experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/schrodinger_equation.html">An encounter with the Schrödinger equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/numeric_schrodinger_1d.html">Solving the Schrodinger equation numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/eigenfunctions_eigenstates.html">Eigenfunctions and eigenstates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/hybridization.html">What is hybridization?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../experimental_paths.html">Bringing theory and experiment closer with computers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="experimental_data.html">Treating experimental data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Treating experimental data</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numerical_calculus.html">Numerical calculus</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numerical_calculus/numerical_integration.html">Numerical integration</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/openworldlearning/openworldlearning.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/openworldlearning/openworldlearning.github.io/issues/new?title=Issue%20on%20page%20%2Fdocs/experiment/Implementing AI in a Lab Setting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/experiment/Implementing AI in a Lab Setting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Treating experimental data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Treating experimental data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-prelab-assignment-for-analytical-chemistry">A prelab assignment for analytical chemistry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-you-might-need-to-know-before-tackling-this-notebook">Things you might need to know before tackling this notebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-regressor">Setting up the regressor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-response-surface">Visualizing the response surface</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-interdependencies">Visualizing interdependencies</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-preparations-for-the-lab">Final preparations for the lab</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="treating-experimental-data">
+<h1>Treating experimental data<a class="headerlink" href="#treating-experimental-data" title="Permalink to this heading">#</a></h1>
+<section id="a-prelab-assignment-for-analytical-chemistry">
+<h2>A prelab assignment for analytical chemistry<a class="headerlink" href="#a-prelab-assignment-for-analytical-chemistry" title="Permalink to this heading">#</a></h2>
+<p><b>Author:</b> Ayla S. Coder <a href="mailto:aylcoder@gmail.com">✉️</a>
+<b>Editor:</b> Audun Skau Hansen <a href="mailto:a.s.hansen@kjemi.uio.no">✉️</a></p>
+<p>The Hylleraas Centre for Quantum Molecular Sciences and
+The Centre for Computing in Science Education,
+2022</p>
+<hr class="docutils" />
+<section id="things-you-might-need-to-know-before-tackling-this-notebook">
+<h3>Things you might need to know before tackling this notebook<a class="headerlink" href="#things-you-might-need-to-know-before-tackling-this-notebook" title="Permalink to this heading">#</a></h3>
+<p>Before starting this part of the prelab for analytical chemistry II, the following notebooks should be completed:</p>
+<ul>
+  <li><a href="https://openworldlearning.github.io/docs/software/gpr/polynomial_regression.html">Notebook on polynomial regression </a></li>
+  <li><a href="https://openworldlearning.github.io/docs/software/gpr/Covariance.html">Notebook on covariance</a></li>
+  <li><a href="https://openworldlearning.github.io/docs/software/gpr/Kernels.html">Notebook on kernels</a></li>
+  <li><a href="https://openworldlearning.github.io/docs/software/gpr/GPR_intro.html">Notebook on guassian process regression</a></li>
+    <li><a href="https://openworldlearning.github.io/docs/software/gpr/quick_gpr_tutorial.html">Notebook on how to implement the guassian process regression module</a></li>
+       <li><a href="https://openworldlearning.github.io/docs/software/gpr/quick_gpr_tutorial.html">Notebook on factorial design and boxbehnken DOE</a></li>
+</ul>
+<p>The goal of this notebook is to introduce you to Gaussian Process Regression in the context of a real life example of an analytical lab. We’ll use response measurements, based on a Box-Behnken experimental setup for determining the best sample compisition to achieve the optimal response for an electrospray ionization (ESI) mass spectrometry (MS) set up. Let’s begin with a preliminary discussion just to gather our thoughts:</p>
+<div class="admonition-preliminary-discussion admonition">
+<p class="admonition-title">Preliminary discussion</p>
+<p>Based on what you know of Gaussian Process Regression and (refer to experimental setup):</p>
+<ul class="simple">
+<li><p>How does GPR differ from conventional methods like polynomial regression?</p></li>
+<li><p>Do you expect to encounter an optimal response? Explain your answer.</p></li>
+<li><p>What are the experimental constraints for this setup?</p></li>
+</ul>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">{hint}</span> <span class="pre">a</span> <span class="pre">constraint</span> <span class="pre">is</span> <span class="pre">what</span> <span class="pre">the</span> <span class="pre">physical</span> <span class="pre">limits</span> <span class="pre">of</span> <span class="pre">our</span> <span class="pre">experiment</span> <span class="pre">can</span> <span class="pre">be.</span> <span class="pre">This</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">amounts</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">chemical,</span> <span class="pre">budget</span> <span class="pre">limits,</span> <span class="pre">time</span> <span class="pre">limits</span> <span class="pre">etc.</span> <span class="pre">What</span> <span class="pre">levels</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">dimensions</span> <span class="pre">(variables)</span> <span class="pre">are</span> <span class="pre">actually</span> <span class="pre">feasable?</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Answer: </span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">btjenesten</span></code> module for this session. You can install it using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>btjenesten<span class="w"> </span>evince<span class="w"> </span>bubblebox
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then you import the following modules:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">btjenesten</span> <span class="k">as</span> <span class="nn">bt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">bubblebox</span> <span class="k">as</span> <span class="nn">bb</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> notebook
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-preparation">
+<h1>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h1>
+<p>When dealing with large datasets it is convenient to work on sets of data directly, rather than the individual data points. For this reason, we’ll make extensive use of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array data type and it’s associated methods. For more details on array handling, see the <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">official Numpy documentation</a>.</p>
+<p>Data from the last Box-Behnken analysis is loaded below. Pay attention to the <code class="docutils literal notranslate"><span class="pre">shape</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">All the data</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">MgSO4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span>   <span class="mi">90</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span>   <span class="mi">30</span><span class="p">,</span>   <span class="mi">90</span><span class="p">,</span>   <span class="mi">30</span><span class="p">,</span>   <span class="mi">90</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span>   <span class="mi">30</span><span class="p">,</span>   <span class="mi">90</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span>   <span class="mi">60</span><span class="p">])</span>
+<span class="n">ACN</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">])</span>
+<span class="n">HCL</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span>    <span class="mi">6</span><span class="p">,</span>    <span class="mi">6</span><span class="p">,</span>    <span class="mi">6</span><span class="p">,</span>    <span class="mi">12</span><span class="p">,</span>   <span class="mi">12</span><span class="p">,</span>   <span class="mi">12</span><span class="p">,</span>   <span class="mi">12</span><span class="p">,</span>   <span class="mi">18</span><span class="p">,</span>   <span class="mi">18</span><span class="p">,</span>   <span class="mi">18</span><span class="p">,</span>   <span class="mi">18</span><span class="p">,</span>   <span class="mi">12</span><span class="p">,</span>   <span class="mi">12</span><span class="p">,</span>   <span class="mi">12</span><span class="p">])</span>
+<span class="n">all_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">MgSO4</span><span class="p">,</span> <span class="n">ACN</span><span class="p">,</span> <span class="n">HCL</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># The T transposes the stacked data into the correct shape.</span>
+<span class="c1"># Try running this cell without the T to see what that means.</span>
+
+<span class="n">all_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">65626517</span><span class="p">,</span> <span class="mi">48406988</span><span class="p">,</span> <span class="mi">42143802</span><span class="p">,</span> <span class="mi">26975625</span><span class="p">,</span> <span class="mi">70941284</span><span class="p">,</span> <span class="mi">66452677</span><span class="p">,</span> \
+<span class="mi">26688204</span><span class="p">,</span> <span class="mi">18157839</span><span class="p">,</span> <span class="mi">73184566</span><span class="p">,</span> <span class="mi">54919876</span><span class="p">,</span> <span class="mi">9915204</span><span class="p">,</span> <span class="mi">13288195</span><span class="p">,</span> <span class="mi">17918550</span><span class="p">,</span> <span class="mi">13380019</span><span class="p">,</span> <span class="mi">19043787</span><span class="p">])</span>
+
+
+<span class="c1"># The arrays containing all the data is printed below</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape of the all_x array is:&quot;</span><span class="p">,</span> <span class="n">all_x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_y</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;The shape of the all_y array is: &quot;</span><span class="p">,</span> <span class="n">all_y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It may also be instructive to visualize how the data distributes along each of the three axis’ in the measurement domain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">show_3d_sample_box</span><span class="p">(</span><span class="n">all_x</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">()</span> <span class="c1"># Show the measurements in a threedimensional box</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be seen in the all_x array above, the last three measurements were performed on the exact same x-values. This is problematic for the <code class="docutils literal notranslate"><span class="pre">btjenesten.gpr</span></code> module, as the regressor cannot handle duplicates.</p>
+<p>In order to remove the redundancy, use the <code class="docutils literal notranslate"><span class="pre">btjenesten.analysis.remove_redundancy</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove redundance</span>
+<span class="n">all_x_</span><span class="p">,</span> <span class="n">all_y_</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">remove_redundancy</span><span class="p">(</span><span class="n">all_x</span><span class="p">,</span> <span class="n">all_y</span><span class="p">)</span> <span class="c1"># note that these all_x_ and all_y_ arrays are different than the first ones. </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of the x-array before removing the duplicates: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of the x-array after removing the duplicates : &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_x_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This function computes the average of the responses from the duplicate measurements. This ensures that all responses are taken equally into account.</p>
+<div class="admonition-discussion-2 admonition">
+<p class="admonition-title">Discussion 2</p>
+<p>What kind of statistical analysis can be performed in order to remove apparently erroneous measurements such as outliers?</p>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="setting-up-the-regressor">
+<h1>Setting up the regressor<a class="headerlink" href="#setting-up-the-regressor" title="Permalink to this heading">#</a></h1>
+<p>Next, we’ll set up the Gaussian Process regressor by initializing it with the measured data. For more detailed information on how to do this, check out <a href="https://openworldlearning.github.io/docs/software/gpr/AI_in_the_lab.html">this tutorial</a>.</p>
+<p>We will, however, <strong>not</strong> start out giving the full data set for the regressor. In order to choose the regressor parameter in a reasonable range, we’ll instead give it a few (5) dispersed measurements, and chose our regressor parameters in such a way that the regressor gives reasonable predictions in the remaining points.</p>
+<p>A function <code class="docutils literal notranslate"><span class="pre">btjenesten.analysis.choose_n_most_distant</span></code> can be used to quickly pick these measurements, or you could pick them manually if you have reason to do so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">choose_n_most_distant</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">#chose 5 training data points positioned far apart</span>
+
+<span class="c1"># Here&#39;s an n that you can easily modify yourself: </span>
+<span class="c1"># n = np.array([index, index, index, index, index]) # Remember to not choose more than 13 indices. </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The indices of the picked out training data = &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-discussion-3 admonition">
+<p class="admonition-title">Discussion 3</p>
+<p><strong>Run the whole notebook first, then return to this Discussion.</strong></p>
+<p>What happens when random training points are chosen? Try running the code block below to test this out. Run it several times to see how the regressor changes depending on the training data chosen. Based on what you see, discuss what initial measurements should be taken when setting up the actual analysis for lab 4.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>!
+Look at the description in the paragraph <code class="xref std std-numref docutils literal notranslate"><span class="pre">Setting</span> <span class="pre">up</span> <span class="pre">the</span> <span class="pre">Regressor</span></code>. Which training data did we pick out for the regressor here?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n = np.random.choice(len(all_y_), 5, replace = False)</span>
+<span class="c1">#print(&quot; Random n; &quot;, n)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">btjenesten.gpr.regressor</span></code> class has one parameter per dimension. These parameters determine the decay of the correlation in each dimension. Simply put, <strong>the higher the parameter for a given dinemsion, the more rapid a (the regression) function is assumed to change in that dimension.</strong> A parameter set to zero signifies a perfect correlation <em>in that direction,</em></p>
+<p>/This means that changing the variable associated with that dimension does not make any impact on the value./</p>
+<p>Picking the right parameters is complicated, so let’s just try out a set and discuss the results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regressor</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">gpr</span><span class="o">.</span><span class="n">Regressor</span><span class="p">(</span><span class="n">all_x_</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">all_y_</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="c1"># Sets up the regressor</span>
+
+<span class="n">regressor</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">.001</span><span class="p">,</span> <span class="mf">.001</span><span class="p">,</span> <span class="mf">.001</span><span class="p">])</span> <span class="c1"># setting the parameters for each dimension to 0.001 </span>
+
+<span class="c1">#bt.analysis.regressor_summary(all_x_, all_y_, regressor, n, error_margin = 2e7) # Creates the plot below</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">regressor_summary</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="n">all_y_</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">error_margin</span> <span class="o">=</span> <span class="mf">2e7</span><span class="p">)</span> <span class="c1"># Sets up a table summarizing the compositions of the samples in the plot  </span>
+<span class="n">table</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-discussion-3 admonition">
+<p class="admonition-title">Discussion 3</p>
+<ul class="simple">
+<li><p>What does the figure above show? Explain it to eachother.</p></li>
+<li><p>Is the order of the samples of any real significance (ie, does rearranging them change the information conveyed in the graph)?</p></li>
+<li><p>Does it reveal any information on the optimum of the function with regards to the measured points?</p></li>
+<li><p>How do you expect it to change if you vary the parameters? (Feel free to try it out below).</p></li>
+</ul>
+</div>
+<p>Ideally, we would like for the parameters to be chosen so that the difference between the predicted values and the real values to be minimized. You can play a bit around by adjusting the parameters with the sliders to get a feel for it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">parameter_tuner_3d</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="n">all_y_</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="c1">#, training_subset = n)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">btjenesten</span></code> module additionally allow for some automated optimization of these parameters, but please pay careful attention to it as it is prone to numerical instabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params_optimized</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">parameter_optimization</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="n">all_y_</span><span class="p">,</span> <span class="n">training_subset</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span> 
+
+<span class="n">regressor</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params_optimized</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimized parameters:&quot;</span><span class="p">,</span> <span class="n">params_optimized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you are satisfied with the regressor parameters, you can finally set up a regressor using the full data set. Insert your choice of parameters below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regressor</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">gpr</span><span class="o">.</span><span class="n">Regressor</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="n">all_y_</span><span class="p">)</span>
+
+<span class="c1">#params = bt.analysis.parameter_optimization(all_x_, all_y_, training_fraction = .99)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">1</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">1</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**-</span><span class="mi">1</span>
+<span class="n">regressor</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">btjenesten.gpr</span></code> module should reproduce the training data flawlessly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uses all the x data to predict the corresponding y-values with the regressor.</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">all_x_</span><span class="p">)</span> <span class="c1"># This will be compared to the measured values.</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predictions       | True values &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">all_y_</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-discussion-3 admonition">
+<p class="admonition-title">Discussion 3</p>
+<ul class="simple">
+<li><p>Make an enumerated list of the steps performed in this sections. What is the purpose of each step?</p></li>
+<li><p>How do changing the training data alter the predicted response and choice of parameters? (Try it out)</p></li>
+<li><p>How would you go about systematically improving the prediction?</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Answer: </span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="visualizing-the-response-surface">
+<h1>Visualizing the response surface<a class="headerlink" href="#visualizing-the-response-surface" title="Permalink to this heading">#</a></h1>
+<p>An important feature of regressors is their ability to predict values outside the training data set. Generally speaking, we can distinguish between <em>interpolating</em> from <em>extrapolating</em> predictions. Common to all regressors is the fact that they are much better at making predictions close to the training data, in effect interpolating between the measured values. As we move further apart, we leave the domain of interpolation and instead enter the domain of extrapolation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">btjenesten.gpr</span></code> module seeks predicted optimas in both these domains, and can be controlled to stay close to our training set or be more hungry for exploration. At any rate, a proposed optimum may be sought by the <code class="docutils literal notranslate"><span class="pre">btjenesten.gpr.acquisition</span></code>-method as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_x</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">aquisition</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;COBYLA&quot;</span><span class="p">,</span> <span class="n">minimize_prediction</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># acquiring the x-coordinates for the regressor&#39;s maxima.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The dimensions for the next suggested measurement: &quot;</span><span class="p">,</span> <span class="n">new_x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The new measurement&#39;s predicted output (the maxima of the regressor): &quot;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_x</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Depending on the training data picked out, the new proposed measurement might contain negative values. Is this possible for any of the dimensions in this analysis? Or does it violate any constraints for the experiment? Is there any situation (theoretically) where a dimension can be negative?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Answer:</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to fix the issue of negative values occuring for our dimension’s  proposed maxima, the following line of code may be added:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># constrain proposed values to larger than 0</span>
+<span class="n">new_x_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">new_x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The realistic dimensions for the next suggested measurement: &quot;</span><span class="p">,</span> <span class="n">new_x_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s inspect our results visually by calling the <code class="docutils literal notranslate"><span class="pre">btjenesten.analysis.one_dimensional_plots</span></code>-function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params_optimized</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">parameter_optimization</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="n">all_y_</span><span class="p">,</span> <span class="n">training_subset</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span> 
+<span class="c1">#params_optimized[1] *= 100</span>
+<span class="n">params_optimized</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1e+6</span>
+<span class="n">regressor</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params_optimized</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimized parameters:&quot;</span><span class="p">,</span> <span class="n">params_optimized</span><span class="p">)</span>
+<span class="n">plots</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">one_dimensional_plots</span><span class="p">(</span><span class="n">all_x_</span><span class="p">,</span> <span class="n">new_x_</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Response&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">],</span>  <span class="p">(</span><span class="s2">&quot;MgSO4 content&quot;</span><span class="p">,</span> <span class="s2">&quot;Acetonitril Ratio&quot;</span><span class="p">,</span> <span class="s2">&quot;HCl volume&quot;</span><span class="p">,</span> <span class="s2">&quot;Real Response&quot;</span><span class="p">,</span> <span class="s2">&quot;Predicted Response&quot;</span><span class="p">))</span> <span class="c1"># setting up the plots with our data.</span>
+<span class="n">plots</span> <span class="c1"># Calling the plotting function. </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-discussion-4 admonition">
+<p class="admonition-title">Discussion 4</p>
+<ul class="simple">
+<li><p>What does the above plots show us?</p></li>
+<li><p>How do the figures change when the training data in part 3 changes? What does this show us?</p></li>
+<li><p>How reliable are these figures when it comes to determining what the optimal dimensions are?</p></li>
+<li><p>How do these two figures compare to each other?</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Answer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="visualizing-interdependencies">
+<h1>Visualizing interdependencies<a class="headerlink" href="#visualizing-interdependencies" title="Permalink to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">btjenesten.gpr</span></code> prediction is always single valued, meaning that it takes in a <span class="math notranslate nohighlight">\(N\)</span>-dimensional vector and returns a scalar number. Such multivariate functions are difficult to visualize, since they are essentially densities in <span class="math notranslate nohighlight">\(N\)</span>-dimensional space. We can, however, allow only some few variables to vary, and leave the remaining fixed, and in this way display cross-sections of densities in lower dimensions.</p>
+<p>Below, we extract two-dimensional cross-sections (surfaces) from the regressor-predictions, in order to get more information on the area around the measurements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;MgSO4 content&quot;</span><span class="p">,</span> <span class="s2">&quot;Acetonitril Ratio&quot;</span><span class="p">,</span> <span class="s2">&quot;HCl volume&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">bt</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">data_projection</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">center</span> <span class="o">=</span> <span class="n">new_x_</span><span class="p">)</span><span class="c1">#np.array([new_measurements[-1]]))</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s2"> plotted against </span><span class="si">{</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">, where i= </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> &amp; j= </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-discussion-5 admonition">
+<p class="admonition-title">Discussion 5</p>
+<ul class="simple">
+<li><p>How to we determine where to start the measurements?</p></li>
+<li><p>Why can’t the computer tell us where to start out?</p></li>
+<li><p>What happens when a non optimal starting point is chosen?</p></li>
+<li><p>What determines the minimal amount of starting measurements? Think: what would the regressor look like if one starting measurement was used vs two vs three?</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Answers: </span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="final-preparations-for-the-lab">
+<h1>Final preparations for the lab<a class="headerlink" href="#final-preparations-for-the-lab" title="Permalink to this heading">#</a></h1>
+<p>Okay, now that we have completed this module, propose where our initial measurements should be in the lab 4.</p>
+<div class="admonition-discussion-6 admonition">
+<p class="admonition-title">Discussion 6</p>
+<ul class="simple">
+<li><p>Which levels should each dimension have in your opinion?</p></li>
+<li><p>Can this information from last year’s box behnken excercise be used as a starting point (training data) for
+the new regressor? Why/why not? Hint: Remember why taking measurements over several days is often not
+recommended.</p></li>
+<li><p>What is the desired amount of measurements that should be necessary to find the maxima?</p></li>
+<li><p><strong>Extra:</strong> How would you set up this experiment? Think about time constraints, how errors can propagate (how to dix that), load on the user and how to store your analyte solutions.</p></li>
+</ul>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/experiment"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="experimental_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Treating experimental data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../numerical_calculus.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Numerical calculus</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Treating experimental data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-prelab-assignment-for-analytical-chemistry">A prelab assignment for analytical chemistry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-you-might-need-to-know-before-tackling-this-notebook">Things you might need to know before tackling this notebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data preparation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-regressor">Setting up the regressor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-response-surface">Visualizing the response surface</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-interdependencies">Visualizing interdependencies</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-preparations-for-the-lab">Final preparations for the lab</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Curious minds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

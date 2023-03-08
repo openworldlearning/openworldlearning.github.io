@@ -1,0 +1,3344 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Dirac notation &#8212; Open World Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/quantum_mechanics/linear_combinations';</script>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/openworldlearning/openworldlearning.github.io/main/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Limitations of classical mechanics in chemistry" href="Classical%20hydrogen.html" />
+    <link rel="prev" title="How to think inside of the quantum world!" href="Quantum_thinking.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/owl_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/owl_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    What is Open World Learning?
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developers.html">Developers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../internals/getting_started.html">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../internals/workflow.html">Development workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/conventions.html">Conventions</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../internals/writing.html">Writing for students</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/literature.html">Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/markdown.html">Writing and styling documents and notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/github.html">Github</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../internals/github_uio.html">Github at the University</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../software/software.html">Software tailored for learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../software/gpr/AI_in_the_lab.html">AI in the lab with btjenesten.gpr</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/polynomial_regression.html">Polynomial regression and its restrictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/GPR_intro.html">An introduction to Gaussian process regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/Covariance.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/Kernels.html">Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/quick_gpr_tutorial.html">Quick tutorial on the Gaussian process regression module from btjenesten</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software/bubblebox/mdbox_tutorial.html">Molecular dynamics with BubbleBox.mdbox</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../software/braketlab/braketlab.html">Quantum mechanics with BraketLab</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../general_chemistry.html">General chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../thermpaths.html">Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/KE_to_Temp_math.html">How is <span class="math notranslate nohighlight">\(K_E =  \frac{3}{2} k_BT\)</span> for gas?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/KE_to_Temp_math_final.html">How does temperature relate to kinetic energy in gases?</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../qmpaths.html">Basic quantum mechanics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Quantum_thinking.html">How to think inside of the quantum world!</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Dirac notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Classical%20hydrogen.html">Limitations of classical mechanics in chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doubleslit.html">A double slit experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schrodinger_equation.html">An encounter with the Schrödinger equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numeric_schrodinger_1d.html">Solving the Schrodinger equation numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenfunctions_eigenstates.html">Eigenfunctions and eigenstates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hybridization.html">What is hybridization?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../experimental_paths.html">Bringing theory and experiment closer with computers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../experiment/experimental_data.html">Treating experimental data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experiment/Implementing%20AI%20in%20a%20Lab%20Setting.html">Treating experimental data</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numerical_calculus.html">Numerical calculus</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numerical_calculus/numerical_integration.html">Numerical integration</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/openworldlearning/openworldlearning.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/openworldlearning/openworldlearning.github.io/issues/new?title=Issue%20on%20page%20%2Fdocs/quantum_mechanics/linear_combinations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/quantum_mechanics/linear_combinations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dirac notation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basis-expansions">Basis expansions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product-space">Inner product space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-truncated-basis">A truncated basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection">Projection</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dirac-notation">
+<h1>Dirac notation<a class="headerlink" href="#dirac-notation" title="Permalink to this heading">#</a></h1>
+<p>Execute the following cells if you have problems running the code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">wget</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">opencv</span><span class="o">-</span><span class="n">python</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="basis-expansions">
+<h2>Basis expansions<a class="headerlink" href="#basis-expansions" title="Permalink to this heading">#</a></h2>
+<p>Paul Dirac’s formalism for linear algebra is ingeniously tailored for the operations we perform in quantum theory, but may easily be applied to other problems. In this notebook we will use it to represent a photo of Dirac as a kid. By <em>photo</em>, we mean a grid of pixels assigned a numerical value given by the amount of light which at one point in time passed through a given regioun of the lens of the camera which was directed at the young Dirac.</p>
+<p>Let’s begin by loading the image, which we shall refer to as <span class="math notranslate nohighlight">\(\vert \Psi \rangle\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span><span class="o">,</span> <span class="nn">wget</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">dirac</span> <span class="o">=</span> <span class="s1">&#39;https://1.bp.blogspot.com/-K4SHfqTCFH4/X6DuOKtxxkI/AAAAAAAANEo/RKb9SSr7NRsAggS8oWh3zRqRvwh1x7qUgCNcBGAsYHQ/w1200-h630-p-k-no-nu/dirac%2Bpaul%2Bchildhood.jpg&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dirac</span><span class="p">)</span>
+<span class="n">dirac</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">dirac</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">dirac</span><span class="p">,</span> <span class="p">[</span><span class="mi">140</span><span class="p">,</span><span class="mi">75</span><span class="p">],</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">INTER_AREA</span><span class="p">)</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dirac</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#flatten out the color-channels</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;bone&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span> <span class="o">=</span> <span class="n">psi</span><span class="o">.</span><span class="n">shape</span> <span class="c1">#get the shape of the image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ce15b838feb26111050dfb0fc9917ff54180985dae86f07ede2b0bb3b5f71327.png" src="../../_images/ce15b838feb26111050dfb0fc9917ff54180985dae86f07ede2b0bb3b5f71327.png" />
+</div>
+</div>
+<p>The photo resides in a <em>vectorspace</em> <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> which may be spanned by various <em>bases</em>. While the grid of pixels may seem like a natural choice of basis, it is actually seldomly the most compact and therefore typically <em>not</em> used on computers.</p>
+<p>We shall construct an <em>orthogonal</em> and <em>normalized</em> basis, which we shall refer to as <span class="math notranslate nohighlight">\(\{ \varphi_n \}\)</span>, spanning the space we are after. That the basis functions are mutually orthogonal and normalized means that</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \varphi_m \vert \varphi_n \rangle = \delta_{m,n},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\delta_{mn} =
+    \begin{cases}
+            1, &amp;         \text{if } m=n,\\
+            0, &amp;         \text{if } m\neq n.
+    \end{cases}
+\end{split}\]</div>
+<p>When these two conditions are satisfied, we conveniently mash these two words into one by stating that the basis is <em>orthonormal</em>.</p>
+<p><strong>Note</strong> that this is a bit circular. A set of functions <span class="math notranslate nohighlight">\(\{ \varphi_n \}\)</span> must meet three criterions for it to be a basis for a vectorspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Any vector <span class="math notranslate nohighlight">\(\vert a \rangle \in \mathcal{V}\)</span> can be expressed <span class="math notranslate nohighlight">\(\vert a \rangle = \sum_{n} \vert \varphi_n \rangle c_n\)</span>.</p></li>
+<li><p>The set <span class="math notranslate nohighlight">\(\{ \varphi_n \}\)</span> is <em>linearly independent</em>, meaning that no vector in the set can be expressed as a linear combination of the remaining vectors.</p></li>
+<li><p>The basis must satisfy the completeness criterion, given by <span class="math notranslate nohighlight">\(\sum_{n} \vert \varphi_n \rangle \langle \varphi_n \vert = \mathbb{1}\)</span>.</p></li>
+</ol>
+<p>Inspired by <a href="https://www.youtube.com/watch?v=spUNpyF58BY&ab_channel=3Blue1Brown">Fourier-series</a>, we shall construct a basis from simply cosine-functions:</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi_{n}(x) = \cos{(n \pi x)} \hspace{1cm} x \in (0,1).
+\]</div>
+<p>We may extend this to two dimensions by means of a product:</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi_{n_x, n_y}(x, y) := \varphi_{n_x}(x) \varphi_{n_y}(y) = \cos{(n_x \pi x)}\cos{(n_y \pi y)} .
+\]</div>
+<p>You would probably like to actually see these functions, so let’s construct the first few in a grid:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">varphi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">ny</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Various basis functions in our set&#39;</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">nx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ny</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">varphi</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span> <span class="n">t</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">),</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;GnBu&quot;</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">varphi_{</span><span class="si">%i</span><span class="s2">,</span><span class="si">%i</span><span class="s2">}$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">),</span> <span class="n">ha</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8f051da85d13332cd8d85172456ee02a2f4f1358ade22a3b1d4ca5b11481ec2c.png" src="../../_images/8f051da85d13332cd8d85172456ee02a2f4f1358ade22a3b1d4ca5b11481ec2c.png" />
+</div>
+</div>
+<p>These are very different from the <em>pixel</em>-representation of the photo. Remember that the task we want to undertake is essentially to represent</p>
+<div class="math notranslate nohighlight">
+\[
+\vert \Psi \rangle = \sum_{n_x} \sum_{n_y} \varphi_{n_x, n_y} c_n.
+\]</div>
+<p>You should take a moment to think about (or discuss with someone) what this really means.</p>
+<div class="admonition-discussion admonition">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>What does the above mathematical expression mean in plain words. Explain it to somebody.</p></li>
+<li><p>For a set of linearly dependent vectors, how can you tell which ones to remove in order to get an linearly independent set?</p></li>
+<li><p>How is it a problem having a linear dependence in the first place?</p></li>
+</ul>
+</div>
+</section>
+<section id="inner-product-space">
+<h2>Inner product space<a class="headerlink" href="#inner-product-space" title="Permalink to this heading">#</a></h2>
+<p>We have not yet defined the inner product for our vector space <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>. Recall that the inner product should be a mapping from two vectors in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> to a <em>scalar</em>:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \varphi_m \vert \varphi_n \rangle \in \mathbb{C}.
+\]</div>
+<p>For quantum mechanical systems you will typically use</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \varphi_m \vert \varphi_n \rangle = \int_{\mathbb{R}^2} \big{(} \varphi_m(x,y)^*\varphi_n(x,y) \big{)}dxdy )
+\]</div>
+<p>In our case, we shall for simplicity rather use a numerical equivalent for real numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">psi_n</span><span class="p">,</span> <span class="n">psi_m</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Our simple inner product</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">psi_n</span><span class="o">*</span><span class="n">psi_m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By defining our inner product, our vector space <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> has achieved the status of an <em>inner product space</em>, and we can check if our set of functions <span class="math notranslate nohighlight">\(\{ \varphi_n \}\)</span> meets the criterions (1-3) for being a basis of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">nx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ny</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">phi_m</span> <span class="o">=</span> <span class="n">varphi</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span> <span class="n">t</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">nx_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">ny_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+                <span class="n">phi_n</span> <span class="o">=</span> <span class="n">varphi</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="kc">None</span><span class="p">,:],</span> <span class="n">t</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">nx_</span><span class="p">,</span><span class="n">ny_</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt; phi_{</span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2">} | phi_{</span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2">} &gt;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nx_</span><span class="p">,</span> <span class="n">ny_</span><span class="p">),</span> <span class="s2">&quot; = </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">inner</span><span class="p">(</span><span class="n">phi_m</span><span class="p">,</span> <span class="n">phi_n</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt; phi_{1 1} | phi_{1 1} &gt;  = 2450.250
+&lt; phi_{1 1} | phi_{1 2} &gt;  = 0.000
+&lt; phi_{1 1} | phi_{1 3} &gt;  = 0.000
+&lt; phi_{1 1} | phi_{2 1} &gt;  = -0.000
+&lt; phi_{1 1} | phi_{2 2} &gt;  = 0.000
+&lt; phi_{1 1} | phi_{2 3} &gt;  = -0.000
+&lt; phi_{1 1} | phi_{3 1} &gt;  = -0.000
+&lt; phi_{1 1} | phi_{3 2} &gt;  = 0.000
+&lt; phi_{1 1} | phi_{3 3} &gt;  = 0.000
+&lt; phi_{1 2} | phi_{1 1} &gt;  = 0.000
+&lt; phi_{1 2} | phi_{1 2} &gt;  = 2450.250
+&lt; phi_{1 2} | phi_{1 3} &gt;  = 0.000
+&lt; phi_{1 2} | phi_{2 1} &gt;  = 0.000
+&lt; phi_{1 2} | phi_{2 2} &gt;  = -0.000
+&lt; phi_{1 2} | phi_{2 3} &gt;  = 0.000
+&lt; phi_{1 2} | phi_{3 1} &gt;  = -0.000
+&lt; phi_{1 2} | phi_{3 2} &gt;  = -0.000
+&lt; phi_{1 2} | phi_{3 3} &gt;  = 0.000
+&lt; phi_{1 3} | phi_{1 1} &gt;  = 0.000
+&lt; phi_{1 3} | phi_{1 2} &gt;  = 0.000
+&lt; phi_{1 3} | phi_{1 3} &gt;  = 2450.250
+&lt; phi_{1 3} | phi_{2 1} &gt;  = -0.000
+&lt; phi_{1 3} | phi_{2 2} &gt;  = 0.000
+&lt; phi_{1 3} | phi_{2 3} &gt;  = -0.000
+&lt; phi_{1 3} | phi_{3 1} &gt;  = 0.000
+&lt; phi_{1 3} | phi_{3 2} &gt;  = 0.000
+&lt; phi_{1 3} | phi_{3 3} &gt;  = -0.000
+&lt; phi_{2 1} | phi_{1 1} &gt;  = -0.000
+&lt; phi_{2 1} | phi_{1 2} &gt;  = 0.000
+&lt; phi_{2 1} | phi_{1 3} &gt;  = -0.000
+&lt; phi_{2 1} | phi_{2 1} &gt;  = 2450.250
+&lt; phi_{2 1} | phi_{2 2} &gt;  = -0.000
+&lt; phi_{2 1} | phi_{2 3} &gt;  = -0.000
+&lt; phi_{2 1} | phi_{3 1} &gt;  = 0.000
+&lt; phi_{2 1} | phi_{3 2} &gt;  = -0.000
+&lt; phi_{2 1} | phi_{3 3} &gt;  = 0.000
+&lt; phi_{2 2} | phi_{1 1} &gt;  = 0.000
+&lt; phi_{2 2} | phi_{1 2} &gt;  = -0.000
+&lt; phi_{2 2} | phi_{1 3} &gt;  = 0.000
+&lt; phi_{2 2} | phi_{2 1} &gt;  = -0.000
+&lt; phi_{2 2} | phi_{2 2} &gt;  = 2450.250
+&lt; phi_{2 2} | phi_{2 3} &gt;  = 0.000
+&lt; phi_{2 2} | phi_{3 1} &gt;  = 0.000
+&lt; phi_{2 2} | phi_{3 2} &gt;  = 0.000
+&lt; phi_{2 2} | phi_{3 3} &gt;  = 0.000
+&lt; phi_{2 3} | phi_{1 1} &gt;  = -0.000
+&lt; phi_{2 3} | phi_{1 2} &gt;  = 0.000
+&lt; phi_{2 3} | phi_{1 3} &gt;  = -0.000
+&lt; phi_{2 3} | phi_{2 1} &gt;  = -0.000
+&lt; phi_{2 3} | phi_{2 2} &gt;  = 0.000
+&lt; phi_{2 3} | phi_{2 3} &gt;  = 2450.250
+&lt; phi_{2 3} | phi_{3 1} &gt;  = 0.000
+&lt; phi_{2 3} | phi_{3 2} &gt;  = -0.000
+&lt; phi_{2 3} | phi_{3 3} &gt;  = 0.000
+&lt; phi_{3 1} | phi_{1 1} &gt;  = -0.000
+&lt; phi_{3 1} | phi_{1 2} &gt;  = -0.000
+&lt; phi_{3 1} | phi_{1 3} &gt;  = 0.000
+&lt; phi_{3 1} | phi_{2 1} &gt;  = 0.000
+&lt; phi_{3 1} | phi_{2 2} &gt;  = 0.000
+&lt; phi_{3 1} | phi_{2 3} &gt;  = 0.000
+&lt; phi_{3 1} | phi_{3 1} &gt;  = 2450.250
+&lt; phi_{3 1} | phi_{3 2} &gt;  = -0.000
+&lt; phi_{3 1} | phi_{3 3} &gt;  = -0.000
+&lt; phi_{3 2} | phi_{1 1} &gt;  = 0.000
+&lt; phi_{3 2} | phi_{1 2} &gt;  = -0.000
+&lt; phi_{3 2} | phi_{1 3} &gt;  = 0.000
+&lt; phi_{3 2} | phi_{2 1} &gt;  = -0.000
+&lt; phi_{3 2} | phi_{2 2} &gt;  = 0.000
+&lt; phi_{3 2} | phi_{2 3} &gt;  = -0.000
+&lt; phi_{3 2} | phi_{3 1} &gt;  = -0.000
+&lt; phi_{3 2} | phi_{3 2} &gt;  = 2450.250
+&lt; phi_{3 2} | phi_{3 3} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{1 1} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{1 2} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{1 3} &gt;  = -0.000
+&lt; phi_{3 3} | phi_{2 1} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{2 2} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{2 3} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{3 1} &gt;  = -0.000
+&lt; phi_{3 3} | phi_{3 2} &gt;  = 0.000
+&lt; phi_{3 3} | phi_{3 3} &gt;  = 2450.250
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numerically we may consider anything below <span class="math notranslate nohighlight">\(10^{-14}\)</span> to be zero, but is this set <em>orthonormal</em>? The output above gives you this information, so see if you can figure it out before we move on.</p>
+</section>
+<section id="a-truncated-basis">
+<h2>A truncated basis<a class="headerlink" href="#a-truncated-basis" title="Permalink to this heading">#</a></h2>
+<p>We cannot construct the complete basis in the approach we are following here, but we can construct a basis which is quite large. From the above discussion, it was clear that our set was orthogonal, but not normalized. Let’s fix this by constructing a truncated set of basis functions in a list, whereby each function is normalized separately:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># We should use a grid equal to the image dimensions for subsequent calculations</span>
+<span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span> <span class="o">=</span> <span class="n">psi</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Nx</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Ny</span><span class="p">)</span>
+
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">for</span> <span class="n">nx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nc</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ny</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nc</span><span class="p">):</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">varphi</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span> <span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+        <span class="n">phi_normalized</span> <span class="o">=</span> <span class="n">phi</span><span class="o">*</span><span class="n">inner</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span><span class="o">**-</span><span class="mf">.5</span> <span class="c1">#normalize</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt; phi_{</span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2">} | phi_{</span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2">} &gt;&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">),</span> <span class="s2">&quot; = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">inner</span><span class="p">(</span><span class="n">phi_normalized</span><span class="p">,</span><span class="n">phi_normalized</span><span class="p">))</span>
+        <span class="n">basis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">phi_normalized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt; phi_{1 1} | phi_{1 1} &gt;  = 1.00
+&lt; phi_{1 2} | phi_{1 2} &gt;  = 1.00
+&lt; phi_{1 3} | phi_{1 3} &gt;  = 1.00
+&lt; phi_{1 4} | phi_{1 4} &gt;  = 1.00
+&lt; phi_{1 5} | phi_{1 5} &gt;  = 1.00
+&lt; phi_{1 6} | phi_{1 6} &gt;  = 1.00
+&lt; phi_{1 7} | phi_{1 7} &gt;  = 1.00
+&lt; phi_{1 8} | phi_{1 8} &gt;  = 1.00
+&lt; phi_{1 9} | phi_{1 9} &gt;  = 1.00
+&lt; phi_{1 10} | phi_{1 10} &gt;  = 1.00
+&lt; phi_{1 11} | phi_{1 11} &gt;  = 1.00
+&lt; phi_{1 12} | phi_{1 12} &gt;  = 1.00
+&lt; phi_{1 13} | phi_{1 13} &gt;  = 1.00
+&lt; phi_{1 14} | phi_{1 14} &gt;  = 1.00
+&lt; phi_{1 15} | phi_{1 15} &gt;  = 1.00
+&lt; phi_{1 16} | phi_{1 16} &gt;  = 1.00
+&lt; phi_{1 17} | phi_{1 17} &gt;  = 1.00
+&lt; phi_{1 18} | phi_{1 18} &gt;  = 1.00
+&lt; phi_{1 19} | phi_{1 19} &gt;  = 1.00
+&lt; phi_{1 20} | phi_{1 20} &gt;  = 1.00
+&lt; phi_{1 21} | phi_{1 21} &gt;  = 1.00
+&lt; phi_{1 22} | phi_{1 22} &gt;  = 1.00
+&lt; phi_{1 23} | phi_{1 23} &gt;  = 1.00
+&lt; phi_{1 24} | phi_{1 24} &gt;  = 1.00
+&lt; phi_{1 25} | phi_{1 25} &gt;  = 1.00
+&lt; phi_{1 26} | phi_{1 26} &gt;  = 1.00
+&lt; phi_{1 27} | phi_{1 27} &gt;  = 1.00
+&lt; phi_{1 28} | phi_{1 28} &gt;  = 1.00
+&lt; phi_{1 29} | phi_{1 29} &gt;  = 1.00
+&lt; phi_{1 30} | phi_{1 30} &gt;  = 1.00
+&lt; phi_{1 31} | phi_{1 31} &gt;  = 1.00
+&lt; phi_{1 32} | phi_{1 32} &gt;  = 1.00
+&lt; phi_{1 33} | phi_{1 33} &gt;  = 1.00
+&lt; phi_{1 34} | phi_{1 34} &gt;  = 1.00
+&lt; phi_{1 35} | phi_{1 35} &gt;  = 1.00
+&lt; phi_{1 36} | phi_{1 36} &gt;  = 1.00
+&lt; phi_{1 37} | phi_{1 37} &gt;  = 1.00
+&lt; phi_{1 38} | phi_{1 38} &gt;  = 1.00
+&lt; phi_{1 39} | phi_{1 39} &gt;  = 1.00
+&lt; phi_{1 40} | phi_{1 40} &gt;  = 1.00
+&lt; phi_{1 41} | phi_{1 41} &gt;  = 1.00
+&lt; phi_{1 42} | phi_{1 42} &gt;  = 1.00
+&lt; phi_{1 43} | phi_{1 43} &gt;  = 1.00
+&lt; phi_{1 44} | phi_{1 44} &gt;  = 1.00
+&lt; phi_{1 45} | phi_{1 45} &gt;  = 1.00
+&lt; phi_{1 46} | phi_{1 46} &gt;  = 1.00
+&lt; phi_{1 47} | phi_{1 47} &gt;  = 1.00
+&lt; phi_{1 48} | phi_{1 48} &gt;  = 1.00
+&lt; phi_{1 49} | phi_{1 49} &gt;  = 1.00
+&lt; phi_{2 1} | phi_{2 1} &gt;  = 1.00
+&lt; phi_{2 2} | phi_{2 2} &gt;  = 1.00
+&lt; phi_{2 3} | phi_{2 3} &gt;  = 1.00
+&lt; phi_{2 4} | phi_{2 4} &gt;  = 1.00
+&lt; phi_{2 5} | phi_{2 5} &gt;  = 1.00
+&lt; phi_{2 6} | phi_{2 6} &gt;  = 1.00
+&lt; phi_{2 7} | phi_{2 7} &gt;  = 1.00
+&lt; phi_{2 8} | phi_{2 8} &gt;  = 1.00
+&lt; phi_{2 9} | phi_{2 9} &gt;  = 1.00
+&lt; phi_{2 10} | phi_{2 10} &gt;  = 1.00
+&lt; phi_{2 11} | phi_{2 11} &gt;  = 1.00
+&lt; phi_{2 12} | phi_{2 12} &gt;  = 1.00
+&lt; phi_{2 13} | phi_{2 13} &gt;  = 1.00
+&lt; phi_{2 14} | phi_{2 14} &gt;  = 1.00
+&lt; phi_{2 15} | phi_{2 15} &gt;  = 1.00
+&lt; phi_{2 16} | phi_{2 16} &gt;  = 1.00
+&lt; phi_{2 17} | phi_{2 17} &gt;  = 1.00
+&lt; phi_{2 18} | phi_{2 18} &gt;  = 1.00
+&lt; phi_{2 19} | phi_{2 19} &gt;  = 1.00
+&lt; phi_{2 20} | phi_{2 20} &gt;  = 1.00
+&lt; phi_{2 21} | phi_{2 21} &gt;  = 1.00
+&lt; phi_{2 22} | phi_{2 22} &gt;  = 1.00
+&lt; phi_{2 23} | phi_{2 23} &gt;  = 1.00
+&lt; phi_{2 24} | phi_{2 24} &gt;  = 1.00
+&lt; phi_{2 25} | phi_{2 25} &gt;  = 1.00
+&lt; phi_{2 26} | phi_{2 26} &gt;  = 1.00
+&lt; phi_{2 27} | phi_{2 27} &gt;  = 1.00
+&lt; phi_{2 28} | phi_{2 28} &gt;  = 1.00
+&lt; phi_{2 29} | phi_{2 29} &gt;  = 1.00
+&lt; phi_{2 30} | phi_{2 30} &gt;  = 1.00
+&lt; phi_{2 31} | phi_{2 31} &gt;  = 1.00
+&lt; phi_{2 32} | phi_{2 32} &gt;  = 1.00
+&lt; phi_{2 33} | phi_{2 33} &gt;  = 1.00
+&lt; phi_{2 34} | phi_{2 34} &gt;  = 1.00
+&lt; phi_{2 35} | phi_{2 35} &gt;  = 1.00
+&lt; phi_{2 36} | phi_{2 36} &gt;  = 1.00
+&lt; phi_{2 37} | phi_{2 37} &gt;  = 1.00
+&lt; phi_{2 38} | phi_{2 38} &gt;  = 1.00
+&lt; phi_{2 39} | phi_{2 39} &gt;  = 1.00
+&lt; phi_{2 40} | phi_{2 40} &gt;  = 1.00
+&lt; phi_{2 41} | phi_{2 41} &gt;  = 1.00
+&lt; phi_{2 42} | phi_{2 42} &gt;  = 1.00
+&lt; phi_{2 43} | phi_{2 43} &gt;  = 1.00
+&lt; phi_{2 44} | phi_{2 44} &gt;  = 1.00
+&lt; phi_{2 45} | phi_{2 45} &gt;  = 1.00
+&lt; phi_{2 46} | phi_{2 46} &gt;  = 1.00
+&lt; phi_{2 47} | phi_{2 47} &gt;  = 1.00
+&lt; phi_{2 48} | phi_{2 48} &gt;  = 1.00
+&lt; phi_{2 49} | phi_{2 49} &gt;  = 1.00
+&lt; phi_{3 1} | phi_{3 1} &gt;  = 1.00
+&lt; phi_{3 2} | phi_{3 2} &gt;  = 1.00
+&lt; phi_{3 3} | phi_{3 3} &gt;  = 1.00
+&lt; phi_{3 4} | phi_{3 4} &gt;  = 1.00
+&lt; phi_{3 5} | phi_{3 5} &gt;  = 1.00
+&lt; phi_{3 6} | phi_{3 6} &gt;  = 1.00
+&lt; phi_{3 7} | phi_{3 7} &gt;  = 1.00
+&lt; phi_{3 8} | phi_{3 8} &gt;  = 1.00
+&lt; phi_{3 9} | phi_{3 9} &gt;  = 1.00
+&lt; phi_{3 10} | phi_{3 10} &gt;  = 1.00
+&lt; phi_{3 11} | phi_{3 11} &gt;  = 1.00
+&lt; phi_{3 12} | phi_{3 12} &gt;  = 1.00
+&lt; phi_{3 13} | phi_{3 13} &gt;  = 1.00
+&lt; phi_{3 14} | phi_{3 14} &gt;  = 1.00
+&lt; phi_{3 15} | phi_{3 15} &gt;  = 1.00
+&lt; phi_{3 16} | phi_{3 16} &gt;  = 1.00
+&lt; phi_{3 17} | phi_{3 17} &gt;  = 1.00
+&lt; phi_{3 18} | phi_{3 18} &gt;  = 1.00
+&lt; phi_{3 19} | phi_{3 19} &gt;  = 1.00
+&lt; phi_{3 20} | phi_{3 20} &gt;  = 1.00
+&lt; phi_{3 21} | phi_{3 21} &gt;  = 1.00
+&lt; phi_{3 22} | phi_{3 22} &gt;  = 1.00
+&lt; phi_{3 23} | phi_{3 23} &gt;  = 1.00
+&lt; phi_{3 24} | phi_{3 24} &gt;  = 1.00
+&lt; phi_{3 25} | phi_{3 25} &gt;  = 1.00
+&lt; phi_{3 26} | phi_{3 26} &gt;  = 1.00
+&lt; phi_{3 27} | phi_{3 27} &gt;  = 1.00
+&lt; phi_{3 28} | phi_{3 28} &gt;  = 1.00
+&lt; phi_{3 29} | phi_{3 29} &gt;  = 1.00
+&lt; phi_{3 30} | phi_{3 30} &gt;  = 1.00
+&lt; phi_{3 31} | phi_{3 31} &gt;  = 1.00
+&lt; phi_{3 32} | phi_{3 32} &gt;  = 1.00
+&lt; phi_{3 33} | phi_{3 33} &gt;  = 1.00
+&lt; phi_{3 34} | phi_{3 34} &gt;  = 1.00
+&lt; phi_{3 35} | phi_{3 35} &gt;  = 1.00
+&lt; phi_{3 36} | phi_{3 36} &gt;  = 1.00
+&lt; phi_{3 37} | phi_{3 37} &gt;  = 1.00
+&lt; phi_{3 38} | phi_{3 38} &gt;  = 1.00
+&lt; phi_{3 39} | phi_{3 39} &gt;  = 1.00
+&lt; phi_{3 40} | phi_{3 40} &gt;  = 1.00
+&lt; phi_{3 41} | phi_{3 41} &gt;  = 1.00
+&lt; phi_{3 42} | phi_{3 42} &gt;  = 1.00
+&lt; phi_{3 43} | phi_{3 43} &gt;  = 1.00
+&lt; phi_{3 44} | phi_{3 44} &gt;  = 1.00
+&lt; phi_{3 45} | phi_{3 45} &gt;  = 1.00
+&lt; phi_{3 46} | phi_{3 46} &gt;  = 1.00
+&lt; phi_{3 47} | phi_{3 47} &gt;  = 1.00
+&lt; phi_{3 48} | phi_{3 48} &gt;  = 1.00
+&lt; phi_{3 49} | phi_{3 49} &gt;  = 1.00
+&lt; phi_{4 1} | phi_{4 1} &gt;  = 1.00
+&lt; phi_{4 2} | phi_{4 2} &gt;  = 1.00
+&lt; phi_{4 3} | phi_{4 3} &gt;  = 1.00
+&lt; phi_{4 4} | phi_{4 4} &gt;  = 1.00
+&lt; phi_{4 5} | phi_{4 5} &gt;  = 1.00
+&lt; phi_{4 6} | phi_{4 6} &gt;  = 1.00
+&lt; phi_{4 7} | phi_{4 7} &gt;  = 1.00
+&lt; phi_{4 8} | phi_{4 8} &gt;  = 1.00
+&lt; phi_{4 9} | phi_{4 9} &gt;  = 1.00
+&lt; phi_{4 10} | phi_{4 10} &gt;  = 1.00
+&lt; phi_{4 11} | phi_{4 11} &gt;  = 1.00
+&lt; phi_{4 12} | phi_{4 12} &gt;  = 1.00
+&lt; phi_{4 13} | phi_{4 13} &gt;  = 1.00
+&lt; phi_{4 14} | phi_{4 14} &gt;  = 1.00
+&lt; phi_{4 15} | phi_{4 15} &gt;  = 1.00
+&lt; phi_{4 16} | phi_{4 16} &gt;  = 1.00
+&lt; phi_{4 17} | phi_{4 17} &gt;  = 1.00
+&lt; phi_{4 18} | phi_{4 18} &gt;  = 1.00
+&lt; phi_{4 19} | phi_{4 19} &gt;  = 1.00
+&lt; phi_{4 20} | phi_{4 20} &gt;  = 1.00
+&lt; phi_{4 21} | phi_{4 21} &gt;  = 1.00
+&lt; phi_{4 22} | phi_{4 22} &gt;  = 1.00
+&lt; phi_{4 23} | phi_{4 23} &gt;  = 1.00
+&lt; phi_{4 24} | phi_{4 24} &gt;  = 1.00
+&lt; phi_{4 25} | phi_{4 25} &gt;  = 1.00
+&lt; phi_{4 26} | phi_{4 26} &gt;  = 1.00
+&lt; phi_{4 27} | phi_{4 27} &gt;  = 1.00
+&lt; phi_{4 28} | phi_{4 28} &gt;  = 1.00
+&lt; phi_{4 29} | phi_{4 29} &gt;  = 1.00
+&lt; phi_{4 30} | phi_{4 30} &gt;  = 1.00
+&lt; phi_{4 31} | phi_{4 31} &gt;  = 1.00
+&lt; phi_{4 32} | phi_{4 32} &gt;  = 1.00
+&lt; phi_{4 33} | phi_{4 33} &gt;  = 1.00
+&lt; phi_{4 34} | phi_{4 34} &gt;  = 1.00
+&lt; phi_{4 35} | phi_{4 35} &gt;  = 1.00
+&lt; phi_{4 36} | phi_{4 36} &gt;  = 1.00
+&lt; phi_{4 37} | phi_{4 37} &gt;  = 1.00
+&lt; phi_{4 38} | phi_{4 38} &gt;  = 1.00
+&lt; phi_{4 39} | phi_{4 39} &gt;  = 1.00
+&lt; phi_{4 40} | phi_{4 40} &gt;  = 1.00
+&lt; phi_{4 41} | phi_{4 41} &gt;  = 1.00
+&lt; phi_{4 42} | phi_{4 42} &gt;  = 1.00
+&lt; phi_{4 43} | phi_{4 43} &gt;  = 1.00
+&lt; phi_{4 44} | phi_{4 44} &gt;  = 1.00
+&lt; phi_{4 45} | phi_{4 45} &gt;  = 1.00
+&lt; phi_{4 46} | phi_{4 46} &gt;  = 1.00
+&lt; phi_{4 47} | phi_{4 47} &gt;  = 1.00
+&lt; phi_{4 48} | phi_{4 48} &gt;  = 1.00
+&lt; phi_{4 49} | phi_{4 49} &gt;  = 1.00
+&lt; phi_{5 1} | phi_{5 1} &gt;  = 1.00
+&lt; phi_{5 2} | phi_{5 2} &gt;  = 1.00
+&lt; phi_{5 3} | phi_{5 3} &gt;  = 1.00
+&lt; phi_{5 4} | phi_{5 4} &gt;  = 1.00
+&lt; phi_{5 5} | phi_{5 5} &gt;  = 1.00
+&lt; phi_{5 6} | phi_{5 6} &gt;  = 1.00
+&lt; phi_{5 7} | phi_{5 7} &gt;  = 1.00
+&lt; phi_{5 8} | phi_{5 8} &gt;  = 1.00
+&lt; phi_{5 9} | phi_{5 9} &gt;  = 1.00
+&lt; phi_{5 10} | phi_{5 10} &gt;  = 1.00
+&lt; phi_{5 11} | phi_{5 11} &gt;  = 1.00
+&lt; phi_{5 12} | phi_{5 12} &gt;  = 1.00
+&lt; phi_{5 13} | phi_{5 13} &gt;  = 1.00
+&lt; phi_{5 14} | phi_{5 14} &gt;  = 1.00
+&lt; phi_{5 15} | phi_{5 15} &gt;  = 1.00
+&lt; phi_{5 16} | phi_{5 16} &gt;  = 1.00
+&lt; phi_{5 17} | phi_{5 17} &gt;  = 1.00
+&lt; phi_{5 18} | phi_{5 18} &gt;  = 1.00
+&lt; phi_{5 19} | phi_{5 19} &gt;  = 1.00
+&lt; phi_{5 20} | phi_{5 20} &gt;  = 1.00
+&lt; phi_{5 21} | phi_{5 21} &gt;  = 1.00
+&lt; phi_{5 22} | phi_{5 22} &gt;  = 1.00
+&lt; phi_{5 23} | phi_{5 23} &gt;  = 1.00
+&lt; phi_{5 24} | phi_{5 24} &gt;  = 1.00
+&lt; phi_{5 25} | phi_{5 25} &gt;  = 1.00
+&lt; phi_{5 26} | phi_{5 26} &gt;  = 1.00
+&lt; phi_{5 27} | phi_{5 27} &gt;  = 1.00
+&lt; phi_{5 28} | phi_{5 28} &gt;  = 1.00
+&lt; phi_{5 29} | phi_{5 29} &gt;  = 1.00
+&lt; phi_{5 30} | phi_{5 30} &gt;  = 1.00
+&lt; phi_{5 31} | phi_{5 31} &gt;  = 1.00
+&lt; phi_{5 32} | phi_{5 32} &gt;  = 1.00
+&lt; phi_{5 33} | phi_{5 33} &gt;  = 1.00
+&lt; phi_{5 34} | phi_{5 34} &gt;  = 1.00
+&lt; phi_{5 35} | phi_{5 35} &gt;  = 1.00
+&lt; phi_{5 36} | phi_{5 36} &gt;  = 1.00
+&lt; phi_{5 37} | phi_{5 37} &gt;  = 1.00
+&lt; phi_{5 38} | phi_{5 38} &gt;  = 1.00
+&lt; phi_{5 39} | phi_{5 39} &gt;  = 1.00
+&lt; phi_{5 40} | phi_{5 40} &gt;  = 1.00
+&lt; phi_{5 41} | phi_{5 41} &gt;  = 1.00
+&lt; phi_{5 42} | phi_{5 42} &gt;  = 1.00
+&lt; phi_{5 43} | phi_{5 43} &gt;  = 1.00
+&lt; phi_{5 44} | phi_{5 44} &gt;  = 1.00
+&lt; phi_{5 45} | phi_{5 45} &gt;  = 1.00
+&lt; phi_{5 46} | phi_{5 46} &gt;  = 1.00
+&lt; phi_{5 47} | phi_{5 47} &gt;  = 1.00
+&lt; phi_{5 48} | phi_{5 48} &gt;  = 1.00
+&lt; phi_{5 49} | phi_{5 49} &gt;  = 1.00
+&lt; phi_{6 1} | phi_{6 1} &gt;  = 1.00
+&lt; phi_{6 2} | phi_{6 2} &gt;  = 1.00
+&lt; phi_{6 3} | phi_{6 3} &gt;  = 1.00
+&lt; phi_{6 4} | phi_{6 4} &gt;  = 1.00
+&lt; phi_{6 5} | phi_{6 5} &gt;  = 1.00
+&lt; phi_{6 6} | phi_{6 6} &gt;  = 1.00
+&lt; phi_{6 7} | phi_{6 7} &gt;  = 1.00
+&lt; phi_{6 8} | phi_{6 8} &gt;  = 1.00
+&lt; phi_{6 9} | phi_{6 9} &gt;  = 1.00
+&lt; phi_{6 10} | phi_{6 10} &gt;  = 1.00
+&lt; phi_{6 11} | phi_{6 11} &gt;  = 1.00
+&lt; phi_{6 12} | phi_{6 12} &gt;  = 1.00
+&lt; phi_{6 13} | phi_{6 13} &gt;  = 1.00
+&lt; phi_{6 14} | phi_{6 14} &gt;  = 1.00
+&lt; phi_{6 15} | phi_{6 15} &gt;  = 1.00
+&lt; phi_{6 16} | phi_{6 16} &gt;  = 1.00
+&lt; phi_{6 17} | phi_{6 17} &gt;  = 1.00
+&lt; phi_{6 18} | phi_{6 18} &gt;  = 1.00
+&lt; phi_{6 19} | phi_{6 19} &gt;  = 1.00
+&lt; phi_{6 20} | phi_{6 20} &gt;  = 1.00
+&lt; phi_{6 21} | phi_{6 21} &gt;  = 1.00
+&lt; phi_{6 22} | phi_{6 22} &gt;  = 1.00
+&lt; phi_{6 23} | phi_{6 23} &gt;  = 1.00
+&lt; phi_{6 24} | phi_{6 24} &gt;  = 1.00
+&lt; phi_{6 25} | phi_{6 25} &gt;  = 1.00
+&lt; phi_{6 26} | phi_{6 26} &gt;  = 1.00
+&lt; phi_{6 27} | phi_{6 27} &gt;  = 1.00
+&lt; phi_{6 28} | phi_{6 28} &gt;  = 1.00
+&lt; phi_{6 29} | phi_{6 29} &gt;  = 1.00
+&lt; phi_{6 30} | phi_{6 30} &gt;  = 1.00
+&lt; phi_{6 31} | phi_{6 31} &gt;  = 1.00
+&lt; phi_{6 32} | phi_{6 32} &gt;  = 1.00
+&lt; phi_{6 33} | phi_{6 33} &gt;  = 1.00
+&lt; phi_{6 34} | phi_{6 34} &gt;  = 1.00
+&lt; phi_{6 35} | phi_{6 35} &gt;  = 1.00
+&lt; phi_{6 36} | phi_{6 36} &gt;  = 1.00
+&lt; phi_{6 37} | phi_{6 37} &gt;  = 1.00
+&lt; phi_{6 38} | phi_{6 38} &gt;  = 1.00
+&lt; phi_{6 39} | phi_{6 39} &gt;  = 1.00
+&lt; phi_{6 40} | phi_{6 40} &gt;  = 1.00
+&lt; phi_{6 41} | phi_{6 41} &gt;  = 1.00
+&lt; phi_{6 42} | phi_{6 42} &gt;  = 1.00
+&lt; phi_{6 43} | phi_{6 43} &gt;  = 1.00
+&lt; phi_{6 44} | phi_{6 44} &gt;  = 1.00
+&lt; phi_{6 45} | phi_{6 45} &gt;  = 1.00
+&lt; phi_{6 46} | phi_{6 46} &gt;  = 1.00
+&lt; phi_{6 47} | phi_{6 47} &gt;  = 1.00
+&lt; phi_{6 48} | phi_{6 48} &gt;  = 1.00
+&lt; phi_{6 49} | phi_{6 49} &gt;  = 1.00
+&lt; phi_{7 1} | phi_{7 1} &gt;  = 1.00
+&lt; phi_{7 2} | phi_{7 2} &gt;  = 1.00
+&lt; phi_{7 3} | phi_{7 3} &gt;  = 1.00
+&lt; phi_{7 4} | phi_{7 4} &gt;  = 1.00
+&lt; phi_{7 5} | phi_{7 5} &gt;  = 1.00
+&lt; phi_{7 6} | phi_{7 6} &gt;  = 1.00
+&lt; phi_{7 7} | phi_{7 7} &gt;  = 1.00
+&lt; phi_{7 8} | phi_{7 8} &gt;  = 1.00
+&lt; phi_{7 9} | phi_{7 9} &gt;  = 1.00
+&lt; phi_{7 10} | phi_{7 10} &gt;  = 1.00
+&lt; phi_{7 11} | phi_{7 11} &gt;  = 1.00
+&lt; phi_{7 12} | phi_{7 12} &gt;  = 1.00
+&lt; phi_{7 13} | phi_{7 13} &gt;  = 1.00
+&lt; phi_{7 14} | phi_{7 14} &gt;  = 1.00
+&lt; phi_{7 15} | phi_{7 15} &gt;  = 1.00
+&lt; phi_{7 16} | phi_{7 16} &gt;  = 1.00
+&lt; phi_{7 17} | phi_{7 17} &gt;  = 1.00
+&lt; phi_{7 18} | phi_{7 18} &gt;  = 1.00
+&lt; phi_{7 19} | phi_{7 19} &gt;  = 1.00
+&lt; phi_{7 20} | phi_{7 20} &gt;  = 1.00
+&lt; phi_{7 21} | phi_{7 21} &gt;  = 1.00
+&lt; phi_{7 22} | phi_{7 22} &gt;  = 1.00
+&lt; phi_{7 23} | phi_{7 23} &gt;  = 1.00
+&lt; phi_{7 24} | phi_{7 24} &gt;  = 1.00
+&lt; phi_{7 25} | phi_{7 25} &gt;  = 1.00
+&lt; phi_{7 26} | phi_{7 26} &gt;  = 1.00
+&lt; phi_{7 27} | phi_{7 27} &gt;  = 1.00
+&lt; phi_{7 28} | phi_{7 28} &gt;  = 1.00
+&lt; phi_{7 29} | phi_{7 29} &gt;  = 1.00
+&lt; phi_{7 30} | phi_{7 30} &gt;  = 1.00
+&lt; phi_{7 31} | phi_{7 31} &gt;  = 1.00
+&lt; phi_{7 32} | phi_{7 32} &gt;  = 1.00
+&lt; phi_{7 33} | phi_{7 33} &gt;  = 1.00
+&lt; phi_{7 34} | phi_{7 34} &gt;  = 1.00
+&lt; phi_{7 35} | phi_{7 35} &gt;  = 1.00
+&lt; phi_{7 36} | phi_{7 36} &gt;  = 1.00
+&lt; phi_{7 37} | phi_{7 37} &gt;  = 1.00
+&lt; phi_{7 38} | phi_{7 38} &gt;  = 1.00
+&lt; phi_{7 39} | phi_{7 39} &gt;  = 1.00
+&lt; phi_{7 40} | phi_{7 40} &gt;  = 1.00
+&lt; phi_{7 41} | phi_{7 41} &gt;  = 1.00
+&lt; phi_{7 42} | phi_{7 42} &gt;  = 1.00
+&lt; phi_{7 43} | phi_{7 43} &gt;  = 1.00
+&lt; phi_{7 44} | phi_{7 44} &gt;  = 1.00
+&lt; phi_{7 45} | phi_{7 45} &gt;  = 1.00
+&lt; phi_{7 46} | phi_{7 46} &gt;  = 1.00
+&lt; phi_{7 47} | phi_{7 47} &gt;  = 1.00
+&lt; phi_{7 48} | phi_{7 48} &gt;  = 1.00
+&lt; phi_{7 49} | phi_{7 49} &gt;  = 1.00
+&lt; phi_{8 1} | phi_{8 1} &gt;  = 1.00
+&lt; phi_{8 2} | phi_{8 2} &gt;  = 1.00
+&lt; phi_{8 3} | phi_{8 3} &gt;  = 1.00
+&lt; phi_{8 4} | phi_{8 4} &gt;  = 1.00
+&lt; phi_{8 5} | phi_{8 5} &gt;  = 1.00
+&lt; phi_{8 6} | phi_{8 6} &gt;  = 1.00
+&lt; phi_{8 7} | phi_{8 7} &gt;  = 1.00
+&lt; phi_{8 8} | phi_{8 8} &gt;  = 1.00
+&lt; phi_{8 9} | phi_{8 9} &gt;  = 1.00
+&lt; phi_{8 10} | phi_{8 10} &gt;  = 1.00
+&lt; phi_{8 11} | phi_{8 11} &gt;  = 1.00
+&lt; phi_{8 12} | phi_{8 12} &gt;  = 1.00
+&lt; phi_{8 13} | phi_{8 13} &gt;  = 1.00
+&lt; phi_{8 14} | phi_{8 14} &gt;  = 1.00
+&lt; phi_{8 15} | phi_{8 15} &gt;  = 1.00
+&lt; phi_{8 16} | phi_{8 16} &gt;  = 1.00
+&lt; phi_{8 17} | phi_{8 17} &gt;  = 1.00
+&lt; phi_{8 18} | phi_{8 18} &gt;  = 1.00
+&lt; phi_{8 19} | phi_{8 19} &gt;  = 1.00
+&lt; phi_{8 20} | phi_{8 20} &gt;  = 1.00
+&lt; phi_{8 21} | phi_{8 21} &gt;  = 1.00
+&lt; phi_{8 22} | phi_{8 22} &gt;  = 1.00
+&lt; phi_{8 23} | phi_{8 23} &gt;  = 1.00
+&lt; phi_{8 24} | phi_{8 24} &gt;  = 1.00
+&lt; phi_{8 25} | phi_{8 25} &gt;  = 1.00
+&lt; phi_{8 26} | phi_{8 26} &gt;  = 1.00
+&lt; phi_{8 27} | phi_{8 27} &gt;  = 1.00
+&lt; phi_{8 28} | phi_{8 28} &gt;  = 1.00
+&lt; phi_{8 29} | phi_{8 29} &gt;  = 1.00
+&lt; phi_{8 30} | phi_{8 30} &gt;  = 1.00
+&lt; phi_{8 31} | phi_{8 31} &gt;  = 1.00
+&lt; phi_{8 32} | phi_{8 32} &gt;  = 1.00
+&lt; phi_{8 33} | phi_{8 33} &gt;  = 1.00
+&lt; phi_{8 34} | phi_{8 34} &gt;  = 1.00
+&lt; phi_{8 35} | phi_{8 35} &gt;  = 1.00
+&lt; phi_{8 36} | phi_{8 36} &gt;  = 1.00
+&lt; phi_{8 37} | phi_{8 37} &gt;  = 1.00
+&lt; phi_{8 38} | phi_{8 38} &gt;  = 1.00
+&lt; phi_{8 39} | phi_{8 39} &gt;  = 1.00
+&lt; phi_{8 40} | phi_{8 40} &gt;  = 1.00
+&lt; phi_{8 41} | phi_{8 41} &gt;  = 1.00
+&lt; phi_{8 42} | phi_{8 42} &gt;  = 1.00
+&lt; phi_{8 43} | phi_{8 43} &gt;  = 1.00
+&lt; phi_{8 44} | phi_{8 44} &gt;  = 1.00
+&lt; phi_{8 45} | phi_{8 45} &gt;  = 1.00
+&lt; phi_{8 46} | phi_{8 46} &gt;  = 1.00
+&lt; phi_{8 47} | phi_{8 47} &gt;  = 1.00
+&lt; phi_{8 48} | phi_{8 48} &gt;  = 1.00
+&lt; phi_{8 49} | phi_{8 49} &gt;  = 1.00
+&lt; phi_{9 1} | phi_{9 1} &gt;  = 1.00
+&lt; phi_{9 2} | phi_{9 2} &gt;  = 1.00
+&lt; phi_{9 3} | phi_{9 3} &gt;  = 1.00
+&lt; phi_{9 4} | phi_{9 4} &gt;  = 1.00
+&lt; phi_{9 5} | phi_{9 5} &gt;  = 1.00
+&lt; phi_{9 6} | phi_{9 6} &gt;  = 1.00
+&lt; phi_{9 7} | phi_{9 7} &gt;  = 1.00
+&lt; phi_{9 8} | phi_{9 8} &gt;  = 1.00
+&lt; phi_{9 9} | phi_{9 9} &gt;  = 1.00
+&lt; phi_{9 10} | phi_{9 10} &gt;  = 1.00
+&lt; phi_{9 11} | phi_{9 11} &gt;  = 1.00
+&lt; phi_{9 12} | phi_{9 12} &gt;  = 1.00
+&lt; phi_{9 13} | phi_{9 13} &gt;  = 1.00
+&lt; phi_{9 14} | phi_{9 14} &gt;  = 1.00
+&lt; phi_{9 15} | phi_{9 15} &gt;  = 1.00
+&lt; phi_{9 16} | phi_{9 16} &gt;  = 1.00
+&lt; phi_{9 17} | phi_{9 17} &gt;  = 1.00
+&lt; phi_{9 18} | phi_{9 18} &gt;  = 1.00
+&lt; phi_{9 19} | phi_{9 19} &gt;  = 1.00
+&lt; phi_{9 20} | phi_{9 20} &gt;  = 1.00
+&lt; phi_{9 21} | phi_{9 21} &gt;  = 1.00
+&lt; phi_{9 22} | phi_{9 22} &gt;  = 1.00
+&lt; phi_{9 23} | phi_{9 23} &gt;  = 1.00
+&lt; phi_{9 24} | phi_{9 24} &gt;  = 1.00
+&lt; phi_{9 25} | phi_{9 25} &gt;  = 1.00
+&lt; phi_{9 26} | phi_{9 26} &gt;  = 1.00
+&lt; phi_{9 27} | phi_{9 27} &gt;  = 1.00
+&lt; phi_{9 28} | phi_{9 28} &gt;  = 1.00
+&lt; phi_{9 29} | phi_{9 29} &gt;  = 1.00
+&lt; phi_{9 30} | phi_{9 30} &gt;  = 1.00
+&lt; phi_{9 31} | phi_{9 31} &gt;  = 1.00
+&lt; phi_{9 32} | phi_{9 32} &gt;  = 1.00
+&lt; phi_{9 33} | phi_{9 33} &gt;  = 1.00
+&lt; phi_{9 34} | phi_{9 34} &gt;  = 1.00
+&lt; phi_{9 35} | phi_{9 35} &gt;  = 1.00
+&lt; phi_{9 36} | phi_{9 36} &gt;  = 1.00
+&lt; phi_{9 37} | phi_{9 37} &gt;  = 1.00
+&lt; phi_{9 38} | phi_{9 38} &gt;  = 1.00
+&lt; phi_{9 39} | phi_{9 39} &gt;  = 1.00
+&lt; phi_{9 40} | phi_{9 40} &gt;  = 1.00
+&lt; phi_{9 41} | phi_{9 41} &gt;  = 1.00
+&lt; phi_{9 42} | phi_{9 42} &gt;  = 1.00
+&lt; phi_{9 43} | phi_{9 43} &gt;  = 1.00
+&lt; phi_{9 44} | phi_{9 44} &gt;  = 1.00
+&lt; phi_{9 45} | phi_{9 45} &gt;  = 1.00
+&lt; phi_{9 46} | phi_{9 46} &gt;  = 1.00
+&lt; phi_{9 47} | phi_{9 47} &gt;  = 1.00
+&lt; phi_{9 48} | phi_{9 48} &gt;  = 1.00
+&lt; phi_{9 49} | phi_{9 49} &gt;  = 1.00
+&lt; phi_{10 1} | phi_{10 1} &gt;  = 1.00
+&lt; phi_{10 2} | phi_{10 2} &gt;  = 1.00
+&lt; phi_{10 3} | phi_{10 3} &gt;  = 1.00
+&lt; phi_{10 4} | phi_{10 4} &gt;  = 1.00
+&lt; phi_{10 5} | phi_{10 5} &gt;  = 1.00
+&lt; phi_{10 6} | phi_{10 6} &gt;  = 1.00
+&lt; phi_{10 7} | phi_{10 7} &gt;  = 1.00
+&lt; phi_{10 8} | phi_{10 8} &gt;  = 1.00
+&lt; phi_{10 9} | phi_{10 9} &gt;  = 1.00
+&lt; phi_{10 10} | phi_{10 10} &gt;  = 1.00
+&lt; phi_{10 11} | phi_{10 11} &gt;  = 1.00
+&lt; phi_{10 12} | phi_{10 12} &gt;  = 1.00
+&lt; phi_{10 13} | phi_{10 13} &gt;  = 1.00
+&lt; phi_{10 14} | phi_{10 14} &gt;  = 1.00
+&lt; phi_{10 15} | phi_{10 15} &gt;  = 1.00
+&lt; phi_{10 16} | phi_{10 16} &gt;  = 1.00
+&lt; phi_{10 17} | phi_{10 17} &gt;  = 1.00
+&lt; phi_{10 18} | phi_{10 18} &gt;  = 1.00
+&lt; phi_{10 19} | phi_{10 19} &gt;  = 1.00
+&lt; phi_{10 20} | phi_{10 20} &gt;  = 1.00
+&lt; phi_{10 21} | phi_{10 21} &gt;  = 1.00
+&lt; phi_{10 22} | phi_{10 22} &gt;  = 1.00
+&lt; phi_{10 23} | phi_{10 23} &gt;  = 1.00
+&lt; phi_{10 24} | phi_{10 24} &gt;  = 1.00
+&lt; phi_{10 25} | phi_{10 25} &gt;  = 1.00
+&lt; phi_{10 26} | phi_{10 26} &gt;  = 1.00
+&lt; phi_{10 27} | phi_{10 27} &gt;  = 1.00
+&lt; phi_{10 28} | phi_{10 28} &gt;  = 1.00
+&lt; phi_{10 29} | phi_{10 29} &gt;  = 1.00
+&lt; phi_{10 30} | phi_{10 30} &gt;  = 1.00
+&lt; phi_{10 31} | phi_{10 31} &gt;  = 1.00
+&lt; phi_{10 32} | phi_{10 32} &gt;  = 1.00
+&lt; phi_{10 33} | phi_{10 33} &gt;  = 1.00
+&lt; phi_{10 34} | phi_{10 34} &gt;  = 1.00
+&lt; phi_{10 35} | phi_{10 35} &gt;  = 1.00
+&lt; phi_{10 36} | phi_{10 36} &gt;  = 1.00
+&lt; phi_{10 37} | phi_{10 37} &gt;  = 1.00
+&lt; phi_{10 38} | phi_{10 38} &gt;  = 1.00
+&lt; phi_{10 39} | phi_{10 39} &gt;  = 1.00
+&lt; phi_{10 40} | phi_{10 40} &gt;  = 1.00
+&lt; phi_{10 41} | phi_{10 41} &gt;  = 1.00
+&lt; phi_{10 42} | phi_{10 42} &gt;  = 1.00
+&lt; phi_{10 43} | phi_{10 43} &gt;  = 1.00
+&lt; phi_{10 44} | phi_{10 44} &gt;  = 1.00
+&lt; phi_{10 45} | phi_{10 45} &gt;  = 1.00
+&lt; phi_{10 46} | phi_{10 46} &gt;  = 1.00
+&lt; phi_{10 47} | phi_{10 47} &gt;  = 1.00
+&lt; phi_{10 48} | phi_{10 48} &gt;  = 1.00
+&lt; phi_{10 49} | phi_{10 49} &gt;  = 1.00
+&lt; phi_{11 1} | phi_{11 1} &gt;  = 1.00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt; phi_{11 2} | phi_{11 2} &gt;  = 1.00
+&lt; phi_{11 3} | phi_{11 3} &gt;  = 1.00
+&lt; phi_{11 4} | phi_{11 4} &gt;  = 1.00
+&lt; phi_{11 5} | phi_{11 5} &gt;  = 1.00
+&lt; phi_{11 6} | phi_{11 6} &gt;  = 1.00
+&lt; phi_{11 7} | phi_{11 7} &gt;  = 1.00
+&lt; phi_{11 8} | phi_{11 8} &gt;  = 1.00
+&lt; phi_{11 9} | phi_{11 9} &gt;  = 1.00
+&lt; phi_{11 10} | phi_{11 10} &gt;  = 1.00
+&lt; phi_{11 11} | phi_{11 11} &gt;  = 1.00
+&lt; phi_{11 12} | phi_{11 12} &gt;  = 1.00
+&lt; phi_{11 13} | phi_{11 13} &gt;  = 1.00
+&lt; phi_{11 14} | phi_{11 14} &gt;  = 1.00
+&lt; phi_{11 15} | phi_{11 15} &gt;  = 1.00
+&lt; phi_{11 16} | phi_{11 16} &gt;  = 1.00
+&lt; phi_{11 17} | phi_{11 17} &gt;  = 1.00
+&lt; phi_{11 18} | phi_{11 18} &gt;  = 1.00
+&lt; phi_{11 19} | phi_{11 19} &gt;  = 1.00
+&lt; phi_{11 20} | phi_{11 20} &gt;  = 1.00
+&lt; phi_{11 21} | phi_{11 21} &gt;  = 1.00
+&lt; phi_{11 22} | phi_{11 22} &gt;  = 1.00
+&lt; phi_{11 23} | phi_{11 23} &gt;  = 1.00
+&lt; phi_{11 24} | phi_{11 24} &gt;  = 1.00
+&lt; phi_{11 25} | phi_{11 25} &gt;  = 1.00
+&lt; phi_{11 26} | phi_{11 26} &gt;  = 1.00
+&lt; phi_{11 27} | phi_{11 27} &gt;  = 1.00
+&lt; phi_{11 28} | phi_{11 28} &gt;  = 1.00
+&lt; phi_{11 29} | phi_{11 29} &gt;  = 1.00
+&lt; phi_{11 30} | phi_{11 30} &gt;  = 1.00
+&lt; phi_{11 31} | phi_{11 31} &gt;  = 1.00
+&lt; phi_{11 32} | phi_{11 32} &gt;  = 1.00
+&lt; phi_{11 33} | phi_{11 33} &gt;  = 1.00
+&lt; phi_{11 34} | phi_{11 34} &gt;  = 1.00
+&lt; phi_{11 35} | phi_{11 35} &gt;  = 1.00
+&lt; phi_{11 36} | phi_{11 36} &gt;  = 1.00
+&lt; phi_{11 37} | phi_{11 37} &gt;  = 1.00
+&lt; phi_{11 38} | phi_{11 38} &gt;  = 1.00
+&lt; phi_{11 39} | phi_{11 39} &gt;  = 1.00
+&lt; phi_{11 40} | phi_{11 40} &gt;  = 1.00
+&lt; phi_{11 41} | phi_{11 41} &gt;  = 1.00
+&lt; phi_{11 42} | phi_{11 42} &gt;  = 1.00
+&lt; phi_{11 43} | phi_{11 43} &gt;  = 1.00
+&lt; phi_{11 44} | phi_{11 44} &gt;  = 1.00
+&lt; phi_{11 45} | phi_{11 45} &gt;  = 1.00
+&lt; phi_{11 46} | phi_{11 46} &gt;  = 1.00
+&lt; phi_{11 47} | phi_{11 47} &gt;  = 1.00
+&lt; phi_{11 48} | phi_{11 48} &gt;  = 1.00
+&lt; phi_{11 49} | phi_{11 49} &gt;  = 1.00
+&lt; phi_{12 1} | phi_{12 1} &gt;  = 1.00
+&lt; phi_{12 2} | phi_{12 2} &gt;  = 1.00
+&lt; phi_{12 3} | phi_{12 3} &gt;  = 1.00
+&lt; phi_{12 4} | phi_{12 4} &gt;  = 1.00
+&lt; phi_{12 5} | phi_{12 5} &gt;  = 1.00
+&lt; phi_{12 6} | phi_{12 6} &gt;  = 1.00
+&lt; phi_{12 7} | phi_{12 7} &gt;  = 1.00
+&lt; phi_{12 8} | phi_{12 8} &gt;  = 1.00
+&lt; phi_{12 9} | phi_{12 9} &gt;  = 1.00
+&lt; phi_{12 10} | phi_{12 10} &gt;  = 1.00
+&lt; phi_{12 11} | phi_{12 11} &gt;  = 1.00
+&lt; phi_{12 12} | phi_{12 12} &gt;  = 1.00
+&lt; phi_{12 13} | phi_{12 13} &gt;  = 1.00
+&lt; phi_{12 14} | phi_{12 14} &gt;  = 1.00
+&lt; phi_{12 15} | phi_{12 15} &gt;  = 1.00
+&lt; phi_{12 16} | phi_{12 16} &gt;  = 1.00
+&lt; phi_{12 17} | phi_{12 17} &gt;  = 1.00
+&lt; phi_{12 18} | phi_{12 18} &gt;  = 1.00
+&lt; phi_{12 19} | phi_{12 19} &gt;  = 1.00
+&lt; phi_{12 20} | phi_{12 20} &gt;  = 1.00
+&lt; phi_{12 21} | phi_{12 21} &gt;  = 1.00
+&lt; phi_{12 22} | phi_{12 22} &gt;  = 1.00
+&lt; phi_{12 23} | phi_{12 23} &gt;  = 1.00
+&lt; phi_{12 24} | phi_{12 24} &gt;  = 1.00
+&lt; phi_{12 25} | phi_{12 25} &gt;  = 1.00
+&lt; phi_{12 26} | phi_{12 26} &gt;  = 1.00
+&lt; phi_{12 27} | phi_{12 27} &gt;  = 1.00
+&lt; phi_{12 28} | phi_{12 28} &gt;  = 1.00
+&lt; phi_{12 29} | phi_{12 29} &gt;  = 1.00
+&lt; phi_{12 30} | phi_{12 30} &gt;  = 1.00
+&lt; phi_{12 31} | phi_{12 31} &gt;  = 1.00
+&lt; phi_{12 32} | phi_{12 32} &gt;  = 1.00
+&lt; phi_{12 33} | phi_{12 33} &gt;  = 1.00
+&lt; phi_{12 34} | phi_{12 34} &gt;  = 1.00
+&lt; phi_{12 35} | phi_{12 35} &gt;  = 1.00
+&lt; phi_{12 36} | phi_{12 36} &gt;  = 1.00
+&lt; phi_{12 37} | phi_{12 37} &gt;  = 1.00
+&lt; phi_{12 38} | phi_{12 38} &gt;  = 1.00
+&lt; phi_{12 39} | phi_{12 39} &gt;  = 1.00
+&lt; phi_{12 40} | phi_{12 40} &gt;  = 1.00
+&lt; phi_{12 41} | phi_{12 41} &gt;  = 1.00
+&lt; phi_{12 42} | phi_{12 42} &gt;  = 1.00
+&lt; phi_{12 43} | phi_{12 43} &gt;  = 1.00
+&lt; phi_{12 44} | phi_{12 44} &gt;  = 1.00
+&lt; phi_{12 45} | phi_{12 45} &gt;  = 1.00
+&lt; phi_{12 46} | phi_{12 46} &gt;  = 1.00
+&lt; phi_{12 47} | phi_{12 47} &gt;  = 1.00
+&lt; phi_{12 48} | phi_{12 48} &gt;  = 1.00
+&lt; phi_{12 49} | phi_{12 49} &gt;  = 1.00
+&lt; phi_{13 1} | phi_{13 1} &gt;  = 1.00
+&lt; phi_{13 2} | phi_{13 2} &gt;  = 1.00
+&lt; phi_{13 3} | phi_{13 3} &gt;  = 1.00
+&lt; phi_{13 4} | phi_{13 4} &gt;  = 1.00
+&lt; phi_{13 5} | phi_{13 5} &gt;  = 1.00
+&lt; phi_{13 6} | phi_{13 6} &gt;  = 1.00
+&lt; phi_{13 7} | phi_{13 7} &gt;  = 1.00
+&lt; phi_{13 8} | phi_{13 8} &gt;  = 1.00
+&lt; phi_{13 9} | phi_{13 9} &gt;  = 1.00
+&lt; phi_{13 10} | phi_{13 10} &gt;  = 1.00
+&lt; phi_{13 11} | phi_{13 11} &gt;  = 1.00
+&lt; phi_{13 12} | phi_{13 12} &gt;  = 1.00
+&lt; phi_{13 13} | phi_{13 13} &gt;  = 1.00
+&lt; phi_{13 14} | phi_{13 14} &gt;  = 1.00
+&lt; phi_{13 15} | phi_{13 15} &gt;  = 1.00
+&lt; phi_{13 16} | phi_{13 16} &gt;  = 1.00
+&lt; phi_{13 17} | phi_{13 17} &gt;  = 1.00
+&lt; phi_{13 18} | phi_{13 18} &gt;  = 1.00
+&lt; phi_{13 19} | phi_{13 19} &gt;  = 1.00
+&lt; phi_{13 20} | phi_{13 20} &gt;  = 1.00
+&lt; phi_{13 21} | phi_{13 21} &gt;  = 1.00
+&lt; phi_{13 22} | phi_{13 22} &gt;  = 1.00
+&lt; phi_{13 23} | phi_{13 23} &gt;  = 1.00
+&lt; phi_{13 24} | phi_{13 24} &gt;  = 1.00
+&lt; phi_{13 25} | phi_{13 25} &gt;  = 1.00
+&lt; phi_{13 26} | phi_{13 26} &gt;  = 1.00
+&lt; phi_{13 27} | phi_{13 27} &gt;  = 1.00
+&lt; phi_{13 28} | phi_{13 28} &gt;  = 1.00
+&lt; phi_{13 29} | phi_{13 29} &gt;  = 1.00
+&lt; phi_{13 30} | phi_{13 30} &gt;  = 1.00
+&lt; phi_{13 31} | phi_{13 31} &gt;  = 1.00
+&lt; phi_{13 32} | phi_{13 32} &gt;  = 1.00
+&lt; phi_{13 33} | phi_{13 33} &gt;  = 1.00
+&lt; phi_{13 34} | phi_{13 34} &gt;  = 1.00
+&lt; phi_{13 35} | phi_{13 35} &gt;  = 1.00
+&lt; phi_{13 36} | phi_{13 36} &gt;  = 1.00
+&lt; phi_{13 37} | phi_{13 37} &gt;  = 1.00
+&lt; phi_{13 38} | phi_{13 38} &gt;  = 1.00
+&lt; phi_{13 39} | phi_{13 39} &gt;  = 1.00
+&lt; phi_{13 40} | phi_{13 40} &gt;  = 1.00
+&lt; phi_{13 41} | phi_{13 41} &gt;  = 1.00
+&lt; phi_{13 42} | phi_{13 42} &gt;  = 1.00
+&lt; phi_{13 43} | phi_{13 43} &gt;  = 1.00
+&lt; phi_{13 44} | phi_{13 44} &gt;  = 1.00
+&lt; phi_{13 45} | phi_{13 45} &gt;  = 1.00
+&lt; phi_{13 46} | phi_{13 46} &gt;  = 1.00
+&lt; phi_{13 47} | phi_{13 47} &gt;  = 1.00
+&lt; phi_{13 48} | phi_{13 48} &gt;  = 1.00
+&lt; phi_{13 49} | phi_{13 49} &gt;  = 1.00
+&lt; phi_{14 1} | phi_{14 1} &gt;  = 1.00
+&lt; phi_{14 2} | phi_{14 2} &gt;  = 1.00
+&lt; phi_{14 3} | phi_{14 3} &gt;  = 1.00
+&lt; phi_{14 4} | phi_{14 4} &gt;  = 1.00
+&lt; phi_{14 5} | phi_{14 5} &gt;  = 1.00
+&lt; phi_{14 6} | phi_{14 6} &gt;  = 1.00
+&lt; phi_{14 7} | phi_{14 7} &gt;  = 1.00
+&lt; phi_{14 8} | phi_{14 8} &gt;  = 1.00
+&lt; phi_{14 9} | phi_{14 9} &gt;  = 1.00
+&lt; phi_{14 10} | phi_{14 10} &gt;  = 1.00
+&lt; phi_{14 11} | phi_{14 11} &gt;  = 1.00
+&lt; phi_{14 12} | phi_{14 12} &gt;  = 1.00
+&lt; phi_{14 13} | phi_{14 13} &gt;  = 1.00
+&lt; phi_{14 14} | phi_{14 14} &gt;  = 1.00
+&lt; phi_{14 15} | phi_{14 15} &gt;  = 1.00
+&lt; phi_{14 16} | phi_{14 16} &gt;  = 1.00
+&lt; phi_{14 17} | phi_{14 17} &gt;  = 1.00
+&lt; phi_{14 18} | phi_{14 18} &gt;  = 1.00
+&lt; phi_{14 19} | phi_{14 19} &gt;  = 1.00
+&lt; phi_{14 20} | phi_{14 20} &gt;  = 1.00
+&lt; phi_{14 21} | phi_{14 21} &gt;  = 1.00
+&lt; phi_{14 22} | phi_{14 22} &gt;  = 1.00
+&lt; phi_{14 23} | phi_{14 23} &gt;  = 1.00
+&lt; phi_{14 24} | phi_{14 24} &gt;  = 1.00
+&lt; phi_{14 25} | phi_{14 25} &gt;  = 1.00
+&lt; phi_{14 26} | phi_{14 26} &gt;  = 1.00
+&lt; phi_{14 27} | phi_{14 27} &gt;  = 1.00
+&lt; phi_{14 28} | phi_{14 28} &gt;  = 1.00
+&lt; phi_{14 29} | phi_{14 29} &gt;  = 1.00
+&lt; phi_{14 30} | phi_{14 30} &gt;  = 1.00
+&lt; phi_{14 31} | phi_{14 31} &gt;  = 1.00
+&lt; phi_{14 32} | phi_{14 32} &gt;  = 1.00
+&lt; phi_{14 33} | phi_{14 33} &gt;  = 1.00
+&lt; phi_{14 34} | phi_{14 34} &gt;  = 1.00
+&lt; phi_{14 35} | phi_{14 35} &gt;  = 1.00
+&lt; phi_{14 36} | phi_{14 36} &gt;  = 1.00
+&lt; phi_{14 37} | phi_{14 37} &gt;  = 1.00
+&lt; phi_{14 38} | phi_{14 38} &gt;  = 1.00
+&lt; phi_{14 39} | phi_{14 39} &gt;  = 1.00
+&lt; phi_{14 40} | phi_{14 40} &gt;  = 1.00
+&lt; phi_{14 41} | phi_{14 41} &gt;  = 1.00
+&lt; phi_{14 42} | phi_{14 42} &gt;  = 1.00
+&lt; phi_{14 43} | phi_{14 43} &gt;  = 1.00
+&lt; phi_{14 44} | phi_{14 44} &gt;  = 1.00
+&lt; phi_{14 45} | phi_{14 45} &gt;  = 1.00
+&lt; phi_{14 46} | phi_{14 46} &gt;  = 1.00
+&lt; phi_{14 47} | phi_{14 47} &gt;  = 1.00
+&lt; phi_{14 48} | phi_{14 48} &gt;  = 1.00
+&lt; phi_{14 49} | phi_{14 49} &gt;  = 1.00
+&lt; phi_{15 1} | phi_{15 1} &gt;  = 1.00
+&lt; phi_{15 2} | phi_{15 2} &gt;  = 1.00
+&lt; phi_{15 3} | phi_{15 3} &gt;  = 1.00
+&lt; phi_{15 4} | phi_{15 4} &gt;  = 1.00
+&lt; phi_{15 5} | phi_{15 5} &gt;  = 1.00
+&lt; phi_{15 6} | phi_{15 6} &gt;  = 1.00
+&lt; phi_{15 7} | phi_{15 7} &gt;  = 1.00
+&lt; phi_{15 8} | phi_{15 8} &gt;  = 1.00
+&lt; phi_{15 9} | phi_{15 9} &gt;  = 1.00
+&lt; phi_{15 10} | phi_{15 10} &gt;  = 1.00
+&lt; phi_{15 11} | phi_{15 11} &gt;  = 1.00
+&lt; phi_{15 12} | phi_{15 12} &gt;  = 1.00
+&lt; phi_{15 13} | phi_{15 13} &gt;  = 1.00
+&lt; phi_{15 14} | phi_{15 14} &gt;  = 1.00
+&lt; phi_{15 15} | phi_{15 15} &gt;  = 1.00
+&lt; phi_{15 16} | phi_{15 16} &gt;  = 1.00
+&lt; phi_{15 17} | phi_{15 17} &gt;  = 1.00
+&lt; phi_{15 18} | phi_{15 18} &gt;  = 1.00
+&lt; phi_{15 19} | phi_{15 19} &gt;  = 1.00
+&lt; phi_{15 20} | phi_{15 20} &gt;  = 1.00
+&lt; phi_{15 21} | phi_{15 21} &gt;  = 1.00
+&lt; phi_{15 22} | phi_{15 22} &gt;  = 1.00
+&lt; phi_{15 23} | phi_{15 23} &gt;  = 1.00
+&lt; phi_{15 24} | phi_{15 24} &gt;  = 1.00
+&lt; phi_{15 25} | phi_{15 25} &gt;  = 1.00
+&lt; phi_{15 26} | phi_{15 26} &gt;  = 1.00
+&lt; phi_{15 27} | phi_{15 27} &gt;  = 1.00
+&lt; phi_{15 28} | phi_{15 28} &gt;  = 1.00
+&lt; phi_{15 29} | phi_{15 29} &gt;  = 1.00
+&lt; phi_{15 30} | phi_{15 30} &gt;  = 1.00
+&lt; phi_{15 31} | phi_{15 31} &gt;  = 1.00
+&lt; phi_{15 32} | phi_{15 32} &gt;  = 1.00
+&lt; phi_{15 33} | phi_{15 33} &gt;  = 1.00
+&lt; phi_{15 34} | phi_{15 34} &gt;  = 1.00
+&lt; phi_{15 35} | phi_{15 35} &gt;  = 1.00
+&lt; phi_{15 36} | phi_{15 36} &gt;  = 1.00
+&lt; phi_{15 37} | phi_{15 37} &gt;  = 1.00
+&lt; phi_{15 38} | phi_{15 38} &gt;  = 1.00
+&lt; phi_{15 39} | phi_{15 39} &gt;  = 1.00
+&lt; phi_{15 40} | phi_{15 40} &gt;  = 1.00
+&lt; phi_{15 41} | phi_{15 41} &gt;  = 1.00
+&lt; phi_{15 42} | phi_{15 42} &gt;  = 1.00
+&lt; phi_{15 43} | phi_{15 43} &gt;  = 1.00
+&lt; phi_{15 44} | phi_{15 44} &gt;  = 1.00
+&lt; phi_{15 45} | phi_{15 45} &gt;  = 1.00
+&lt; phi_{15 46} | phi_{15 46} &gt;  = 1.00
+&lt; phi_{15 47} | phi_{15 47} &gt;  = 1.00
+&lt; phi_{15 48} | phi_{15 48} &gt;  = 1.00
+&lt; phi_{15 49} | phi_{15 49} &gt;  = 1.00
+&lt; phi_{16 1} | phi_{16 1} &gt;  = 1.00
+&lt; phi_{16 2} | phi_{16 2} &gt;  = 1.00
+&lt; phi_{16 3} | phi_{16 3} &gt;  = 1.00
+&lt; phi_{16 4} | phi_{16 4} &gt;  = 1.00
+&lt; phi_{16 5} | phi_{16 5} &gt;  = 1.00
+&lt; phi_{16 6} | phi_{16 6} &gt;  = 1.00
+&lt; phi_{16 7} | phi_{16 7} &gt;  = 1.00
+&lt; phi_{16 8} | phi_{16 8} &gt;  = 1.00
+&lt; phi_{16 9} | phi_{16 9} &gt;  = 1.00
+&lt; phi_{16 10} | phi_{16 10} &gt;  = 1.00
+&lt; phi_{16 11} | phi_{16 11} &gt;  = 1.00
+&lt; phi_{16 12} | phi_{16 12} &gt;  = 1.00
+&lt; phi_{16 13} | phi_{16 13} &gt;  = 1.00
+&lt; phi_{16 14} | phi_{16 14} &gt;  = 1.00
+&lt; phi_{16 15} | phi_{16 15} &gt;  = 1.00
+&lt; phi_{16 16} | phi_{16 16} &gt;  = 1.00
+&lt; phi_{16 17} | phi_{16 17} &gt;  = 1.00
+&lt; phi_{16 18} | phi_{16 18} &gt;  = 1.00
+&lt; phi_{16 19} | phi_{16 19} &gt;  = 1.00
+&lt; phi_{16 20} | phi_{16 20} &gt;  = 1.00
+&lt; phi_{16 21} | phi_{16 21} &gt;  = 1.00
+&lt; phi_{16 22} | phi_{16 22} &gt;  = 1.00
+&lt; phi_{16 23} | phi_{16 23} &gt;  = 1.00
+&lt; phi_{16 24} | phi_{16 24} &gt;  = 1.00
+&lt; phi_{16 25} | phi_{16 25} &gt;  = 1.00
+&lt; phi_{16 26} | phi_{16 26} &gt;  = 1.00
+&lt; phi_{16 27} | phi_{16 27} &gt;  = 1.00
+&lt; phi_{16 28} | phi_{16 28} &gt;  = 1.00
+&lt; phi_{16 29} | phi_{16 29} &gt;  = 1.00
+&lt; phi_{16 30} | phi_{16 30} &gt;  = 1.00
+&lt; phi_{16 31} | phi_{16 31} &gt;  = 1.00
+&lt; phi_{16 32} | phi_{16 32} &gt;  = 1.00
+&lt; phi_{16 33} | phi_{16 33} &gt;  = 1.00
+&lt; phi_{16 34} | phi_{16 34} &gt;  = 1.00
+&lt; phi_{16 35} | phi_{16 35} &gt;  = 1.00
+&lt; phi_{16 36} | phi_{16 36} &gt;  = 1.00
+&lt; phi_{16 37} | phi_{16 37} &gt;  = 1.00
+&lt; phi_{16 38} | phi_{16 38} &gt;  = 1.00
+&lt; phi_{16 39} | phi_{16 39} &gt;  = 1.00
+&lt; phi_{16 40} | phi_{16 40} &gt;  = 1.00
+&lt; phi_{16 41} | phi_{16 41} &gt;  = 1.00
+&lt; phi_{16 42} | phi_{16 42} &gt;  = 1.00
+&lt; phi_{16 43} | phi_{16 43} &gt;  = 1.00
+&lt; phi_{16 44} | phi_{16 44} &gt;  = 1.00
+&lt; phi_{16 45} | phi_{16 45} &gt;  = 1.00
+&lt; phi_{16 46} | phi_{16 46} &gt;  = 1.00
+&lt; phi_{16 47} | phi_{16 47} &gt;  = 1.00
+&lt; phi_{16 48} | phi_{16 48} &gt;  = 1.00
+&lt; phi_{16 49} | phi_{16 49} &gt;  = 1.00
+&lt; phi_{17 1} | phi_{17 1} &gt;  = 1.00
+&lt; phi_{17 2} | phi_{17 2} &gt;  = 1.00
+&lt; phi_{17 3} | phi_{17 3} &gt;  = 1.00
+&lt; phi_{17 4} | phi_{17 4} &gt;  = 1.00
+&lt; phi_{17 5} | phi_{17 5} &gt;  = 1.00
+&lt; phi_{17 6} | phi_{17 6} &gt;  = 1.00
+&lt; phi_{17 7} | phi_{17 7} &gt;  = 1.00
+&lt; phi_{17 8} | phi_{17 8} &gt;  = 1.00
+&lt; phi_{17 9} | phi_{17 9} &gt;  = 1.00
+&lt; phi_{17 10} | phi_{17 10} &gt;  = 1.00
+&lt; phi_{17 11} | phi_{17 11} &gt;  = 1.00
+&lt; phi_{17 12} | phi_{17 12} &gt;  = 1.00
+&lt; phi_{17 13} | phi_{17 13} &gt;  = 1.00
+&lt; phi_{17 14} | phi_{17 14} &gt;  = 1.00
+&lt; phi_{17 15} | phi_{17 15} &gt;  = 1.00
+&lt; phi_{17 16} | phi_{17 16} &gt;  = 1.00
+&lt; phi_{17 17} | phi_{17 17} &gt;  = 1.00
+&lt; phi_{17 18} | phi_{17 18} &gt;  = 1.00
+&lt; phi_{17 19} | phi_{17 19} &gt;  = 1.00
+&lt; phi_{17 20} | phi_{17 20} &gt;  = 1.00
+&lt; phi_{17 21} | phi_{17 21} &gt;  = 1.00
+&lt; phi_{17 22} | phi_{17 22} &gt;  = 1.00
+&lt; phi_{17 23} | phi_{17 23} &gt;  = 1.00
+&lt; phi_{17 24} | phi_{17 24} &gt;  = 1.00
+&lt; phi_{17 25} | phi_{17 25} &gt;  = 1.00
+&lt; phi_{17 26} | phi_{17 26} &gt;  = 1.00
+&lt; phi_{17 27} | phi_{17 27} &gt;  = 1.00
+&lt; phi_{17 28} | phi_{17 28} &gt;  = 1.00
+&lt; phi_{17 29} | phi_{17 29} &gt;  = 1.00
+&lt; phi_{17 30} | phi_{17 30} &gt;  = 1.00
+&lt; phi_{17 31} | phi_{17 31} &gt;  = 1.00
+&lt; phi_{17 32} | phi_{17 32} &gt;  = 1.00
+&lt; phi_{17 33} | phi_{17 33} &gt;  = 1.00
+&lt; phi_{17 34} | phi_{17 34} &gt;  = 1.00
+&lt; phi_{17 35} | phi_{17 35} &gt;  = 1.00
+&lt; phi_{17 36} | phi_{17 36} &gt;  = 1.00
+&lt; phi_{17 37} | phi_{17 37} &gt;  = 1.00
+&lt; phi_{17 38} | phi_{17 38} &gt;  = 1.00
+&lt; phi_{17 39} | phi_{17 39} &gt;  = 1.00
+&lt; phi_{17 40} | phi_{17 40} &gt;  = 1.00
+&lt; phi_{17 41} | phi_{17 41} &gt;  = 1.00
+&lt; phi_{17 42} | phi_{17 42} &gt;  = 1.00
+&lt; phi_{17 43} | phi_{17 43} &gt;  = 1.00
+&lt; phi_{17 44} | phi_{17 44} &gt;  = 1.00
+&lt; phi_{17 45} | phi_{17 45} &gt;  = 1.00
+&lt; phi_{17 46} | phi_{17 46} &gt;  = 1.00
+&lt; phi_{17 47} | phi_{17 47} &gt;  = 1.00
+&lt; phi_{17 48} | phi_{17 48} &gt;  = 1.00
+&lt; phi_{17 49} | phi_{17 49} &gt;  = 1.00
+&lt; phi_{18 1} | phi_{18 1} &gt;  = 1.00
+&lt; phi_{18 2} | phi_{18 2} &gt;  = 1.00
+&lt; phi_{18 3} | phi_{18 3} &gt;  = 1.00
+&lt; phi_{18 4} | phi_{18 4} &gt;  = 1.00
+&lt; phi_{18 5} | phi_{18 5} &gt;  = 1.00
+&lt; phi_{18 6} | phi_{18 6} &gt;  = 1.00
+&lt; phi_{18 7} | phi_{18 7} &gt;  = 1.00
+&lt; phi_{18 8} | phi_{18 8} &gt;  = 1.00
+&lt; phi_{18 9} | phi_{18 9} &gt;  = 1.00
+&lt; phi_{18 10} | phi_{18 10} &gt;  = 1.00
+&lt; phi_{18 11} | phi_{18 11} &gt;  = 1.00
+&lt; phi_{18 12} | phi_{18 12} &gt;  = 1.00
+&lt; phi_{18 13} | phi_{18 13} &gt;  = 1.00
+&lt; phi_{18 14} | phi_{18 14} &gt;  = 1.00
+&lt; phi_{18 15} | phi_{18 15} &gt;  = 1.00
+&lt; phi_{18 16} | phi_{18 16} &gt;  = 1.00
+&lt; phi_{18 17} | phi_{18 17} &gt;  = 1.00
+&lt; phi_{18 18} | phi_{18 18} &gt;  = 1.00
+&lt; phi_{18 19} | phi_{18 19} &gt;  = 1.00
+&lt; phi_{18 20} | phi_{18 20} &gt;  = 1.00
+&lt; phi_{18 21} | phi_{18 21} &gt;  = 1.00
+&lt; phi_{18 22} | phi_{18 22} &gt;  = 1.00
+&lt; phi_{18 23} | phi_{18 23} &gt;  = 1.00
+&lt; phi_{18 24} | phi_{18 24} &gt;  = 1.00
+&lt; phi_{18 25} | phi_{18 25} &gt;  = 1.00
+&lt; phi_{18 26} | phi_{18 26} &gt;  = 1.00
+&lt; phi_{18 27} | phi_{18 27} &gt;  = 1.00
+&lt; phi_{18 28} | phi_{18 28} &gt;  = 1.00
+&lt; phi_{18 29} | phi_{18 29} &gt;  = 1.00
+&lt; phi_{18 30} | phi_{18 30} &gt;  = 1.00
+&lt; phi_{18 31} | phi_{18 31} &gt;  = 1.00
+&lt; phi_{18 32} | phi_{18 32} &gt;  = 1.00
+&lt; phi_{18 33} | phi_{18 33} &gt;  = 1.00
+&lt; phi_{18 34} | phi_{18 34} &gt;  = 1.00
+&lt; phi_{18 35} | phi_{18 35} &gt;  = 1.00
+&lt; phi_{18 36} | phi_{18 36} &gt;  = 1.00
+&lt; phi_{18 37} | phi_{18 37} &gt;  = 1.00
+&lt; phi_{18 38} | phi_{18 38} &gt;  = 1.00
+&lt; phi_{18 39} | phi_{18 39} &gt;  = 1.00
+&lt; phi_{18 40} | phi_{18 40} &gt;  = 1.00
+&lt; phi_{18 41} | phi_{18 41} &gt;  = 1.00
+&lt; phi_{18 42} | phi_{18 42} &gt;  = 1.00
+&lt; phi_{18 43} | phi_{18 43} &gt;  = 1.00
+&lt; phi_{18 44} | phi_{18 44} &gt;  = 1.00
+&lt; phi_{18 45} | phi_{18 45} &gt;  = 1.00
+&lt; phi_{18 46} | phi_{18 46} &gt;  = 1.00
+&lt; phi_{18 47} | phi_{18 47} &gt;  = 1.00
+&lt; phi_{18 48} | phi_{18 48} &gt;  = 1.00
+&lt; phi_{18 49} | phi_{18 49} &gt;  = 1.00
+&lt; phi_{19 1} | phi_{19 1} &gt;  = 1.00
+&lt; phi_{19 2} | phi_{19 2} &gt;  = 1.00
+&lt; phi_{19 3} | phi_{19 3} &gt;  = 1.00
+&lt; phi_{19 4} | phi_{19 4} &gt;  = 1.00
+&lt; phi_{19 5} | phi_{19 5} &gt;  = 1.00
+&lt; phi_{19 6} | phi_{19 6} &gt;  = 1.00
+&lt; phi_{19 7} | phi_{19 7} &gt;  = 1.00
+&lt; phi_{19 8} | phi_{19 8} &gt;  = 1.00
+&lt; phi_{19 9} | phi_{19 9} &gt;  = 1.00
+&lt; phi_{19 10} | phi_{19 10} &gt;  = 1.00
+&lt; phi_{19 11} | phi_{19 11} &gt;  = 1.00
+&lt; phi_{19 12} | phi_{19 12} &gt;  = 1.00
+&lt; phi_{19 13} | phi_{19 13} &gt;  = 1.00
+&lt; phi_{19 14} | phi_{19 14} &gt;  = 1.00
+&lt; phi_{19 15} | phi_{19 15} &gt;  = 1.00
+&lt; phi_{19 16} | phi_{19 16} &gt;  = 1.00
+&lt; phi_{19 17} | phi_{19 17} &gt;  = 1.00
+&lt; phi_{19 18} | phi_{19 18} &gt;  = 1.00
+&lt; phi_{19 19} | phi_{19 19} &gt;  = 1.00
+&lt; phi_{19 20} | phi_{19 20} &gt;  = 1.00
+&lt; phi_{19 21} | phi_{19 21} &gt;  = 1.00
+&lt; phi_{19 22} | phi_{19 22} &gt;  = 1.00
+&lt; phi_{19 23} | phi_{19 23} &gt;  = 1.00
+&lt; phi_{19 24} | phi_{19 24} &gt;  = 1.00
+&lt; phi_{19 25} | phi_{19 25} &gt;  = 1.00
+&lt; phi_{19 26} | phi_{19 26} &gt;  = 1.00
+&lt; phi_{19 27} | phi_{19 27} &gt;  = 1.00
+&lt; phi_{19 28} | phi_{19 28} &gt;  = 1.00
+&lt; phi_{19 29} | phi_{19 29} &gt;  = 1.00
+&lt; phi_{19 30} | phi_{19 30} &gt;  = 1.00
+&lt; phi_{19 31} | phi_{19 31} &gt;  = 1.00
+&lt; phi_{19 32} | phi_{19 32} &gt;  = 1.00
+&lt; phi_{19 33} | phi_{19 33} &gt;  = 1.00
+&lt; phi_{19 34} | phi_{19 34} &gt;  = 1.00
+&lt; phi_{19 35} | phi_{19 35} &gt;  = 1.00
+&lt; phi_{19 36} | phi_{19 36} &gt;  = 1.00
+&lt; phi_{19 37} | phi_{19 37} &gt;  = 1.00
+&lt; phi_{19 38} | phi_{19 38} &gt;  = 1.00
+&lt; phi_{19 39} | phi_{19 39} &gt;  = 1.00
+&lt; phi_{19 40} | phi_{19 40} &gt;  = 1.00
+&lt; phi_{19 41} | phi_{19 41} &gt;  = 1.00
+&lt; phi_{19 42} | phi_{19 42} &gt;  = 1.00
+&lt; phi_{19 43} | phi_{19 43} &gt;  = 1.00
+&lt; phi_{19 44} | phi_{19 44} &gt;  = 1.00
+&lt; phi_{19 45} | phi_{19 45} &gt;  = 1.00
+&lt; phi_{19 46} | phi_{19 46} &gt;  = 1.00
+&lt; phi_{19 47} | phi_{19 47} &gt;  = 1.00
+&lt; phi_{19 48} | phi_{19 48} &gt;  = 1.00
+&lt; phi_{19 49} | phi_{19 49} &gt;  = 1.00
+&lt; phi_{20 1} | phi_{20 1} &gt;  = 1.00
+&lt; phi_{20 2} | phi_{20 2} &gt;  = 1.00
+&lt; phi_{20 3} | phi_{20 3} &gt;  = 1.00
+&lt; phi_{20 4} | phi_{20 4} &gt;  = 1.00
+&lt; phi_{20 5} | phi_{20 5} &gt;  = 1.00
+&lt; phi_{20 6} | phi_{20 6} &gt;  = 1.00
+&lt; phi_{20 7} | phi_{20 7} &gt;  = 1.00
+&lt; phi_{20 8} | phi_{20 8} &gt;  = 1.00
+&lt; phi_{20 9} | phi_{20 9} &gt;  = 1.00
+&lt; phi_{20 10} | phi_{20 10} &gt;  = 1.00
+&lt; phi_{20 11} | phi_{20 11} &gt;  = 1.00
+&lt; phi_{20 12} | phi_{20 12} &gt;  = 1.00
+&lt; phi_{20 13} | phi_{20 13} &gt;  = 1.00
+&lt; phi_{20 14} | phi_{20 14} &gt;  = 1.00
+&lt; phi_{20 15} | phi_{20 15} &gt;  = 1.00
+&lt; phi_{20 16} | phi_{20 16} &gt;  = 1.00
+&lt; phi_{20 17} | phi_{20 17} &gt;  = 1.00
+&lt; phi_{20 18} | phi_{20 18} &gt;  = 1.00
+&lt; phi_{20 19} | phi_{20 19} &gt;  = 1.00
+&lt; phi_{20 20} | phi_{20 20} &gt;  = 1.00
+&lt; phi_{20 21} | phi_{20 21} &gt;  = 1.00
+&lt; phi_{20 22} | phi_{20 22} &gt;  = 1.00
+&lt; phi_{20 23} | phi_{20 23} &gt;  = 1.00
+&lt; phi_{20 24} | phi_{20 24} &gt;  = 1.00
+&lt; phi_{20 25} | phi_{20 25} &gt;  = 1.00
+&lt; phi_{20 26} | phi_{20 26} &gt;  = 1.00
+&lt; phi_{20 27} | phi_{20 27} &gt;  = 1.00
+&lt; phi_{20 28} | phi_{20 28} &gt;  = 1.00
+&lt; phi_{20 29} | phi_{20 29} &gt;  = 1.00
+&lt; phi_{20 30} | phi_{20 30} &gt;  = 1.00
+&lt; phi_{20 31} | phi_{20 31} &gt;  = 1.00
+&lt; phi_{20 32} | phi_{20 32} &gt;  = 1.00
+&lt; phi_{20 33} | phi_{20 33} &gt;  = 1.00
+&lt; phi_{20 34} | phi_{20 34} &gt;  = 1.00
+&lt; phi_{20 35} | phi_{20 35} &gt;  = 1.00
+&lt; phi_{20 36} | phi_{20 36} &gt;  = 1.00
+&lt; phi_{20 37} | phi_{20 37} &gt;  = 1.00
+&lt; phi_{20 38} | phi_{20 38} &gt;  = 1.00
+&lt; phi_{20 39} | phi_{20 39} &gt;  = 1.00
+&lt; phi_{20 40} | phi_{20 40} &gt;  = 1.00
+&lt; phi_{20 41} | phi_{20 41} &gt;  = 1.00
+&lt; phi_{20 42} | phi_{20 42} &gt;  = 1.00
+&lt; phi_{20 43} | phi_{20 43} &gt;  = 1.00
+&lt; phi_{20 44} | phi_{20 44} &gt;  = 1.00
+&lt; phi_{20 45} | phi_{20 45} &gt;  = 1.00
+&lt; phi_{20 46} | phi_{20 46} &gt;  = 1.00
+&lt; phi_{20 47} | phi_{20 47} &gt;  = 1.00
+&lt; phi_{20 48} | phi_{20 48} &gt;  = 1.00
+&lt; phi_{20 49} | phi_{20 49} &gt;  = 1.00
+&lt; phi_{21 1} | phi_{21 1} &gt;  = 1.00
+&lt; phi_{21 2} | phi_{21 2} &gt;  = 1.00
+&lt; phi_{21 3} | phi_{21 3} &gt;  = 1.00
+&lt; phi_{21 4} | phi_{21 4} &gt;  = 1.00
+&lt; phi_{21 5} | phi_{21 5} &gt;  = 1.00
+&lt; phi_{21 6} | phi_{21 6} &gt;  = 1.00
+&lt; phi_{21 7} | phi_{21 7} &gt;  = 1.00
+&lt; phi_{21 8} | phi_{21 8} &gt;  = 1.00
+&lt; phi_{21 9} | phi_{21 9} &gt;  = 1.00
+&lt; phi_{21 10} | phi_{21 10} &gt;  = 1.00
+&lt; phi_{21 11} | phi_{21 11} &gt;  = 1.00
+&lt; phi_{21 12} | phi_{21 12} &gt;  = 1.00
+&lt; phi_{21 13} | phi_{21 13} &gt;  = 1.00
+&lt; phi_{21 14} | phi_{21 14} &gt;  = 1.00
+&lt; phi_{21 15} | phi_{21 15} &gt;  = 1.00
+&lt; phi_{21 16} | phi_{21 16} &gt;  = 1.00
+&lt; phi_{21 17} | phi_{21 17} &gt;  = 1.00
+&lt; phi_{21 18} | phi_{21 18} &gt;  = 1.00
+&lt; phi_{21 19} | phi_{21 19} &gt;  = 1.00
+&lt; phi_{21 20} | phi_{21 20} &gt;  = 1.00
+&lt; phi_{21 21} | phi_{21 21} &gt;  = 1.00
+&lt; phi_{21 22} | phi_{21 22} &gt;  = 1.00
+&lt; phi_{21 23} | phi_{21 23} &gt;  = 1.00
+&lt; phi_{21 24} | phi_{21 24} &gt;  = 1.00
+&lt; phi_{21 25} | phi_{21 25} &gt;  = 1.00
+&lt; phi_{21 26} | phi_{21 26} &gt;  = 1.00
+&lt; phi_{21 27} | phi_{21 27} &gt;  = 1.00
+&lt; phi_{21 28} | phi_{21 28} &gt;  = 1.00
+&lt; phi_{21 29} | phi_{21 29} &gt;  = 1.00
+&lt; phi_{21 30} | phi_{21 30} &gt;  = 1.00
+&lt; phi_{21 31} | phi_{21 31} &gt;  = 1.00
+&lt; phi_{21 32} | phi_{21 32} &gt;  = 1.00
+&lt; phi_{21 33} | phi_{21 33} &gt;  = 1.00
+&lt; phi_{21 34} | phi_{21 34} &gt;  = 1.00
+&lt; phi_{21 35} | phi_{21 35} &gt;  = 1.00
+&lt; phi_{21 36} | phi_{21 36} &gt;  = 1.00
+&lt; phi_{21 37} | phi_{21 37} &gt;  = 1.00
+&lt; phi_{21 38} | phi_{21 38} &gt;  = 1.00
+&lt; phi_{21 39} | phi_{21 39} &gt;  = 1.00
+&lt; phi_{21 40} | phi_{21 40} &gt;  = 1.00
+&lt; phi_{21 41} | phi_{21 41} &gt;  = 1.00
+&lt; phi_{21 42} | phi_{21 42} &gt;  = 1.00
+&lt; phi_{21 43} | phi_{21 43} &gt;  = 1.00
+&lt; phi_{21 44} | phi_{21 44} &gt;  = 1.00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt; phi_{21 45} | phi_{21 45} &gt;  = 1.00
+&lt; phi_{21 46} | phi_{21 46} &gt;  = 1.00
+&lt; phi_{21 47} | phi_{21 47} &gt;  = 1.00
+&lt; phi_{21 48} | phi_{21 48} &gt;  = 1.00
+&lt; phi_{21 49} | phi_{21 49} &gt;  = 1.00
+&lt; phi_{22 1} | phi_{22 1} &gt;  = 1.00
+&lt; phi_{22 2} | phi_{22 2} &gt;  = 1.00
+&lt; phi_{22 3} | phi_{22 3} &gt;  = 1.00
+&lt; phi_{22 4} | phi_{22 4} &gt;  = 1.00
+&lt; phi_{22 5} | phi_{22 5} &gt;  = 1.00
+&lt; phi_{22 6} | phi_{22 6} &gt;  = 1.00
+&lt; phi_{22 7} | phi_{22 7} &gt;  = 1.00
+&lt; phi_{22 8} | phi_{22 8} &gt;  = 1.00
+&lt; phi_{22 9} | phi_{22 9} &gt;  = 1.00
+&lt; phi_{22 10} | phi_{22 10} &gt;  = 1.00
+&lt; phi_{22 11} | phi_{22 11} &gt;  = 1.00
+&lt; phi_{22 12} | phi_{22 12} &gt;  = 1.00
+&lt; phi_{22 13} | phi_{22 13} &gt;  = 1.00
+&lt; phi_{22 14} | phi_{22 14} &gt;  = 1.00
+&lt; phi_{22 15} | phi_{22 15} &gt;  = 1.00
+&lt; phi_{22 16} | phi_{22 16} &gt;  = 1.00
+&lt; phi_{22 17} | phi_{22 17} &gt;  = 1.00
+&lt; phi_{22 18} | phi_{22 18} &gt;  = 1.00
+&lt; phi_{22 19} | phi_{22 19} &gt;  = 1.00
+&lt; phi_{22 20} | phi_{22 20} &gt;  = 1.00
+&lt; phi_{22 21} | phi_{22 21} &gt;  = 1.00
+&lt; phi_{22 22} | phi_{22 22} &gt;  = 1.00
+&lt; phi_{22 23} | phi_{22 23} &gt;  = 1.00
+&lt; phi_{22 24} | phi_{22 24} &gt;  = 1.00
+&lt; phi_{22 25} | phi_{22 25} &gt;  = 1.00
+&lt; phi_{22 26} | phi_{22 26} &gt;  = 1.00
+&lt; phi_{22 27} | phi_{22 27} &gt;  = 1.00
+&lt; phi_{22 28} | phi_{22 28} &gt;  = 1.00
+&lt; phi_{22 29} | phi_{22 29} &gt;  = 1.00
+&lt; phi_{22 30} | phi_{22 30} &gt;  = 1.00
+&lt; phi_{22 31} | phi_{22 31} &gt;  = 1.00
+&lt; phi_{22 32} | phi_{22 32} &gt;  = 1.00
+&lt; phi_{22 33} | phi_{22 33} &gt;  = 1.00
+&lt; phi_{22 34} | phi_{22 34} &gt;  = 1.00
+&lt; phi_{22 35} | phi_{22 35} &gt;  = 1.00
+&lt; phi_{22 36} | phi_{22 36} &gt;  = 1.00
+&lt; phi_{22 37} | phi_{22 37} &gt;  = 1.00
+&lt; phi_{22 38} | phi_{22 38} &gt;  = 1.00
+&lt; phi_{22 39} | phi_{22 39} &gt;  = 1.00
+&lt; phi_{22 40} | phi_{22 40} &gt;  = 1.00
+&lt; phi_{22 41} | phi_{22 41} &gt;  = 1.00
+&lt; phi_{22 42} | phi_{22 42} &gt;  = 1.00
+&lt; phi_{22 43} | phi_{22 43} &gt;  = 1.00
+&lt; phi_{22 44} | phi_{22 44} &gt;  = 1.00
+&lt; phi_{22 45} | phi_{22 45} &gt;  = 1.00
+&lt; phi_{22 46} | phi_{22 46} &gt;  = 1.00
+&lt; phi_{22 47} | phi_{22 47} &gt;  = 1.00
+&lt; phi_{22 48} | phi_{22 48} &gt;  = 1.00
+&lt; phi_{22 49} | phi_{22 49} &gt;  = 1.00
+&lt; phi_{23 1} | phi_{23 1} &gt;  = 1.00
+&lt; phi_{23 2} | phi_{23 2} &gt;  = 1.00
+&lt; phi_{23 3} | phi_{23 3} &gt;  = 1.00
+&lt; phi_{23 4} | phi_{23 4} &gt;  = 1.00
+&lt; phi_{23 5} | phi_{23 5} &gt;  = 1.00
+&lt; phi_{23 6} | phi_{23 6} &gt;  = 1.00
+&lt; phi_{23 7} | phi_{23 7} &gt;  = 1.00
+&lt; phi_{23 8} | phi_{23 8} &gt;  = 1.00
+&lt; phi_{23 9} | phi_{23 9} &gt;  = 1.00
+&lt; phi_{23 10} | phi_{23 10} &gt;  = 1.00
+&lt; phi_{23 11} | phi_{23 11} &gt;  = 1.00
+&lt; phi_{23 12} | phi_{23 12} &gt;  = 1.00
+&lt; phi_{23 13} | phi_{23 13} &gt;  = 1.00
+&lt; phi_{23 14} | phi_{23 14} &gt;  = 1.00
+&lt; phi_{23 15} | phi_{23 15} &gt;  = 1.00
+&lt; phi_{23 16} | phi_{23 16} &gt;  = 1.00
+&lt; phi_{23 17} | phi_{23 17} &gt;  = 1.00
+&lt; phi_{23 18} | phi_{23 18} &gt;  = 1.00
+&lt; phi_{23 19} | phi_{23 19} &gt;  = 1.00
+&lt; phi_{23 20} | phi_{23 20} &gt;  = 1.00
+&lt; phi_{23 21} | phi_{23 21} &gt;  = 1.00
+&lt; phi_{23 22} | phi_{23 22} &gt;  = 1.00
+&lt; phi_{23 23} | phi_{23 23} &gt;  = 1.00
+&lt; phi_{23 24} | phi_{23 24} &gt;  = 1.00
+&lt; phi_{23 25} | phi_{23 25} &gt;  = 1.00
+&lt; phi_{23 26} | phi_{23 26} &gt;  = 1.00
+&lt; phi_{23 27} | phi_{23 27} &gt;  = 1.00
+&lt; phi_{23 28} | phi_{23 28} &gt;  = 1.00
+&lt; phi_{23 29} | phi_{23 29} &gt;  = 1.00
+&lt; phi_{23 30} | phi_{23 30} &gt;  = 1.00
+&lt; phi_{23 31} | phi_{23 31} &gt;  = 1.00
+&lt; phi_{23 32} | phi_{23 32} &gt;  = 1.00
+&lt; phi_{23 33} | phi_{23 33} &gt;  = 1.00
+&lt; phi_{23 34} | phi_{23 34} &gt;  = 1.00
+&lt; phi_{23 35} | phi_{23 35} &gt;  = 1.00
+&lt; phi_{23 36} | phi_{23 36} &gt;  = 1.00
+&lt; phi_{23 37} | phi_{23 37} &gt;  = 1.00
+&lt; phi_{23 38} | phi_{23 38} &gt;  = 1.00
+&lt; phi_{23 39} | phi_{23 39} &gt;  = 1.00
+&lt; phi_{23 40} | phi_{23 40} &gt;  = 1.00
+&lt; phi_{23 41} | phi_{23 41} &gt;  = 1.00
+&lt; phi_{23 42} | phi_{23 42} &gt;  = 1.00
+&lt; phi_{23 43} | phi_{23 43} &gt;  = 1.00
+&lt; phi_{23 44} | phi_{23 44} &gt;  = 1.00
+&lt; phi_{23 45} | phi_{23 45} &gt;  = 1.00
+&lt; phi_{23 46} | phi_{23 46} &gt;  = 1.00
+&lt; phi_{23 47} | phi_{23 47} &gt;  = 1.00
+&lt; phi_{23 48} | phi_{23 48} &gt;  = 1.00
+&lt; phi_{23 49} | phi_{23 49} &gt;  = 1.00
+&lt; phi_{24 1} | phi_{24 1} &gt;  = 1.00
+&lt; phi_{24 2} | phi_{24 2} &gt;  = 1.00
+&lt; phi_{24 3} | phi_{24 3} &gt;  = 1.00
+&lt; phi_{24 4} | phi_{24 4} &gt;  = 1.00
+&lt; phi_{24 5} | phi_{24 5} &gt;  = 1.00
+&lt; phi_{24 6} | phi_{24 6} &gt;  = 1.00
+&lt; phi_{24 7} | phi_{24 7} &gt;  = 1.00
+&lt; phi_{24 8} | phi_{24 8} &gt;  = 1.00
+&lt; phi_{24 9} | phi_{24 9} &gt;  = 1.00
+&lt; phi_{24 10} | phi_{24 10} &gt;  = 1.00
+&lt; phi_{24 11} | phi_{24 11} &gt;  = 1.00
+&lt; phi_{24 12} | phi_{24 12} &gt;  = 1.00
+&lt; phi_{24 13} | phi_{24 13} &gt;  = 1.00
+&lt; phi_{24 14} | phi_{24 14} &gt;  = 1.00
+&lt; phi_{24 15} | phi_{24 15} &gt;  = 1.00
+&lt; phi_{24 16} | phi_{24 16} &gt;  = 1.00
+&lt; phi_{24 17} | phi_{24 17} &gt;  = 1.00
+&lt; phi_{24 18} | phi_{24 18} &gt;  = 1.00
+&lt; phi_{24 19} | phi_{24 19} &gt;  = 1.00
+&lt; phi_{24 20} | phi_{24 20} &gt;  = 1.00
+&lt; phi_{24 21} | phi_{24 21} &gt;  = 1.00
+&lt; phi_{24 22} | phi_{24 22} &gt;  = 1.00
+&lt; phi_{24 23} | phi_{24 23} &gt;  = 1.00
+&lt; phi_{24 24} | phi_{24 24} &gt;  = 1.00
+&lt; phi_{24 25} | phi_{24 25} &gt;  = 1.00
+&lt; phi_{24 26} | phi_{24 26} &gt;  = 1.00
+&lt; phi_{24 27} | phi_{24 27} &gt;  = 1.00
+&lt; phi_{24 28} | phi_{24 28} &gt;  = 1.00
+&lt; phi_{24 29} | phi_{24 29} &gt;  = 1.00
+&lt; phi_{24 30} | phi_{24 30} &gt;  = 1.00
+&lt; phi_{24 31} | phi_{24 31} &gt;  = 1.00
+&lt; phi_{24 32} | phi_{24 32} &gt;  = 1.00
+&lt; phi_{24 33} | phi_{24 33} &gt;  = 1.00
+&lt; phi_{24 34} | phi_{24 34} &gt;  = 1.00
+&lt; phi_{24 35} | phi_{24 35} &gt;  = 1.00
+&lt; phi_{24 36} | phi_{24 36} &gt;  = 1.00
+&lt; phi_{24 37} | phi_{24 37} &gt;  = 1.00
+&lt; phi_{24 38} | phi_{24 38} &gt;  = 1.00
+&lt; phi_{24 39} | phi_{24 39} &gt;  = 1.00
+&lt; phi_{24 40} | phi_{24 40} &gt;  = 1.00
+&lt; phi_{24 41} | phi_{24 41} &gt;  = 1.00
+&lt; phi_{24 42} | phi_{24 42} &gt;  = 1.00
+&lt; phi_{24 43} | phi_{24 43} &gt;  = 1.00
+&lt; phi_{24 44} | phi_{24 44} &gt;  = 1.00
+&lt; phi_{24 45} | phi_{24 45} &gt;  = 1.00
+&lt; phi_{24 46} | phi_{24 46} &gt;  = 1.00
+&lt; phi_{24 47} | phi_{24 47} &gt;  = 1.00
+&lt; phi_{24 48} | phi_{24 48} &gt;  = 1.00
+&lt; phi_{24 49} | phi_{24 49} &gt;  = 1.00
+&lt; phi_{25 1} | phi_{25 1} &gt;  = 1.00
+&lt; phi_{25 2} | phi_{25 2} &gt;  = 1.00
+&lt; phi_{25 3} | phi_{25 3} &gt;  = 1.00
+&lt; phi_{25 4} | phi_{25 4} &gt;  = 1.00
+&lt; phi_{25 5} | phi_{25 5} &gt;  = 1.00
+&lt; phi_{25 6} | phi_{25 6} &gt;  = 1.00
+&lt; phi_{25 7} | phi_{25 7} &gt;  = 1.00
+&lt; phi_{25 8} | phi_{25 8} &gt;  = 1.00
+&lt; phi_{25 9} | phi_{25 9} &gt;  = 1.00
+&lt; phi_{25 10} | phi_{25 10} &gt;  = 1.00
+&lt; phi_{25 11} | phi_{25 11} &gt;  = 1.00
+&lt; phi_{25 12} | phi_{25 12} &gt;  = 1.00
+&lt; phi_{25 13} | phi_{25 13} &gt;  = 1.00
+&lt; phi_{25 14} | phi_{25 14} &gt;  = 1.00
+&lt; phi_{25 15} | phi_{25 15} &gt;  = 1.00
+&lt; phi_{25 16} | phi_{25 16} &gt;  = 1.00
+&lt; phi_{25 17} | phi_{25 17} &gt;  = 1.00
+&lt; phi_{25 18} | phi_{25 18} &gt;  = 1.00
+&lt; phi_{25 19} | phi_{25 19} &gt;  = 1.00
+&lt; phi_{25 20} | phi_{25 20} &gt;  = 1.00
+&lt; phi_{25 21} | phi_{25 21} &gt;  = 1.00
+&lt; phi_{25 22} | phi_{25 22} &gt;  = 1.00
+&lt; phi_{25 23} | phi_{25 23} &gt;  = 1.00
+&lt; phi_{25 24} | phi_{25 24} &gt;  = 1.00
+&lt; phi_{25 25} | phi_{25 25} &gt;  = 1.00
+&lt; phi_{25 26} | phi_{25 26} &gt;  = 1.00
+&lt; phi_{25 27} | phi_{25 27} &gt;  = 1.00
+&lt; phi_{25 28} | phi_{25 28} &gt;  = 1.00
+&lt; phi_{25 29} | phi_{25 29} &gt;  = 1.00
+&lt; phi_{25 30} | phi_{25 30} &gt;  = 1.00
+&lt; phi_{25 31} | phi_{25 31} &gt;  = 1.00
+&lt; phi_{25 32} | phi_{25 32} &gt;  = 1.00
+&lt; phi_{25 33} | phi_{25 33} &gt;  = 1.00
+&lt; phi_{25 34} | phi_{25 34} &gt;  = 1.00
+&lt; phi_{25 35} | phi_{25 35} &gt;  = 1.00
+&lt; phi_{25 36} | phi_{25 36} &gt;  = 1.00
+&lt; phi_{25 37} | phi_{25 37} &gt;  = 1.00
+&lt; phi_{25 38} | phi_{25 38} &gt;  = 1.00
+&lt; phi_{25 39} | phi_{25 39} &gt;  = 1.00
+&lt; phi_{25 40} | phi_{25 40} &gt;  = 1.00
+&lt; phi_{25 41} | phi_{25 41} &gt;  = 1.00
+&lt; phi_{25 42} | phi_{25 42} &gt;  = 1.00
+&lt; phi_{25 43} | phi_{25 43} &gt;  = 1.00
+&lt; phi_{25 44} | phi_{25 44} &gt;  = 1.00
+&lt; phi_{25 45} | phi_{25 45} &gt;  = 1.00
+&lt; phi_{25 46} | phi_{25 46} &gt;  = 1.00
+&lt; phi_{25 47} | phi_{25 47} &gt;  = 1.00
+&lt; phi_{25 48} | phi_{25 48} &gt;  = 1.00
+&lt; phi_{25 49} | phi_{25 49} &gt;  = 1.00
+&lt; phi_{26 1} | phi_{26 1} &gt;  = 1.00
+&lt; phi_{26 2} | phi_{26 2} &gt;  = 1.00
+&lt; phi_{26 3} | phi_{26 3} &gt;  = 1.00
+&lt; phi_{26 4} | phi_{26 4} &gt;  = 1.00
+&lt; phi_{26 5} | phi_{26 5} &gt;  = 1.00
+&lt; phi_{26 6} | phi_{26 6} &gt;  = 1.00
+&lt; phi_{26 7} | phi_{26 7} &gt;  = 1.00
+&lt; phi_{26 8} | phi_{26 8} &gt;  = 1.00
+&lt; phi_{26 9} | phi_{26 9} &gt;  = 1.00
+&lt; phi_{26 10} | phi_{26 10} &gt;  = 1.00
+&lt; phi_{26 11} | phi_{26 11} &gt;  = 1.00
+&lt; phi_{26 12} | phi_{26 12} &gt;  = 1.00
+&lt; phi_{26 13} | phi_{26 13} &gt;  = 1.00
+&lt; phi_{26 14} | phi_{26 14} &gt;  = 1.00
+&lt; phi_{26 15} | phi_{26 15} &gt;  = 1.00
+&lt; phi_{26 16} | phi_{26 16} &gt;  = 1.00
+&lt; phi_{26 17} | phi_{26 17} &gt;  = 1.00
+&lt; phi_{26 18} | phi_{26 18} &gt;  = 1.00
+&lt; phi_{26 19} | phi_{26 19} &gt;  = 1.00
+&lt; phi_{26 20} | phi_{26 20} &gt;  = 1.00
+&lt; phi_{26 21} | phi_{26 21} &gt;  = 1.00
+&lt; phi_{26 22} | phi_{26 22} &gt;  = 1.00
+&lt; phi_{26 23} | phi_{26 23} &gt;  = 1.00
+&lt; phi_{26 24} | phi_{26 24} &gt;  = 1.00
+&lt; phi_{26 25} | phi_{26 25} &gt;  = 1.00
+&lt; phi_{26 26} | phi_{26 26} &gt;  = 1.00
+&lt; phi_{26 27} | phi_{26 27} &gt;  = 1.00
+&lt; phi_{26 28} | phi_{26 28} &gt;  = 1.00
+&lt; phi_{26 29} | phi_{26 29} &gt;  = 1.00
+&lt; phi_{26 30} | phi_{26 30} &gt;  = 1.00
+&lt; phi_{26 31} | phi_{26 31} &gt;  = 1.00
+&lt; phi_{26 32} | phi_{26 32} &gt;  = 1.00
+&lt; phi_{26 33} | phi_{26 33} &gt;  = 1.00
+&lt; phi_{26 34} | phi_{26 34} &gt;  = 1.00
+&lt; phi_{26 35} | phi_{26 35} &gt;  = 1.00
+&lt; phi_{26 36} | phi_{26 36} &gt;  = 1.00
+&lt; phi_{26 37} | phi_{26 37} &gt;  = 1.00
+&lt; phi_{26 38} | phi_{26 38} &gt;  = 1.00
+&lt; phi_{26 39} | phi_{26 39} &gt;  = 1.00
+&lt; phi_{26 40} | phi_{26 40} &gt;  = 1.00
+&lt; phi_{26 41} | phi_{26 41} &gt;  = 1.00
+&lt; phi_{26 42} | phi_{26 42} &gt;  = 1.00
+&lt; phi_{26 43} | phi_{26 43} &gt;  = 1.00
+&lt; phi_{26 44} | phi_{26 44} &gt;  = 1.00
+&lt; phi_{26 45} | phi_{26 45} &gt;  = 1.00
+&lt; phi_{26 46} | phi_{26 46} &gt;  = 1.00
+&lt; phi_{26 47} | phi_{26 47} &gt;  = 1.00
+&lt; phi_{26 48} | phi_{26 48} &gt;  = 1.00
+&lt; phi_{26 49} | phi_{26 49} &gt;  = 1.00
+&lt; phi_{27 1} | phi_{27 1} &gt;  = 1.00
+&lt; phi_{27 2} | phi_{27 2} &gt;  = 1.00
+&lt; phi_{27 3} | phi_{27 3} &gt;  = 1.00
+&lt; phi_{27 4} | phi_{27 4} &gt;  = 1.00
+&lt; phi_{27 5} | phi_{27 5} &gt;  = 1.00
+&lt; phi_{27 6} | phi_{27 6} &gt;  = 1.00
+&lt; phi_{27 7} | phi_{27 7} &gt;  = 1.00
+&lt; phi_{27 8} | phi_{27 8} &gt;  = 1.00
+&lt; phi_{27 9} | phi_{27 9} &gt;  = 1.00
+&lt; phi_{27 10} | phi_{27 10} &gt;  = 1.00
+&lt; phi_{27 11} | phi_{27 11} &gt;  = 1.00
+&lt; phi_{27 12} | phi_{27 12} &gt;  = 1.00
+&lt; phi_{27 13} | phi_{27 13} &gt;  = 1.00
+&lt; phi_{27 14} | phi_{27 14} &gt;  = 1.00
+&lt; phi_{27 15} | phi_{27 15} &gt;  = 1.00
+&lt; phi_{27 16} | phi_{27 16} &gt;  = 1.00
+&lt; phi_{27 17} | phi_{27 17} &gt;  = 1.00
+&lt; phi_{27 18} | phi_{27 18} &gt;  = 1.00
+&lt; phi_{27 19} | phi_{27 19} &gt;  = 1.00
+&lt; phi_{27 20} | phi_{27 20} &gt;  = 1.00
+&lt; phi_{27 21} | phi_{27 21} &gt;  = 1.00
+&lt; phi_{27 22} | phi_{27 22} &gt;  = 1.00
+&lt; phi_{27 23} | phi_{27 23} &gt;  = 1.00
+&lt; phi_{27 24} | phi_{27 24} &gt;  = 1.00
+&lt; phi_{27 25} | phi_{27 25} &gt;  = 1.00
+&lt; phi_{27 26} | phi_{27 26} &gt;  = 1.00
+&lt; phi_{27 27} | phi_{27 27} &gt;  = 1.00
+&lt; phi_{27 28} | phi_{27 28} &gt;  = 1.00
+&lt; phi_{27 29} | phi_{27 29} &gt;  = 1.00
+&lt; phi_{27 30} | phi_{27 30} &gt;  = 1.00
+&lt; phi_{27 31} | phi_{27 31} &gt;  = 1.00
+&lt; phi_{27 32} | phi_{27 32} &gt;  = 1.00
+&lt; phi_{27 33} | phi_{27 33} &gt;  = 1.00
+&lt; phi_{27 34} | phi_{27 34} &gt;  = 1.00
+&lt; phi_{27 35} | phi_{27 35} &gt;  = 1.00
+&lt; phi_{27 36} | phi_{27 36} &gt;  = 1.00
+&lt; phi_{27 37} | phi_{27 37} &gt;  = 1.00
+&lt; phi_{27 38} | phi_{27 38} &gt;  = 1.00
+&lt; phi_{27 39} | phi_{27 39} &gt;  = 1.00
+&lt; phi_{27 40} | phi_{27 40} &gt;  = 1.00
+&lt; phi_{27 41} | phi_{27 41} &gt;  = 1.00
+&lt; phi_{27 42} | phi_{27 42} &gt;  = 1.00
+&lt; phi_{27 43} | phi_{27 43} &gt;  = 1.00
+&lt; phi_{27 44} | phi_{27 44} &gt;  = 1.00
+&lt; phi_{27 45} | phi_{27 45} &gt;  = 1.00
+&lt; phi_{27 46} | phi_{27 46} &gt;  = 1.00
+&lt; phi_{27 47} | phi_{27 47} &gt;  = 1.00
+&lt; phi_{27 48} | phi_{27 48} &gt;  = 1.00
+&lt; phi_{27 49} | phi_{27 49} &gt;  = 1.00
+&lt; phi_{28 1} | phi_{28 1} &gt;  = 1.00
+&lt; phi_{28 2} | phi_{28 2} &gt;  = 1.00
+&lt; phi_{28 3} | phi_{28 3} &gt;  = 1.00
+&lt; phi_{28 4} | phi_{28 4} &gt;  = 1.00
+&lt; phi_{28 5} | phi_{28 5} &gt;  = 1.00
+&lt; phi_{28 6} | phi_{28 6} &gt;  = 1.00
+&lt; phi_{28 7} | phi_{28 7} &gt;  = 1.00
+&lt; phi_{28 8} | phi_{28 8} &gt;  = 1.00
+&lt; phi_{28 9} | phi_{28 9} &gt;  = 1.00
+&lt; phi_{28 10} | phi_{28 10} &gt;  = 1.00
+&lt; phi_{28 11} | phi_{28 11} &gt;  = 1.00
+&lt; phi_{28 12} | phi_{28 12} &gt;  = 1.00
+&lt; phi_{28 13} | phi_{28 13} &gt;  = 1.00
+&lt; phi_{28 14} | phi_{28 14} &gt;  = 1.00
+&lt; phi_{28 15} | phi_{28 15} &gt;  = 1.00
+&lt; phi_{28 16} | phi_{28 16} &gt;  = 1.00
+&lt; phi_{28 17} | phi_{28 17} &gt;  = 1.00
+&lt; phi_{28 18} | phi_{28 18} &gt;  = 1.00
+&lt; phi_{28 19} | phi_{28 19} &gt;  = 1.00
+&lt; phi_{28 20} | phi_{28 20} &gt;  = 1.00
+&lt; phi_{28 21} | phi_{28 21} &gt;  = 1.00
+&lt; phi_{28 22} | phi_{28 22} &gt;  = 1.00
+&lt; phi_{28 23} | phi_{28 23} &gt;  = 1.00
+&lt; phi_{28 24} | phi_{28 24} &gt;  = 1.00
+&lt; phi_{28 25} | phi_{28 25} &gt;  = 1.00
+&lt; phi_{28 26} | phi_{28 26} &gt;  = 1.00
+&lt; phi_{28 27} | phi_{28 27} &gt;  = 1.00
+&lt; phi_{28 28} | phi_{28 28} &gt;  = 1.00
+&lt; phi_{28 29} | phi_{28 29} &gt;  = 1.00
+&lt; phi_{28 30} | phi_{28 30} &gt;  = 1.00
+&lt; phi_{28 31} | phi_{28 31} &gt;  = 1.00
+&lt; phi_{28 32} | phi_{28 32} &gt;  = 1.00
+&lt; phi_{28 33} | phi_{28 33} &gt;  = 1.00
+&lt; phi_{28 34} | phi_{28 34} &gt;  = 1.00
+&lt; phi_{28 35} | phi_{28 35} &gt;  = 1.00
+&lt; phi_{28 36} | phi_{28 36} &gt;  = 1.00
+&lt; phi_{28 37} | phi_{28 37} &gt;  = 1.00
+&lt; phi_{28 38} | phi_{28 38} &gt;  = 1.00
+&lt; phi_{28 39} | phi_{28 39} &gt;  = 1.00
+&lt; phi_{28 40} | phi_{28 40} &gt;  = 1.00
+&lt; phi_{28 41} | phi_{28 41} &gt;  = 1.00
+&lt; phi_{28 42} | phi_{28 42} &gt;  = 1.00
+&lt; phi_{28 43} | phi_{28 43} &gt;  = 1.00
+&lt; phi_{28 44} | phi_{28 44} &gt;  = 1.00
+&lt; phi_{28 45} | phi_{28 45} &gt;  = 1.00
+&lt; phi_{28 46} | phi_{28 46} &gt;  = 1.00
+&lt; phi_{28 47} | phi_{28 47} &gt;  = 1.00
+&lt; phi_{28 48} | phi_{28 48} &gt;  = 1.00
+&lt; phi_{28 49} | phi_{28 49} &gt;  = 1.00
+&lt; phi_{29 1} | phi_{29 1} &gt;  = 1.00
+&lt; phi_{29 2} | phi_{29 2} &gt;  = 1.00
+&lt; phi_{29 3} | phi_{29 3} &gt;  = 1.00
+&lt; phi_{29 4} | phi_{29 4} &gt;  = 1.00
+&lt; phi_{29 5} | phi_{29 5} &gt;  = 1.00
+&lt; phi_{29 6} | phi_{29 6} &gt;  = 1.00
+&lt; phi_{29 7} | phi_{29 7} &gt;  = 1.00
+&lt; phi_{29 8} | phi_{29 8} &gt;  = 1.00
+&lt; phi_{29 9} | phi_{29 9} &gt;  = 1.00
+&lt; phi_{29 10} | phi_{29 10} &gt;  = 1.00
+&lt; phi_{29 11} | phi_{29 11} &gt;  = 1.00
+&lt; phi_{29 12} | phi_{29 12} &gt;  = 1.00
+&lt; phi_{29 13} | phi_{29 13} &gt;  = 1.00
+&lt; phi_{29 14} | phi_{29 14} &gt;  = 1.00
+&lt; phi_{29 15} | phi_{29 15} &gt;  = 1.00
+&lt; phi_{29 16} | phi_{29 16} &gt;  = 1.00
+&lt; phi_{29 17} | phi_{29 17} &gt;  = 1.00
+&lt; phi_{29 18} | phi_{29 18} &gt;  = 1.00
+&lt; phi_{29 19} | phi_{29 19} &gt;  = 1.00
+&lt; phi_{29 20} | phi_{29 20} &gt;  = 1.00
+&lt; phi_{29 21} | phi_{29 21} &gt;  = 1.00
+&lt; phi_{29 22} | phi_{29 22} &gt;  = 1.00
+&lt; phi_{29 23} | phi_{29 23} &gt;  = 1.00
+&lt; phi_{29 24} | phi_{29 24} &gt;  = 1.00
+&lt; phi_{29 25} | phi_{29 25} &gt;  = 1.00
+&lt; phi_{29 26} | phi_{29 26} &gt;  = 1.00
+&lt; phi_{29 27} | phi_{29 27} &gt;  = 1.00
+&lt; phi_{29 28} | phi_{29 28} &gt;  = 1.00
+&lt; phi_{29 29} | phi_{29 29} &gt;  = 1.00
+&lt; phi_{29 30} | phi_{29 30} &gt;  = 1.00
+&lt; phi_{29 31} | phi_{29 31} &gt;  = 1.00
+&lt; phi_{29 32} | phi_{29 32} &gt;  = 1.00
+&lt; phi_{29 33} | phi_{29 33} &gt;  = 1.00
+&lt; phi_{29 34} | phi_{29 34} &gt;  = 1.00
+&lt; phi_{29 35} | phi_{29 35} &gt;  = 1.00
+&lt; phi_{29 36} | phi_{29 36} &gt;  = 1.00
+&lt; phi_{29 37} | phi_{29 37} &gt;  = 1.00
+&lt; phi_{29 38} | phi_{29 38} &gt;  = 1.00
+&lt; phi_{29 39} | phi_{29 39} &gt;  = 1.00
+&lt; phi_{29 40} | phi_{29 40} &gt;  = 1.00
+&lt; phi_{29 41} | phi_{29 41} &gt;  = 1.00
+&lt; phi_{29 42} | phi_{29 42} &gt;  = 1.00
+&lt; phi_{29 43} | phi_{29 43} &gt;  = 1.00
+&lt; phi_{29 44} | phi_{29 44} &gt;  = 1.00
+&lt; phi_{29 45} | phi_{29 45} &gt;  = 1.00
+&lt; phi_{29 46} | phi_{29 46} &gt;  = 1.00
+&lt; phi_{29 47} | phi_{29 47} &gt;  = 1.00
+&lt; phi_{29 48} | phi_{29 48} &gt;  = 1.00
+&lt; phi_{29 49} | phi_{29 49} &gt;  = 1.00
+&lt; phi_{30 1} | phi_{30 1} &gt;  = 1.00
+&lt; phi_{30 2} | phi_{30 2} &gt;  = 1.00
+&lt; phi_{30 3} | phi_{30 3} &gt;  = 1.00
+&lt; phi_{30 4} | phi_{30 4} &gt;  = 1.00
+&lt; phi_{30 5} | phi_{30 5} &gt;  = 1.00
+&lt; phi_{30 6} | phi_{30 6} &gt;  = 1.00
+&lt; phi_{30 7} | phi_{30 7} &gt;  = 1.00
+&lt; phi_{30 8} | phi_{30 8} &gt;  = 1.00
+&lt; phi_{30 9} | phi_{30 9} &gt;  = 1.00
+&lt; phi_{30 10} | phi_{30 10} &gt;  = 1.00
+&lt; phi_{30 11} | phi_{30 11} &gt;  = 1.00
+&lt; phi_{30 12} | phi_{30 12} &gt;  = 1.00
+&lt; phi_{30 13} | phi_{30 13} &gt;  = 1.00
+&lt; phi_{30 14} | phi_{30 14} &gt;  = 1.00
+&lt; phi_{30 15} | phi_{30 15} &gt;  = 1.00
+&lt; phi_{30 16} | phi_{30 16} &gt;  = 1.00
+&lt; phi_{30 17} | phi_{30 17} &gt;  = 1.00
+&lt; phi_{30 18} | phi_{30 18} &gt;  = 1.00
+&lt; phi_{30 19} | phi_{30 19} &gt;  = 1.00
+&lt; phi_{30 20} | phi_{30 20} &gt;  = 1.00
+&lt; phi_{30 21} | phi_{30 21} &gt;  = 1.00
+&lt; phi_{30 22} | phi_{30 22} &gt;  = 1.00
+&lt; phi_{30 23} | phi_{30 23} &gt;  = 1.00
+&lt; phi_{30 24} | phi_{30 24} &gt;  = 1.00
+&lt; phi_{30 25} | phi_{30 25} &gt;  = 1.00
+&lt; phi_{30 26} | phi_{30 26} &gt;  = 1.00
+&lt; phi_{30 27} | phi_{30 27} &gt;  = 1.00
+&lt; phi_{30 28} | phi_{30 28} &gt;  = 1.00
+&lt; phi_{30 29} | phi_{30 29} &gt;  = 1.00
+&lt; phi_{30 30} | phi_{30 30} &gt;  = 1.00
+&lt; phi_{30 31} | phi_{30 31} &gt;  = 1.00
+&lt; phi_{30 32} | phi_{30 32} &gt;  = 1.00
+&lt; phi_{30 33} | phi_{30 33} &gt;  = 1.00
+&lt; phi_{30 34} | phi_{30 34} &gt;  = 1.00
+&lt; phi_{30 35} | phi_{30 35} &gt;  = 1.00
+&lt; phi_{30 36} | phi_{30 36} &gt;  = 1.00
+&lt; phi_{30 37} | phi_{30 37} &gt;  = 1.00
+&lt; phi_{30 38} | phi_{30 38} &gt;  = 1.00
+&lt; phi_{30 39} | phi_{30 39} &gt;  = 1.00
+&lt; phi_{30 40} | phi_{30 40} &gt;  = 1.00
+&lt; phi_{30 41} | phi_{30 41} &gt;  = 1.00
+&lt; phi_{30 42} | phi_{30 42} &gt;  = 1.00
+&lt; phi_{30 43} | phi_{30 43} &gt;  = 1.00
+&lt; phi_{30 44} | phi_{30 44} &gt;  = 1.00
+&lt; phi_{30 45} | phi_{30 45} &gt;  = 1.00
+&lt; phi_{30 46} | phi_{30 46} &gt;  = 1.00
+&lt; phi_{30 47} | phi_{30 47} &gt;  = 1.00
+&lt; phi_{30 48} | phi_{30 48} &gt;  = 1.00
+&lt; phi_{30 49} | phi_{30 49} &gt;  = 1.00
+&lt; phi_{31 1} | phi_{31 1} &gt;  = 1.00
+&lt; phi_{31 2} | phi_{31 2} &gt;  = 1.00
+&lt; phi_{31 3} | phi_{31 3} &gt;  = 1.00
+&lt; phi_{31 4} | phi_{31 4} &gt;  = 1.00
+&lt; phi_{31 5} | phi_{31 5} &gt;  = 1.00
+&lt; phi_{31 6} | phi_{31 6} &gt;  = 1.00
+&lt; phi_{31 7} | phi_{31 7} &gt;  = 1.00
+&lt; phi_{31 8} | phi_{31 8} &gt;  = 1.00
+&lt; phi_{31 9} | phi_{31 9} &gt;  = 1.00
+&lt; phi_{31 10} | phi_{31 10} &gt;  = 1.00
+&lt; phi_{31 11} | phi_{31 11} &gt;  = 1.00
+&lt; phi_{31 12} | phi_{31 12} &gt;  = 1.00
+&lt; phi_{31 13} | phi_{31 13} &gt;  = 1.00
+&lt; phi_{31 14} | phi_{31 14} &gt;  = 1.00
+&lt; phi_{31 15} | phi_{31 15} &gt;  = 1.00
+&lt; phi_{31 16} | phi_{31 16} &gt;  = 1.00
+&lt; phi_{31 17} | phi_{31 17} &gt;  = 1.00
+&lt; phi_{31 18} | phi_{31 18} &gt;  = 1.00
+&lt; phi_{31 19} | phi_{31 19} &gt;  = 1.00
+&lt; phi_{31 20} | phi_{31 20} &gt;  = 1.00
+&lt; phi_{31 21} | phi_{31 21} &gt;  = 1.00
+&lt; phi_{31 22} | phi_{31 22} &gt;  = 1.00
+&lt; phi_{31 23} | phi_{31 23} &gt;  = 1.00
+&lt; phi_{31 24} | phi_{31 24} &gt;  = 1.00
+&lt; phi_{31 25} | phi_{31 25} &gt;  = 1.00
+&lt; phi_{31 26} | phi_{31 26} &gt;  = 1.00
+&lt; phi_{31 27} | phi_{31 27} &gt;  = 1.00
+&lt; phi_{31 28} | phi_{31 28} &gt;  = 1.00
+&lt; phi_{31 29} | phi_{31 29} &gt;  = 1.00
+&lt; phi_{31 30} | phi_{31 30} &gt;  = 1.00
+&lt; phi_{31 31} | phi_{31 31} &gt;  = 1.00
+&lt; phi_{31 32} | phi_{31 32} &gt;  = 1.00
+&lt; phi_{31 33} | phi_{31 33} &gt;  = 1.00
+&lt; phi_{31 34} | phi_{31 34} &gt;  = 1.00
+&lt; phi_{31 35} | phi_{31 35} &gt;  = 1.00
+&lt; phi_{31 36} | phi_{31 36} &gt;  = 1.00
+&lt; phi_{31 37} | phi_{31 37} &gt;  = 1.00
+&lt; phi_{31 38} | phi_{31 38} &gt;  = 1.00
+&lt; phi_{31 39} | phi_{31 39} &gt;  = 1.00
+&lt; phi_{31 40} | phi_{31 40} &gt;  = 1.00
+&lt; phi_{31 41} | phi_{31 41} &gt;  = 1.00
+&lt; phi_{31 42} | phi_{31 42} &gt;  = 1.00
+&lt; phi_{31 43} | phi_{31 43} &gt;  = 1.00
+&lt; phi_{31 44} | phi_{31 44} &gt;  = 1.00
+&lt; phi_{31 45} | phi_{31 45} &gt;  = 1.00
+&lt; phi_{31 46} | phi_{31 46} &gt;  = 1.00
+&lt; phi_{31 47} | phi_{31 47} &gt;  = 1.00
+&lt; phi_{31 48} | phi_{31 48} &gt;  = 1.00
+&lt; phi_{31 49} | phi_{31 49} &gt;  = 1.00
+&lt; phi_{32 1} | phi_{32 1} &gt;  = 1.00
+&lt; phi_{32 2} | phi_{32 2} &gt;  = 1.00
+&lt; phi_{32 3} | phi_{32 3} &gt;  = 1.00
+&lt; phi_{32 4} | phi_{32 4} &gt;  = 1.00
+&lt; phi_{32 5} | phi_{32 5} &gt;  = 1.00
+&lt; phi_{32 6} | phi_{32 6} &gt;  = 1.00
+&lt; phi_{32 7} | phi_{32 7} &gt;  = 1.00
+&lt; phi_{32 8} | phi_{32 8} &gt;  = 1.00
+&lt; phi_{32 9} | phi_{32 9} &gt;  = 1.00
+&lt; phi_{32 10} | phi_{32 10} &gt;  = 1.00
+&lt; phi_{32 11} | phi_{32 11} &gt;  = 1.00
+&lt; phi_{32 12} | phi_{32 12} &gt;  = 1.00
+&lt; phi_{32 13} | phi_{32 13} &gt;  = 1.00
+&lt; phi_{32 14} | phi_{32 14} &gt;  = 1.00
+&lt; phi_{32 15} | phi_{32 15} &gt;  = 1.00
+&lt; phi_{32 16} | phi_{32 16} &gt;  = 1.00
+&lt; phi_{32 17} | phi_{32 17} &gt;  = 1.00
+&lt; phi_{32 18} | phi_{32 18} &gt;  = 1.00
+&lt; phi_{32 19} | phi_{32 19} &gt;  = 1.00
+&lt; phi_{32 20} | phi_{32 20} &gt;  = 1.00
+&lt; phi_{32 21} | phi_{32 21} &gt;  = 1.00
+&lt; phi_{32 22} | phi_{32 22} &gt;  = 1.00
+&lt; phi_{32 23} | phi_{32 23} &gt;  = 1.00
+&lt; phi_{32 24} | phi_{32 24} &gt;  = 1.00
+&lt; phi_{32 25} | phi_{32 25} &gt;  = 1.00
+&lt; phi_{32 26} | phi_{32 26} &gt;  = 1.00
+&lt; phi_{32 27} | phi_{32 27} &gt;  = 1.00
+&lt; phi_{32 28} | phi_{32 28} &gt;  = 1.00
+&lt; phi_{32 29} | phi_{32 29} &gt;  = 1.00
+&lt; phi_{32 30} | phi_{32 30} &gt;  = 1.00
+&lt; phi_{32 31} | phi_{32 31} &gt;  = 1.00
+&lt; phi_{32 32} | phi_{32 32} &gt;  = 1.00
+&lt; phi_{32 33} | phi_{32 33} &gt;  = 1.00
+&lt; phi_{32 34} | phi_{32 34} &gt;  = 1.00
+&lt; phi_{32 35} | phi_{32 35} &gt;  = 1.00
+&lt; phi_{32 36} | phi_{32 36} &gt;  = 1.00
+&lt; phi_{32 37} | phi_{32 37} &gt;  = 1.00
+&lt; phi_{32 38} | phi_{32 38} &gt;  = 1.00
+&lt; phi_{32 39} | phi_{32 39} &gt;  = 1.00
+&lt; phi_{32 40} | phi_{32 40} &gt;  = 1.00
+&lt; phi_{32 41} | phi_{32 41} &gt;  = 1.00
+&lt; phi_{32 42} | phi_{32 42} &gt;  = 1.00
+&lt; phi_{32 43} | phi_{32 43} &gt;  = 1.00
+&lt; phi_{32 44} | phi_{32 44} &gt;  = 1.00
+&lt; phi_{32 45} | phi_{32 45} &gt;  = 1.00
+&lt; phi_{32 46} | phi_{32 46} &gt;  = 1.00
+&lt; phi_{32 47} | phi_{32 47} &gt;  = 1.00
+&lt; phi_{32 48} | phi_{32 48} &gt;  = 1.00
+&lt; phi_{32 49} | phi_{32 49} &gt;  = 1.00
+&lt; phi_{33 1} | phi_{33 1} &gt;  = 1.00
+&lt; phi_{33 2} | phi_{33 2} &gt;  = 1.00
+&lt; phi_{33 3} | phi_{33 3} &gt;  = 1.00
+&lt; phi_{33 4} | phi_{33 4} &gt;  = 1.00
+&lt; phi_{33 5} | phi_{33 5} &gt;  = 1.00
+&lt; phi_{33 6} | phi_{33 6} &gt;  = 1.00
+&lt; phi_{33 7} | phi_{33 7} &gt;  = 1.00
+&lt; phi_{33 8} | phi_{33 8} &gt;  = 1.00
+&lt; phi_{33 9} | phi_{33 9} &gt;  = 1.00
+&lt; phi_{33 10} | phi_{33 10} &gt;  = 1.00
+&lt; phi_{33 11} | phi_{33 11} &gt;  = 1.00
+&lt; phi_{33 12} | phi_{33 12} &gt;  = 1.00
+&lt; phi_{33 13} | phi_{33 13} &gt;  = 1.00
+&lt; phi_{33 14} | phi_{33 14} &gt;  = 1.00
+&lt; phi_{33 15} | phi_{33 15} &gt;  = 1.00
+&lt; phi_{33 16} | phi_{33 16} &gt;  = 1.00
+&lt; phi_{33 17} | phi_{33 17} &gt;  = 1.00
+&lt; phi_{33 18} | phi_{33 18} &gt;  = 1.00
+&lt; phi_{33 19} | phi_{33 19} &gt;  = 1.00
+&lt; phi_{33 20} | phi_{33 20} &gt;  = 1.00
+&lt; phi_{33 21} | phi_{33 21} &gt;  = 1.00
+&lt; phi_{33 22} | phi_{33 22} &gt;  = 1.00
+&lt; phi_{33 23} | phi_{33 23} &gt;  = 1.00
+&lt; phi_{33 24} | phi_{33 24} &gt;  = 1.00
+&lt; phi_{33 25} | phi_{33 25} &gt;  = 1.00
+&lt; phi_{33 26} | phi_{33 26} &gt;  = 1.00
+&lt; phi_{33 27} | phi_{33 27} &gt;  = 1.00
+&lt; phi_{33 28} | phi_{33 28} &gt;  = 1.00
+&lt; phi_{33 29} | phi_{33 29} &gt;  = 1.00
+&lt; phi_{33 30} | phi_{33 30} &gt;  = 1.00
+&lt; phi_{33 31} | phi_{33 31} &gt;  = 1.00
+&lt; phi_{33 32} | phi_{33 32} &gt;  = 1.00
+&lt; phi_{33 33} | phi_{33 33} &gt;  = 1.00
+&lt; phi_{33 34} | phi_{33 34} &gt;  = 1.00
+&lt; phi_{33 35} | phi_{33 35} &gt;  = 1.00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt; phi_{33 36} | phi_{33 36} &gt;  = 1.00
+&lt; phi_{33 37} | phi_{33 37} &gt;  = 1.00
+&lt; phi_{33 38} | phi_{33 38} &gt;  = 1.00
+&lt; phi_{33 39} | phi_{33 39} &gt;  = 1.00
+&lt; phi_{33 40} | phi_{33 40} &gt;  = 1.00
+&lt; phi_{33 41} | phi_{33 41} &gt;  = 1.00
+&lt; phi_{33 42} | phi_{33 42} &gt;  = 1.00
+&lt; phi_{33 43} | phi_{33 43} &gt;  = 1.00
+&lt; phi_{33 44} | phi_{33 44} &gt;  = 1.00
+&lt; phi_{33 45} | phi_{33 45} &gt;  = 1.00
+&lt; phi_{33 46} | phi_{33 46} &gt;  = 1.00
+&lt; phi_{33 47} | phi_{33 47} &gt;  = 1.00
+&lt; phi_{33 48} | phi_{33 48} &gt;  = 1.00
+&lt; phi_{33 49} | phi_{33 49} &gt;  = 1.00
+&lt; phi_{34 1} | phi_{34 1} &gt;  = 1.00
+&lt; phi_{34 2} | phi_{34 2} &gt;  = 1.00
+&lt; phi_{34 3} | phi_{34 3} &gt;  = 1.00
+&lt; phi_{34 4} | phi_{34 4} &gt;  = 1.00
+&lt; phi_{34 5} | phi_{34 5} &gt;  = 1.00
+&lt; phi_{34 6} | phi_{34 6} &gt;  = 1.00
+&lt; phi_{34 7} | phi_{34 7} &gt;  = 1.00
+&lt; phi_{34 8} | phi_{34 8} &gt;  = 1.00
+&lt; phi_{34 9} | phi_{34 9} &gt;  = 1.00
+&lt; phi_{34 10} | phi_{34 10} &gt;  = 1.00
+&lt; phi_{34 11} | phi_{34 11} &gt;  = 1.00
+&lt; phi_{34 12} | phi_{34 12} &gt;  = 1.00
+&lt; phi_{34 13} | phi_{34 13} &gt;  = 1.00
+&lt; phi_{34 14} | phi_{34 14} &gt;  = 1.00
+&lt; phi_{34 15} | phi_{34 15} &gt;  = 1.00
+&lt; phi_{34 16} | phi_{34 16} &gt;  = 1.00
+&lt; phi_{34 17} | phi_{34 17} &gt;  = 1.00
+&lt; phi_{34 18} | phi_{34 18} &gt;  = 1.00
+&lt; phi_{34 19} | phi_{34 19} &gt;  = 1.00
+&lt; phi_{34 20} | phi_{34 20} &gt;  = 1.00
+&lt; phi_{34 21} | phi_{34 21} &gt;  = 1.00
+&lt; phi_{34 22} | phi_{34 22} &gt;  = 1.00
+&lt; phi_{34 23} | phi_{34 23} &gt;  = 1.00
+&lt; phi_{34 24} | phi_{34 24} &gt;  = 1.00
+&lt; phi_{34 25} | phi_{34 25} &gt;  = 1.00
+&lt; phi_{34 26} | phi_{34 26} &gt;  = 1.00
+&lt; phi_{34 27} | phi_{34 27} &gt;  = 1.00
+&lt; phi_{34 28} | phi_{34 28} &gt;  = 1.00
+&lt; phi_{34 29} | phi_{34 29} &gt;  = 1.00
+&lt; phi_{34 30} | phi_{34 30} &gt;  = 1.00
+&lt; phi_{34 31} | phi_{34 31} &gt;  = 1.00
+&lt; phi_{34 32} | phi_{34 32} &gt;  = 1.00
+&lt; phi_{34 33} | phi_{34 33} &gt;  = 1.00
+&lt; phi_{34 34} | phi_{34 34} &gt;  = 1.00
+&lt; phi_{34 35} | phi_{34 35} &gt;  = 1.00
+&lt; phi_{34 36} | phi_{34 36} &gt;  = 1.00
+&lt; phi_{34 37} | phi_{34 37} &gt;  = 1.00
+&lt; phi_{34 38} | phi_{34 38} &gt;  = 1.00
+&lt; phi_{34 39} | phi_{34 39} &gt;  = 1.00
+&lt; phi_{34 40} | phi_{34 40} &gt;  = 1.00
+&lt; phi_{34 41} | phi_{34 41} &gt;  = 1.00
+&lt; phi_{34 42} | phi_{34 42} &gt;  = 1.00
+&lt; phi_{34 43} | phi_{34 43} &gt;  = 1.00
+&lt; phi_{34 44} | phi_{34 44} &gt;  = 1.00
+&lt; phi_{34 45} | phi_{34 45} &gt;  = 1.00
+&lt; phi_{34 46} | phi_{34 46} &gt;  = 1.00
+&lt; phi_{34 47} | phi_{34 47} &gt;  = 1.00
+&lt; phi_{34 48} | phi_{34 48} &gt;  = 1.00
+&lt; phi_{34 49} | phi_{34 49} &gt;  = 1.00
+&lt; phi_{35 1} | phi_{35 1} &gt;  = 1.00
+&lt; phi_{35 2} | phi_{35 2} &gt;  = 1.00
+&lt; phi_{35 3} | phi_{35 3} &gt;  = 1.00
+&lt; phi_{35 4} | phi_{35 4} &gt;  = 1.00
+&lt; phi_{35 5} | phi_{35 5} &gt;  = 1.00
+&lt; phi_{35 6} | phi_{35 6} &gt;  = 1.00
+&lt; phi_{35 7} | phi_{35 7} &gt;  = 1.00
+&lt; phi_{35 8} | phi_{35 8} &gt;  = 1.00
+&lt; phi_{35 9} | phi_{35 9} &gt;  = 1.00
+&lt; phi_{35 10} | phi_{35 10} &gt;  = 1.00
+&lt; phi_{35 11} | phi_{35 11} &gt;  = 1.00
+&lt; phi_{35 12} | phi_{35 12} &gt;  = 1.00
+&lt; phi_{35 13} | phi_{35 13} &gt;  = 1.00
+&lt; phi_{35 14} | phi_{35 14} &gt;  = 1.00
+&lt; phi_{35 15} | phi_{35 15} &gt;  = 1.00
+&lt; phi_{35 16} | phi_{35 16} &gt;  = 1.00
+&lt; phi_{35 17} | phi_{35 17} &gt;  = 1.00
+&lt; phi_{35 18} | phi_{35 18} &gt;  = 1.00
+&lt; phi_{35 19} | phi_{35 19} &gt;  = 1.00
+&lt; phi_{35 20} | phi_{35 20} &gt;  = 1.00
+&lt; phi_{35 21} | phi_{35 21} &gt;  = 1.00
+&lt; phi_{35 22} | phi_{35 22} &gt;  = 1.00
+&lt; phi_{35 23} | phi_{35 23} &gt;  = 1.00
+&lt; phi_{35 24} | phi_{35 24} &gt;  = 1.00
+&lt; phi_{35 25} | phi_{35 25} &gt;  = 1.00
+&lt; phi_{35 26} | phi_{35 26} &gt;  = 1.00
+&lt; phi_{35 27} | phi_{35 27} &gt;  = 1.00
+&lt; phi_{35 28} | phi_{35 28} &gt;  = 1.00
+&lt; phi_{35 29} | phi_{35 29} &gt;  = 1.00
+&lt; phi_{35 30} | phi_{35 30} &gt;  = 1.00
+&lt; phi_{35 31} | phi_{35 31} &gt;  = 1.00
+&lt; phi_{35 32} | phi_{35 32} &gt;  = 1.00
+&lt; phi_{35 33} | phi_{35 33} &gt;  = 1.00
+&lt; phi_{35 34} | phi_{35 34} &gt;  = 1.00
+&lt; phi_{35 35} | phi_{35 35} &gt;  = 1.00
+&lt; phi_{35 36} | phi_{35 36} &gt;  = 1.00
+&lt; phi_{35 37} | phi_{35 37} &gt;  = 1.00
+&lt; phi_{35 38} | phi_{35 38} &gt;  = 1.00
+&lt; phi_{35 39} | phi_{35 39} &gt;  = 1.00
+&lt; phi_{35 40} | phi_{35 40} &gt;  = 1.00
+&lt; phi_{35 41} | phi_{35 41} &gt;  = 1.00
+&lt; phi_{35 42} | phi_{35 42} &gt;  = 1.00
+&lt; phi_{35 43} | phi_{35 43} &gt;  = 1.00
+&lt; phi_{35 44} | phi_{35 44} &gt;  = 1.00
+&lt; phi_{35 45} | phi_{35 45} &gt;  = 1.00
+&lt; phi_{35 46} | phi_{35 46} &gt;  = 1.00
+&lt; phi_{35 47} | phi_{35 47} &gt;  = 1.00
+&lt; phi_{35 48} | phi_{35 48} &gt;  = 1.00
+&lt; phi_{35 49} | phi_{35 49} &gt;  = 1.00
+&lt; phi_{36 1} | phi_{36 1} &gt;  = 1.00
+&lt; phi_{36 2} | phi_{36 2} &gt;  = 1.00
+&lt; phi_{36 3} | phi_{36 3} &gt;  = 1.00
+&lt; phi_{36 4} | phi_{36 4} &gt;  = 1.00
+&lt; phi_{36 5} | phi_{36 5} &gt;  = 1.00
+&lt; phi_{36 6} | phi_{36 6} &gt;  = 1.00
+&lt; phi_{36 7} | phi_{36 7} &gt;  = 1.00
+&lt; phi_{36 8} | phi_{36 8} &gt;  = 1.00
+&lt; phi_{36 9} | phi_{36 9} &gt;  = 1.00
+&lt; phi_{36 10} | phi_{36 10} &gt;  = 1.00
+&lt; phi_{36 11} | phi_{36 11} &gt;  = 1.00
+&lt; phi_{36 12} | phi_{36 12} &gt;  = 1.00
+&lt; phi_{36 13} | phi_{36 13} &gt;  = 1.00
+&lt; phi_{36 14} | phi_{36 14} &gt;  = 1.00
+&lt; phi_{36 15} | phi_{36 15} &gt;  = 1.00
+&lt; phi_{36 16} | phi_{36 16} &gt;  = 1.00
+&lt; phi_{36 17} | phi_{36 17} &gt;  = 1.00
+&lt; phi_{36 18} | phi_{36 18} &gt;  = 1.00
+&lt; phi_{36 19} | phi_{36 19} &gt;  = 1.00
+&lt; phi_{36 20} | phi_{36 20} &gt;  = 1.00
+&lt; phi_{36 21} | phi_{36 21} &gt;  = 1.00
+&lt; phi_{36 22} | phi_{36 22} &gt;  = 1.00
+&lt; phi_{36 23} | phi_{36 23} &gt;  = 1.00
+&lt; phi_{36 24} | phi_{36 24} &gt;  = 1.00
+&lt; phi_{36 25} | phi_{36 25} &gt;  = 1.00
+&lt; phi_{36 26} | phi_{36 26} &gt;  = 1.00
+&lt; phi_{36 27} | phi_{36 27} &gt;  = 1.00
+&lt; phi_{36 28} | phi_{36 28} &gt;  = 1.00
+&lt; phi_{36 29} | phi_{36 29} &gt;  = 1.00
+&lt; phi_{36 30} | phi_{36 30} &gt;  = 1.00
+&lt; phi_{36 31} | phi_{36 31} &gt;  = 1.00
+&lt; phi_{36 32} | phi_{36 32} &gt;  = 1.00
+&lt; phi_{36 33} | phi_{36 33} &gt;  = 1.00
+&lt; phi_{36 34} | phi_{36 34} &gt;  = 1.00
+&lt; phi_{36 35} | phi_{36 35} &gt;  = 1.00
+&lt; phi_{36 36} | phi_{36 36} &gt;  = 1.00
+&lt; phi_{36 37} | phi_{36 37} &gt;  = 1.00
+&lt; phi_{36 38} | phi_{36 38} &gt;  = 1.00
+&lt; phi_{36 39} | phi_{36 39} &gt;  = 1.00
+&lt; phi_{36 40} | phi_{36 40} &gt;  = 1.00
+&lt; phi_{36 41} | phi_{36 41} &gt;  = 1.00
+&lt; phi_{36 42} | phi_{36 42} &gt;  = 1.00
+&lt; phi_{36 43} | phi_{36 43} &gt;  = 1.00
+&lt; phi_{36 44} | phi_{36 44} &gt;  = 1.00
+&lt; phi_{36 45} | phi_{36 45} &gt;  = 1.00
+&lt; phi_{36 46} | phi_{36 46} &gt;  = 1.00
+&lt; phi_{36 47} | phi_{36 47} &gt;  = 1.00
+&lt; phi_{36 48} | phi_{36 48} &gt;  = 1.00
+&lt; phi_{36 49} | phi_{36 49} &gt;  = 1.00
+&lt; phi_{37 1} | phi_{37 1} &gt;  = 1.00
+&lt; phi_{37 2} | phi_{37 2} &gt;  = 1.00
+&lt; phi_{37 3} | phi_{37 3} &gt;  = 1.00
+&lt; phi_{37 4} | phi_{37 4} &gt;  = 1.00
+&lt; phi_{37 5} | phi_{37 5} &gt;  = 1.00
+&lt; phi_{37 6} | phi_{37 6} &gt;  = 1.00
+&lt; phi_{37 7} | phi_{37 7} &gt;  = 1.00
+&lt; phi_{37 8} | phi_{37 8} &gt;  = 1.00
+&lt; phi_{37 9} | phi_{37 9} &gt;  = 1.00
+&lt; phi_{37 10} | phi_{37 10} &gt;  = 1.00
+&lt; phi_{37 11} | phi_{37 11} &gt;  = 1.00
+&lt; phi_{37 12} | phi_{37 12} &gt;  = 1.00
+&lt; phi_{37 13} | phi_{37 13} &gt;  = 1.00
+&lt; phi_{37 14} | phi_{37 14} &gt;  = 1.00
+&lt; phi_{37 15} | phi_{37 15} &gt;  = 1.00
+&lt; phi_{37 16} | phi_{37 16} &gt;  = 1.00
+&lt; phi_{37 17} | phi_{37 17} &gt;  = 1.00
+&lt; phi_{37 18} | phi_{37 18} &gt;  = 1.00
+&lt; phi_{37 19} | phi_{37 19} &gt;  = 1.00
+&lt; phi_{37 20} | phi_{37 20} &gt;  = 1.00
+&lt; phi_{37 21} | phi_{37 21} &gt;  = 1.00
+&lt; phi_{37 22} | phi_{37 22} &gt;  = 1.00
+&lt; phi_{37 23} | phi_{37 23} &gt;  = 1.00
+&lt; phi_{37 24} | phi_{37 24} &gt;  = 1.00
+&lt; phi_{37 25} | phi_{37 25} &gt;  = 1.00
+&lt; phi_{37 26} | phi_{37 26} &gt;  = 1.00
+&lt; phi_{37 27} | phi_{37 27} &gt;  = 1.00
+&lt; phi_{37 28} | phi_{37 28} &gt;  = 1.00
+&lt; phi_{37 29} | phi_{37 29} &gt;  = 1.00
+&lt; phi_{37 30} | phi_{37 30} &gt;  = 1.00
+&lt; phi_{37 31} | phi_{37 31} &gt;  = 1.00
+&lt; phi_{37 32} | phi_{37 32} &gt;  = 1.00
+&lt; phi_{37 33} | phi_{37 33} &gt;  = 1.00
+&lt; phi_{37 34} | phi_{37 34} &gt;  = 1.00
+&lt; phi_{37 35} | phi_{37 35} &gt;  = 1.00
+&lt; phi_{37 36} | phi_{37 36} &gt;  = 1.00
+&lt; phi_{37 37} | phi_{37 37} &gt;  = 1.00
+&lt; phi_{37 38} | phi_{37 38} &gt;  = 1.00
+&lt; phi_{37 39} | phi_{37 39} &gt;  = 1.00
+&lt; phi_{37 40} | phi_{37 40} &gt;  = 1.00
+&lt; phi_{37 41} | phi_{37 41} &gt;  = 1.00
+&lt; phi_{37 42} | phi_{37 42} &gt;  = 1.00
+&lt; phi_{37 43} | phi_{37 43} &gt;  = 1.00
+&lt; phi_{37 44} | phi_{37 44} &gt;  = 1.00
+&lt; phi_{37 45} | phi_{37 45} &gt;  = 1.00
+&lt; phi_{37 46} | phi_{37 46} &gt;  = 1.00
+&lt; phi_{37 47} | phi_{37 47} &gt;  = 1.00
+&lt; phi_{37 48} | phi_{37 48} &gt;  = 1.00
+&lt; phi_{37 49} | phi_{37 49} &gt;  = 1.00
+&lt; phi_{38 1} | phi_{38 1} &gt;  = 1.00
+&lt; phi_{38 2} | phi_{38 2} &gt;  = 1.00
+&lt; phi_{38 3} | phi_{38 3} &gt;  = 1.00
+&lt; phi_{38 4} | phi_{38 4} &gt;  = 1.00
+&lt; phi_{38 5} | phi_{38 5} &gt;  = 1.00
+&lt; phi_{38 6} | phi_{38 6} &gt;  = 1.00
+&lt; phi_{38 7} | phi_{38 7} &gt;  = 1.00
+&lt; phi_{38 8} | phi_{38 8} &gt;  = 1.00
+&lt; phi_{38 9} | phi_{38 9} &gt;  = 1.00
+&lt; phi_{38 10} | phi_{38 10} &gt;  = 1.00
+&lt; phi_{38 11} | phi_{38 11} &gt;  = 1.00
+&lt; phi_{38 12} | phi_{38 12} &gt;  = 1.00
+&lt; phi_{38 13} | phi_{38 13} &gt;  = 1.00
+&lt; phi_{38 14} | phi_{38 14} &gt;  = 1.00
+&lt; phi_{38 15} | phi_{38 15} &gt;  = 1.00
+&lt; phi_{38 16} | phi_{38 16} &gt;  = 1.00
+&lt; phi_{38 17} | phi_{38 17} &gt;  = 1.00
+&lt; phi_{38 18} | phi_{38 18} &gt;  = 1.00
+&lt; phi_{38 19} | phi_{38 19} &gt;  = 1.00
+&lt; phi_{38 20} | phi_{38 20} &gt;  = 1.00
+&lt; phi_{38 21} | phi_{38 21} &gt;  = 1.00
+&lt; phi_{38 22} | phi_{38 22} &gt;  = 1.00
+&lt; phi_{38 23} | phi_{38 23} &gt;  = 1.00
+&lt; phi_{38 24} | phi_{38 24} &gt;  = 1.00
+&lt; phi_{38 25} | phi_{38 25} &gt;  = 1.00
+&lt; phi_{38 26} | phi_{38 26} &gt;  = 1.00
+&lt; phi_{38 27} | phi_{38 27} &gt;  = 1.00
+&lt; phi_{38 28} | phi_{38 28} &gt;  = 1.00
+&lt; phi_{38 29} | phi_{38 29} &gt;  = 1.00
+&lt; phi_{38 30} | phi_{38 30} &gt;  = 1.00
+&lt; phi_{38 31} | phi_{38 31} &gt;  = 1.00
+&lt; phi_{38 32} | phi_{38 32} &gt;  = 1.00
+&lt; phi_{38 33} | phi_{38 33} &gt;  = 1.00
+&lt; phi_{38 34} | phi_{38 34} &gt;  = 1.00
+&lt; phi_{38 35} | phi_{38 35} &gt;  = 1.00
+&lt; phi_{38 36} | phi_{38 36} &gt;  = 1.00
+&lt; phi_{38 37} | phi_{38 37} &gt;  = 1.00
+&lt; phi_{38 38} | phi_{38 38} &gt;  = 1.00
+&lt; phi_{38 39} | phi_{38 39} &gt;  = 1.00
+&lt; phi_{38 40} | phi_{38 40} &gt;  = 1.00
+&lt; phi_{38 41} | phi_{38 41} &gt;  = 1.00
+&lt; phi_{38 42} | phi_{38 42} &gt;  = 1.00
+&lt; phi_{38 43} | phi_{38 43} &gt;  = 1.00
+&lt; phi_{38 44} | phi_{38 44} &gt;  = 1.00
+&lt; phi_{38 45} | phi_{38 45} &gt;  = 1.00
+&lt; phi_{38 46} | phi_{38 46} &gt;  = 1.00
+&lt; phi_{38 47} | phi_{38 47} &gt;  = 1.00
+&lt; phi_{38 48} | phi_{38 48} &gt;  = 1.00
+&lt; phi_{38 49} | phi_{38 49} &gt;  = 1.00
+&lt; phi_{39 1} | phi_{39 1} &gt;  = 1.00
+&lt; phi_{39 2} | phi_{39 2} &gt;  = 1.00
+&lt; phi_{39 3} | phi_{39 3} &gt;  = 1.00
+&lt; phi_{39 4} | phi_{39 4} &gt;  = 1.00
+&lt; phi_{39 5} | phi_{39 5} &gt;  = 1.00
+&lt; phi_{39 6} | phi_{39 6} &gt;  = 1.00
+&lt; phi_{39 7} | phi_{39 7} &gt;  = 1.00
+&lt; phi_{39 8} | phi_{39 8} &gt;  = 1.00
+&lt; phi_{39 9} | phi_{39 9} &gt;  = 1.00
+&lt; phi_{39 10} | phi_{39 10} &gt;  = 1.00
+&lt; phi_{39 11} | phi_{39 11} &gt;  = 1.00
+&lt; phi_{39 12} | phi_{39 12} &gt;  = 1.00
+&lt; phi_{39 13} | phi_{39 13} &gt;  = 1.00
+&lt; phi_{39 14} | phi_{39 14} &gt;  = 1.00
+&lt; phi_{39 15} | phi_{39 15} &gt;  = 1.00
+&lt; phi_{39 16} | phi_{39 16} &gt;  = 1.00
+&lt; phi_{39 17} | phi_{39 17} &gt;  = 1.00
+&lt; phi_{39 18} | phi_{39 18} &gt;  = 1.00
+&lt; phi_{39 19} | phi_{39 19} &gt;  = 1.00
+&lt; phi_{39 20} | phi_{39 20} &gt;  = 1.00
+&lt; phi_{39 21} | phi_{39 21} &gt;  = 1.00
+&lt; phi_{39 22} | phi_{39 22} &gt;  = 1.00
+&lt; phi_{39 23} | phi_{39 23} &gt;  = 1.00
+&lt; phi_{39 24} | phi_{39 24} &gt;  = 1.00
+&lt; phi_{39 25} | phi_{39 25} &gt;  = 1.00
+&lt; phi_{39 26} | phi_{39 26} &gt;  = 1.00
+&lt; phi_{39 27} | phi_{39 27} &gt;  = 1.00
+&lt; phi_{39 28} | phi_{39 28} &gt;  = 1.00
+&lt; phi_{39 29} | phi_{39 29} &gt;  = 1.00
+&lt; phi_{39 30} | phi_{39 30} &gt;  = 1.00
+&lt; phi_{39 31} | phi_{39 31} &gt;  = 1.00
+&lt; phi_{39 32} | phi_{39 32} &gt;  = 1.00
+&lt; phi_{39 33} | phi_{39 33} &gt;  = 1.00
+&lt; phi_{39 34} | phi_{39 34} &gt;  = 1.00
+&lt; phi_{39 35} | phi_{39 35} &gt;  = 1.00
+&lt; phi_{39 36} | phi_{39 36} &gt;  = 1.00
+&lt; phi_{39 37} | phi_{39 37} &gt;  = 1.00
+&lt; phi_{39 38} | phi_{39 38} &gt;  = 1.00
+&lt; phi_{39 39} | phi_{39 39} &gt;  = 1.00
+&lt; phi_{39 40} | phi_{39 40} &gt;  = 1.00
+&lt; phi_{39 41} | phi_{39 41} &gt;  = 1.00
+&lt; phi_{39 42} | phi_{39 42} &gt;  = 1.00
+&lt; phi_{39 43} | phi_{39 43} &gt;  = 1.00
+&lt; phi_{39 44} | phi_{39 44} &gt;  = 1.00
+&lt; phi_{39 45} | phi_{39 45} &gt;  = 1.00
+&lt; phi_{39 46} | phi_{39 46} &gt;  = 1.00
+&lt; phi_{39 47} | phi_{39 47} &gt;  = 1.00
+&lt; phi_{39 48} | phi_{39 48} &gt;  = 1.00
+&lt; phi_{39 49} | phi_{39 49} &gt;  = 1.00
+&lt; phi_{40 1} | phi_{40 1} &gt;  = 1.00
+&lt; phi_{40 2} | phi_{40 2} &gt;  = 1.00
+&lt; phi_{40 3} | phi_{40 3} &gt;  = 1.00
+&lt; phi_{40 4} | phi_{40 4} &gt;  = 1.00
+&lt; phi_{40 5} | phi_{40 5} &gt;  = 1.00
+&lt; phi_{40 6} | phi_{40 6} &gt;  = 1.00
+&lt; phi_{40 7} | phi_{40 7} &gt;  = 1.00
+&lt; phi_{40 8} | phi_{40 8} &gt;  = 1.00
+&lt; phi_{40 9} | phi_{40 9} &gt;  = 1.00
+&lt; phi_{40 10} | phi_{40 10} &gt;  = 1.00
+&lt; phi_{40 11} | phi_{40 11} &gt;  = 1.00
+&lt; phi_{40 12} | phi_{40 12} &gt;  = 1.00
+&lt; phi_{40 13} | phi_{40 13} &gt;  = 1.00
+&lt; phi_{40 14} | phi_{40 14} &gt;  = 1.00
+&lt; phi_{40 15} | phi_{40 15} &gt;  = 1.00
+&lt; phi_{40 16} | phi_{40 16} &gt;  = 1.00
+&lt; phi_{40 17} | phi_{40 17} &gt;  = 1.00
+&lt; phi_{40 18} | phi_{40 18} &gt;  = 1.00
+&lt; phi_{40 19} | phi_{40 19} &gt;  = 1.00
+&lt; phi_{40 20} | phi_{40 20} &gt;  = 1.00
+&lt; phi_{40 21} | phi_{40 21} &gt;  = 1.00
+&lt; phi_{40 22} | phi_{40 22} &gt;  = 1.00
+&lt; phi_{40 23} | phi_{40 23} &gt;  = 1.00
+&lt; phi_{40 24} | phi_{40 24} &gt;  = 1.00
+&lt; phi_{40 25} | phi_{40 25} &gt;  = 1.00
+&lt; phi_{40 26} | phi_{40 26} &gt;  = 1.00
+&lt; phi_{40 27} | phi_{40 27} &gt;  = 1.00
+&lt; phi_{40 28} | phi_{40 28} &gt;  = 1.00
+&lt; phi_{40 29} | phi_{40 29} &gt;  = 1.00
+&lt; phi_{40 30} | phi_{40 30} &gt;  = 1.00
+&lt; phi_{40 31} | phi_{40 31} &gt;  = 1.00
+&lt; phi_{40 32} | phi_{40 32} &gt;  = 1.00
+&lt; phi_{40 33} | phi_{40 33} &gt;  = 1.00
+&lt; phi_{40 34} | phi_{40 34} &gt;  = 1.00
+&lt; phi_{40 35} | phi_{40 35} &gt;  = 1.00
+&lt; phi_{40 36} | phi_{40 36} &gt;  = 1.00
+&lt; phi_{40 37} | phi_{40 37} &gt;  = 1.00
+&lt; phi_{40 38} | phi_{40 38} &gt;  = 1.00
+&lt; phi_{40 39} | phi_{40 39} &gt;  = 1.00
+&lt; phi_{40 40} | phi_{40 40} &gt;  = 1.00
+&lt; phi_{40 41} | phi_{40 41} &gt;  = 1.00
+&lt; phi_{40 42} | phi_{40 42} &gt;  = 1.00
+&lt; phi_{40 43} | phi_{40 43} &gt;  = 1.00
+&lt; phi_{40 44} | phi_{40 44} &gt;  = 1.00
+&lt; phi_{40 45} | phi_{40 45} &gt;  = 1.00
+&lt; phi_{40 46} | phi_{40 46} &gt;  = 1.00
+&lt; phi_{40 47} | phi_{40 47} &gt;  = 1.00
+&lt; phi_{40 48} | phi_{40 48} &gt;  = 1.00
+&lt; phi_{40 49} | phi_{40 49} &gt;  = 1.00
+&lt; phi_{41 1} | phi_{41 1} &gt;  = 1.00
+&lt; phi_{41 2} | phi_{41 2} &gt;  = 1.00
+&lt; phi_{41 3} | phi_{41 3} &gt;  = 1.00
+&lt; phi_{41 4} | phi_{41 4} &gt;  = 1.00
+&lt; phi_{41 5} | phi_{41 5} &gt;  = 1.00
+&lt; phi_{41 6} | phi_{41 6} &gt;  = 1.00
+&lt; phi_{41 7} | phi_{41 7} &gt;  = 1.00
+&lt; phi_{41 8} | phi_{41 8} &gt;  = 1.00
+&lt; phi_{41 9} | phi_{41 9} &gt;  = 1.00
+&lt; phi_{41 10} | phi_{41 10} &gt;  = 1.00
+&lt; phi_{41 11} | phi_{41 11} &gt;  = 1.00
+&lt; phi_{41 12} | phi_{41 12} &gt;  = 1.00
+&lt; phi_{41 13} | phi_{41 13} &gt;  = 1.00
+&lt; phi_{41 14} | phi_{41 14} &gt;  = 1.00
+&lt; phi_{41 15} | phi_{41 15} &gt;  = 1.00
+&lt; phi_{41 16} | phi_{41 16} &gt;  = 1.00
+&lt; phi_{41 17} | phi_{41 17} &gt;  = 1.00
+&lt; phi_{41 18} | phi_{41 18} &gt;  = 1.00
+&lt; phi_{41 19} | phi_{41 19} &gt;  = 1.00
+&lt; phi_{41 20} | phi_{41 20} &gt;  = 1.00
+&lt; phi_{41 21} | phi_{41 21} &gt;  = 1.00
+&lt; phi_{41 22} | phi_{41 22} &gt;  = 1.00
+&lt; phi_{41 23} | phi_{41 23} &gt;  = 1.00
+&lt; phi_{41 24} | phi_{41 24} &gt;  = 1.00
+&lt; phi_{41 25} | phi_{41 25} &gt;  = 1.00
+&lt; phi_{41 26} | phi_{41 26} &gt;  = 1.00
+&lt; phi_{41 27} | phi_{41 27} &gt;  = 1.00
+&lt; phi_{41 28} | phi_{41 28} &gt;  = 1.00
+&lt; phi_{41 29} | phi_{41 29} &gt;  = 1.00
+&lt; phi_{41 30} | phi_{41 30} &gt;  = 1.00
+&lt; phi_{41 31} | phi_{41 31} &gt;  = 1.00
+&lt; phi_{41 32} | phi_{41 32} &gt;  = 1.00
+&lt; phi_{41 33} | phi_{41 33} &gt;  = 1.00
+&lt; phi_{41 34} | phi_{41 34} &gt;  = 1.00
+&lt; phi_{41 35} | phi_{41 35} &gt;  = 1.00
+&lt; phi_{41 36} | phi_{41 36} &gt;  = 1.00
+&lt; phi_{41 37} | phi_{41 37} &gt;  = 1.00
+&lt; phi_{41 38} | phi_{41 38} &gt;  = 1.00
+&lt; phi_{41 39} | phi_{41 39} &gt;  = 1.00
+&lt; phi_{41 40} | phi_{41 40} &gt;  = 1.00
+&lt; phi_{41 41} | phi_{41 41} &gt;  = 1.00
+&lt; phi_{41 42} | phi_{41 42} &gt;  = 1.00
+&lt; phi_{41 43} | phi_{41 43} &gt;  = 1.00
+&lt; phi_{41 44} | phi_{41 44} &gt;  = 1.00
+&lt; phi_{41 45} | phi_{41 45} &gt;  = 1.00
+&lt; phi_{41 46} | phi_{41 46} &gt;  = 1.00
+&lt; phi_{41 47} | phi_{41 47} &gt;  = 1.00
+&lt; phi_{41 48} | phi_{41 48} &gt;  = 1.00
+&lt; phi_{41 49} | phi_{41 49} &gt;  = 1.00
+&lt; phi_{42 1} | phi_{42 1} &gt;  = 1.00
+&lt; phi_{42 2} | phi_{42 2} &gt;  = 1.00
+&lt; phi_{42 3} | phi_{42 3} &gt;  = 1.00
+&lt; phi_{42 4} | phi_{42 4} &gt;  = 1.00
+&lt; phi_{42 5} | phi_{42 5} &gt;  = 1.00
+&lt; phi_{42 6} | phi_{42 6} &gt;  = 1.00
+&lt; phi_{42 7} | phi_{42 7} &gt;  = 1.00
+&lt; phi_{42 8} | phi_{42 8} &gt;  = 1.00
+&lt; phi_{42 9} | phi_{42 9} &gt;  = 1.00
+&lt; phi_{42 10} | phi_{42 10} &gt;  = 1.00
+&lt; phi_{42 11} | phi_{42 11} &gt;  = 1.00
+&lt; phi_{42 12} | phi_{42 12} &gt;  = 1.00
+&lt; phi_{42 13} | phi_{42 13} &gt;  = 1.00
+&lt; phi_{42 14} | phi_{42 14} &gt;  = 1.00
+&lt; phi_{42 15} | phi_{42 15} &gt;  = 1.00
+&lt; phi_{42 16} | phi_{42 16} &gt;  = 1.00
+&lt; phi_{42 17} | phi_{42 17} &gt;  = 1.00
+&lt; phi_{42 18} | phi_{42 18} &gt;  = 1.00
+&lt; phi_{42 19} | phi_{42 19} &gt;  = 1.00
+&lt; phi_{42 20} | phi_{42 20} &gt;  = 1.00
+&lt; phi_{42 21} | phi_{42 21} &gt;  = 1.00
+&lt; phi_{42 22} | phi_{42 22} &gt;  = 1.00
+&lt; phi_{42 23} | phi_{42 23} &gt;  = 1.00
+&lt; phi_{42 24} | phi_{42 24} &gt;  = 1.00
+&lt; phi_{42 25} | phi_{42 25} &gt;  = 1.00
+&lt; phi_{42 26} | phi_{42 26} &gt;  = 1.00
+&lt; phi_{42 27} | phi_{42 27} &gt;  = 1.00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt; phi_{42 28} | phi_{42 28} &gt;  = 1.00
+&lt; phi_{42 29} | phi_{42 29} &gt;  = 1.00
+&lt; phi_{42 30} | phi_{42 30} &gt;  = 1.00
+&lt; phi_{42 31} | phi_{42 31} &gt;  = 1.00
+&lt; phi_{42 32} | phi_{42 32} &gt;  = 1.00
+&lt; phi_{42 33} | phi_{42 33} &gt;  = 1.00
+&lt; phi_{42 34} | phi_{42 34} &gt;  = 1.00
+&lt; phi_{42 35} | phi_{42 35} &gt;  = 1.00
+&lt; phi_{42 36} | phi_{42 36} &gt;  = 1.00
+&lt; phi_{42 37} | phi_{42 37} &gt;  = 1.00
+&lt; phi_{42 38} | phi_{42 38} &gt;  = 1.00
+&lt; phi_{42 39} | phi_{42 39} &gt;  = 1.00
+&lt; phi_{42 40} | phi_{42 40} &gt;  = 1.00
+&lt; phi_{42 41} | phi_{42 41} &gt;  = 1.00
+&lt; phi_{42 42} | phi_{42 42} &gt;  = 1.00
+&lt; phi_{42 43} | phi_{42 43} &gt;  = 1.00
+&lt; phi_{42 44} | phi_{42 44} &gt;  = 1.00
+&lt; phi_{42 45} | phi_{42 45} &gt;  = 1.00
+&lt; phi_{42 46} | phi_{42 46} &gt;  = 1.00
+&lt; phi_{42 47} | phi_{42 47} &gt;  = 1.00
+&lt; phi_{42 48} | phi_{42 48} &gt;  = 1.00
+&lt; phi_{42 49} | phi_{42 49} &gt;  = 1.00
+&lt; phi_{43 1} | phi_{43 1} &gt;  = 1.00
+&lt; phi_{43 2} | phi_{43 2} &gt;  = 1.00
+&lt; phi_{43 3} | phi_{43 3} &gt;  = 1.00
+&lt; phi_{43 4} | phi_{43 4} &gt;  = 1.00
+&lt; phi_{43 5} | phi_{43 5} &gt;  = 1.00
+&lt; phi_{43 6} | phi_{43 6} &gt;  = 1.00
+&lt; phi_{43 7} | phi_{43 7} &gt;  = 1.00
+&lt; phi_{43 8} | phi_{43 8} &gt;  = 1.00
+&lt; phi_{43 9} | phi_{43 9} &gt;  = 1.00
+&lt; phi_{43 10} | phi_{43 10} &gt;  = 1.00
+&lt; phi_{43 11} | phi_{43 11} &gt;  = 1.00
+&lt; phi_{43 12} | phi_{43 12} &gt;  = 1.00
+&lt; phi_{43 13} | phi_{43 13} &gt;  = 1.00
+&lt; phi_{43 14} | phi_{43 14} &gt;  = 1.00
+&lt; phi_{43 15} | phi_{43 15} &gt;  = 1.00
+&lt; phi_{43 16} | phi_{43 16} &gt;  = 1.00
+&lt; phi_{43 17} | phi_{43 17} &gt;  = 1.00
+&lt; phi_{43 18} | phi_{43 18} &gt;  = 1.00
+&lt; phi_{43 19} | phi_{43 19} &gt;  = 1.00
+&lt; phi_{43 20} | phi_{43 20} &gt;  = 1.00
+&lt; phi_{43 21} | phi_{43 21} &gt;  = 1.00
+&lt; phi_{43 22} | phi_{43 22} &gt;  = 1.00
+&lt; phi_{43 23} | phi_{43 23} &gt;  = 1.00
+&lt; phi_{43 24} | phi_{43 24} &gt;  = 1.00
+&lt; phi_{43 25} | phi_{43 25} &gt;  = 1.00
+&lt; phi_{43 26} | phi_{43 26} &gt;  = 1.00
+&lt; phi_{43 27} | phi_{43 27} &gt;  = 1.00
+&lt; phi_{43 28} | phi_{43 28} &gt;  = 1.00
+&lt; phi_{43 29} | phi_{43 29} &gt;  = 1.00
+&lt; phi_{43 30} | phi_{43 30} &gt;  = 1.00
+&lt; phi_{43 31} | phi_{43 31} &gt;  = 1.00
+&lt; phi_{43 32} | phi_{43 32} &gt;  = 1.00
+&lt; phi_{43 33} | phi_{43 33} &gt;  = 1.00
+&lt; phi_{43 34} | phi_{43 34} &gt;  = 1.00
+&lt; phi_{43 35} | phi_{43 35} &gt;  = 1.00
+&lt; phi_{43 36} | phi_{43 36} &gt;  = 1.00
+&lt; phi_{43 37} | phi_{43 37} &gt;  = 1.00
+&lt; phi_{43 38} | phi_{43 38} &gt;  = 1.00
+&lt; phi_{43 39} | phi_{43 39} &gt;  = 1.00
+&lt; phi_{43 40} | phi_{43 40} &gt;  = 1.00
+&lt; phi_{43 41} | phi_{43 41} &gt;  = 1.00
+&lt; phi_{43 42} | phi_{43 42} &gt;  = 1.00
+&lt; phi_{43 43} | phi_{43 43} &gt;  = 1.00
+&lt; phi_{43 44} | phi_{43 44} &gt;  = 1.00
+&lt; phi_{43 45} | phi_{43 45} &gt;  = 1.00
+&lt; phi_{43 46} | phi_{43 46} &gt;  = 1.00
+&lt; phi_{43 47} | phi_{43 47} &gt;  = 1.00
+&lt; phi_{43 48} | phi_{43 48} &gt;  = 1.00
+&lt; phi_{43 49} | phi_{43 49} &gt;  = 1.00
+&lt; phi_{44 1} | phi_{44 1} &gt;  = 1.00
+&lt; phi_{44 2} | phi_{44 2} &gt;  = 1.00
+&lt; phi_{44 3} | phi_{44 3} &gt;  = 1.00
+&lt; phi_{44 4} | phi_{44 4} &gt;  = 1.00
+&lt; phi_{44 5} | phi_{44 5} &gt;  = 1.00
+&lt; phi_{44 6} | phi_{44 6} &gt;  = 1.00
+&lt; phi_{44 7} | phi_{44 7} &gt;  = 1.00
+&lt; phi_{44 8} | phi_{44 8} &gt;  = 1.00
+&lt; phi_{44 9} | phi_{44 9} &gt;  = 1.00
+&lt; phi_{44 10} | phi_{44 10} &gt;  = 1.00
+&lt; phi_{44 11} | phi_{44 11} &gt;  = 1.00
+&lt; phi_{44 12} | phi_{44 12} &gt;  = 1.00
+&lt; phi_{44 13} | phi_{44 13} &gt;  = 1.00
+&lt; phi_{44 14} | phi_{44 14} &gt;  = 1.00
+&lt; phi_{44 15} | phi_{44 15} &gt;  = 1.00
+&lt; phi_{44 16} | phi_{44 16} &gt;  = 1.00
+&lt; phi_{44 17} | phi_{44 17} &gt;  = 1.00
+&lt; phi_{44 18} | phi_{44 18} &gt;  = 1.00
+&lt; phi_{44 19} | phi_{44 19} &gt;  = 1.00
+&lt; phi_{44 20} | phi_{44 20} &gt;  = 1.00
+&lt; phi_{44 21} | phi_{44 21} &gt;  = 1.00
+&lt; phi_{44 22} | phi_{44 22} &gt;  = 1.00
+&lt; phi_{44 23} | phi_{44 23} &gt;  = 1.00
+&lt; phi_{44 24} | phi_{44 24} &gt;  = 1.00
+&lt; phi_{44 25} | phi_{44 25} &gt;  = 1.00
+&lt; phi_{44 26} | phi_{44 26} &gt;  = 1.00
+&lt; phi_{44 27} | phi_{44 27} &gt;  = 1.00
+&lt; phi_{44 28} | phi_{44 28} &gt;  = 1.00
+&lt; phi_{44 29} | phi_{44 29} &gt;  = 1.00
+&lt; phi_{44 30} | phi_{44 30} &gt;  = 1.00
+&lt; phi_{44 31} | phi_{44 31} &gt;  = 1.00
+&lt; phi_{44 32} | phi_{44 32} &gt;  = 1.00
+&lt; phi_{44 33} | phi_{44 33} &gt;  = 1.00
+&lt; phi_{44 34} | phi_{44 34} &gt;  = 1.00
+&lt; phi_{44 35} | phi_{44 35} &gt;  = 1.00
+&lt; phi_{44 36} | phi_{44 36} &gt;  = 1.00
+&lt; phi_{44 37} | phi_{44 37} &gt;  = 1.00
+&lt; phi_{44 38} | phi_{44 38} &gt;  = 1.00
+&lt; phi_{44 39} | phi_{44 39} &gt;  = 1.00
+&lt; phi_{44 40} | phi_{44 40} &gt;  = 1.00
+&lt; phi_{44 41} | phi_{44 41} &gt;  = 1.00
+&lt; phi_{44 42} | phi_{44 42} &gt;  = 1.00
+&lt; phi_{44 43} | phi_{44 43} &gt;  = 1.00
+&lt; phi_{44 44} | phi_{44 44} &gt;  = 1.00
+&lt; phi_{44 45} | phi_{44 45} &gt;  = 1.00
+&lt; phi_{44 46} | phi_{44 46} &gt;  = 1.00
+&lt; phi_{44 47} | phi_{44 47} &gt;  = 1.00
+&lt; phi_{44 48} | phi_{44 48} &gt;  = 1.00
+&lt; phi_{44 49} | phi_{44 49} &gt;  = 1.00
+&lt; phi_{45 1} | phi_{45 1} &gt;  = 1.00
+&lt; phi_{45 2} | phi_{45 2} &gt;  = 1.00
+&lt; phi_{45 3} | phi_{45 3} &gt;  = 1.00
+&lt; phi_{45 4} | phi_{45 4} &gt;  = 1.00
+&lt; phi_{45 5} | phi_{45 5} &gt;  = 1.00
+&lt; phi_{45 6} | phi_{45 6} &gt;  = 1.00
+&lt; phi_{45 7} | phi_{45 7} &gt;  = 1.00
+&lt; phi_{45 8} | phi_{45 8} &gt;  = 1.00
+&lt; phi_{45 9} | phi_{45 9} &gt;  = 1.00
+&lt; phi_{45 10} | phi_{45 10} &gt;  = 1.00
+&lt; phi_{45 11} | phi_{45 11} &gt;  = 1.00
+&lt; phi_{45 12} | phi_{45 12} &gt;  = 1.00
+&lt; phi_{45 13} | phi_{45 13} &gt;  = 1.00
+&lt; phi_{45 14} | phi_{45 14} &gt;  = 1.00
+&lt; phi_{45 15} | phi_{45 15} &gt;  = 1.00
+&lt; phi_{45 16} | phi_{45 16} &gt;  = 1.00
+&lt; phi_{45 17} | phi_{45 17} &gt;  = 1.00
+&lt; phi_{45 18} | phi_{45 18} &gt;  = 1.00
+&lt; phi_{45 19} | phi_{45 19} &gt;  = 1.00
+&lt; phi_{45 20} | phi_{45 20} &gt;  = 1.00
+&lt; phi_{45 21} | phi_{45 21} &gt;  = 1.00
+&lt; phi_{45 22} | phi_{45 22} &gt;  = 1.00
+&lt; phi_{45 23} | phi_{45 23} &gt;  = 1.00
+&lt; phi_{45 24} | phi_{45 24} &gt;  = 1.00
+&lt; phi_{45 25} | phi_{45 25} &gt;  = 1.00
+&lt; phi_{45 26} | phi_{45 26} &gt;  = 1.00
+&lt; phi_{45 27} | phi_{45 27} &gt;  = 1.00
+&lt; phi_{45 28} | phi_{45 28} &gt;  = 1.00
+&lt; phi_{45 29} | phi_{45 29} &gt;  = 1.00
+&lt; phi_{45 30} | phi_{45 30} &gt;  = 1.00
+&lt; phi_{45 31} | phi_{45 31} &gt;  = 1.00
+&lt; phi_{45 32} | phi_{45 32} &gt;  = 1.00
+&lt; phi_{45 33} | phi_{45 33} &gt;  = 1.00
+&lt; phi_{45 34} | phi_{45 34} &gt;  = 1.00
+&lt; phi_{45 35} | phi_{45 35} &gt;  = 1.00
+&lt; phi_{45 36} | phi_{45 36} &gt;  = 1.00
+&lt; phi_{45 37} | phi_{45 37} &gt;  = 1.00
+&lt; phi_{45 38} | phi_{45 38} &gt;  = 1.00
+&lt; phi_{45 39} | phi_{45 39} &gt;  = 1.00
+&lt; phi_{45 40} | phi_{45 40} &gt;  = 1.00
+&lt; phi_{45 41} | phi_{45 41} &gt;  = 1.00
+&lt; phi_{45 42} | phi_{45 42} &gt;  = 1.00
+&lt; phi_{45 43} | phi_{45 43} &gt;  = 1.00
+&lt; phi_{45 44} | phi_{45 44} &gt;  = 1.00
+&lt; phi_{45 45} | phi_{45 45} &gt;  = 1.00
+&lt; phi_{45 46} | phi_{45 46} &gt;  = 1.00
+&lt; phi_{45 47} | phi_{45 47} &gt;  = 1.00
+&lt; phi_{45 48} | phi_{45 48} &gt;  = 1.00
+&lt; phi_{45 49} | phi_{45 49} &gt;  = 1.00
+&lt; phi_{46 1} | phi_{46 1} &gt;  = 1.00
+&lt; phi_{46 2} | phi_{46 2} &gt;  = 1.00
+&lt; phi_{46 3} | phi_{46 3} &gt;  = 1.00
+&lt; phi_{46 4} | phi_{46 4} &gt;  = 1.00
+&lt; phi_{46 5} | phi_{46 5} &gt;  = 1.00
+&lt; phi_{46 6} | phi_{46 6} &gt;  = 1.00
+&lt; phi_{46 7} | phi_{46 7} &gt;  = 1.00
+&lt; phi_{46 8} | phi_{46 8} &gt;  = 1.00
+&lt; phi_{46 9} | phi_{46 9} &gt;  = 1.00
+&lt; phi_{46 10} | phi_{46 10} &gt;  = 1.00
+&lt; phi_{46 11} | phi_{46 11} &gt;  = 1.00
+&lt; phi_{46 12} | phi_{46 12} &gt;  = 1.00
+&lt; phi_{46 13} | phi_{46 13} &gt;  = 1.00
+&lt; phi_{46 14} | phi_{46 14} &gt;  = 1.00
+&lt; phi_{46 15} | phi_{46 15} &gt;  = 1.00
+&lt; phi_{46 16} | phi_{46 16} &gt;  = 1.00
+&lt; phi_{46 17} | phi_{46 17} &gt;  = 1.00
+&lt; phi_{46 18} | phi_{46 18} &gt;  = 1.00
+&lt; phi_{46 19} | phi_{46 19} &gt;  = 1.00
+&lt; phi_{46 20} | phi_{46 20} &gt;  = 1.00
+&lt; phi_{46 21} | phi_{46 21} &gt;  = 1.00
+&lt; phi_{46 22} | phi_{46 22} &gt;  = 1.00
+&lt; phi_{46 23} | phi_{46 23} &gt;  = 1.00
+&lt; phi_{46 24} | phi_{46 24} &gt;  = 1.00
+&lt; phi_{46 25} | phi_{46 25} &gt;  = 1.00
+&lt; phi_{46 26} | phi_{46 26} &gt;  = 1.00
+&lt; phi_{46 27} | phi_{46 27} &gt;  = 1.00
+&lt; phi_{46 28} | phi_{46 28} &gt;  = 1.00
+&lt; phi_{46 29} | phi_{46 29} &gt;  = 1.00
+&lt; phi_{46 30} | phi_{46 30} &gt;  = 1.00
+&lt; phi_{46 31} | phi_{46 31} &gt;  = 1.00
+&lt; phi_{46 32} | phi_{46 32} &gt;  = 1.00
+&lt; phi_{46 33} | phi_{46 33} &gt;  = 1.00
+&lt; phi_{46 34} | phi_{46 34} &gt;  = 1.00
+&lt; phi_{46 35} | phi_{46 35} &gt;  = 1.00
+&lt; phi_{46 36} | phi_{46 36} &gt;  = 1.00
+&lt; phi_{46 37} | phi_{46 37} &gt;  = 1.00
+&lt; phi_{46 38} | phi_{46 38} &gt;  = 1.00
+&lt; phi_{46 39} | phi_{46 39} &gt;  = 1.00
+&lt; phi_{46 40} | phi_{46 40} &gt;  = 1.00
+&lt; phi_{46 41} | phi_{46 41} &gt;  = 1.00
+&lt; phi_{46 42} | phi_{46 42} &gt;  = 1.00
+&lt; phi_{46 43} | phi_{46 43} &gt;  = 1.00
+&lt; phi_{46 44} | phi_{46 44} &gt;  = 1.00
+&lt; phi_{46 45} | phi_{46 45} &gt;  = 1.00
+&lt; phi_{46 46} | phi_{46 46} &gt;  = 1.00
+&lt; phi_{46 47} | phi_{46 47} &gt;  = 1.00
+&lt; phi_{46 48} | phi_{46 48} &gt;  = 1.00
+&lt; phi_{46 49} | phi_{46 49} &gt;  = 1.00
+&lt; phi_{47 1} | phi_{47 1} &gt;  = 1.00
+&lt; phi_{47 2} | phi_{47 2} &gt;  = 1.00
+&lt; phi_{47 3} | phi_{47 3} &gt;  = 1.00
+&lt; phi_{47 4} | phi_{47 4} &gt;  = 1.00
+&lt; phi_{47 5} | phi_{47 5} &gt;  = 1.00
+&lt; phi_{47 6} | phi_{47 6} &gt;  = 1.00
+&lt; phi_{47 7} | phi_{47 7} &gt;  = 1.00
+&lt; phi_{47 8} | phi_{47 8} &gt;  = 1.00
+&lt; phi_{47 9} | phi_{47 9} &gt;  = 1.00
+&lt; phi_{47 10} | phi_{47 10} &gt;  = 1.00
+&lt; phi_{47 11} | phi_{47 11} &gt;  = 1.00
+&lt; phi_{47 12} | phi_{47 12} &gt;  = 1.00
+&lt; phi_{47 13} | phi_{47 13} &gt;  = 1.00
+&lt; phi_{47 14} | phi_{47 14} &gt;  = 1.00
+&lt; phi_{47 15} | phi_{47 15} &gt;  = 1.00
+&lt; phi_{47 16} | phi_{47 16} &gt;  = 1.00
+&lt; phi_{47 17} | phi_{47 17} &gt;  = 1.00
+&lt; phi_{47 18} | phi_{47 18} &gt;  = 1.00
+&lt; phi_{47 19} | phi_{47 19} &gt;  = 1.00
+&lt; phi_{47 20} | phi_{47 20} &gt;  = 1.00
+&lt; phi_{47 21} | phi_{47 21} &gt;  = 1.00
+&lt; phi_{47 22} | phi_{47 22} &gt;  = 1.00
+&lt; phi_{47 23} | phi_{47 23} &gt;  = 1.00
+&lt; phi_{47 24} | phi_{47 24} &gt;  = 1.00
+&lt; phi_{47 25} | phi_{47 25} &gt;  = 1.00
+&lt; phi_{47 26} | phi_{47 26} &gt;  = 1.00
+&lt; phi_{47 27} | phi_{47 27} &gt;  = 1.00
+&lt; phi_{47 28} | phi_{47 28} &gt;  = 1.00
+&lt; phi_{47 29} | phi_{47 29} &gt;  = 1.00
+&lt; phi_{47 30} | phi_{47 30} &gt;  = 1.00
+&lt; phi_{47 31} | phi_{47 31} &gt;  = 1.00
+&lt; phi_{47 32} | phi_{47 32} &gt;  = 1.00
+&lt; phi_{47 33} | phi_{47 33} &gt;  = 1.00
+&lt; phi_{47 34} | phi_{47 34} &gt;  = 1.00
+&lt; phi_{47 35} | phi_{47 35} &gt;  = 1.00
+&lt; phi_{47 36} | phi_{47 36} &gt;  = 1.00
+&lt; phi_{47 37} | phi_{47 37} &gt;  = 1.00
+&lt; phi_{47 38} | phi_{47 38} &gt;  = 1.00
+&lt; phi_{47 39} | phi_{47 39} &gt;  = 1.00
+&lt; phi_{47 40} | phi_{47 40} &gt;  = 1.00
+&lt; phi_{47 41} | phi_{47 41} &gt;  = 1.00
+&lt; phi_{47 42} | phi_{47 42} &gt;  = 1.00
+&lt; phi_{47 43} | phi_{47 43} &gt;  = 1.00
+&lt; phi_{47 44} | phi_{47 44} &gt;  = 1.00
+&lt; phi_{47 45} | phi_{47 45} &gt;  = 1.00
+&lt; phi_{47 46} | phi_{47 46} &gt;  = 1.00
+&lt; phi_{47 47} | phi_{47 47} &gt;  = 1.00
+&lt; phi_{47 48} | phi_{47 48} &gt;  = 1.00
+&lt; phi_{47 49} | phi_{47 49} &gt;  = 1.00
+&lt; phi_{48 1} | phi_{48 1} &gt;  = 1.00
+&lt; phi_{48 2} | phi_{48 2} &gt;  = 1.00
+&lt; phi_{48 3} | phi_{48 3} &gt;  = 1.00
+&lt; phi_{48 4} | phi_{48 4} &gt;  = 1.00
+&lt; phi_{48 5} | phi_{48 5} &gt;  = 1.00
+&lt; phi_{48 6} | phi_{48 6} &gt;  = 1.00
+&lt; phi_{48 7} | phi_{48 7} &gt;  = 1.00
+&lt; phi_{48 8} | phi_{48 8} &gt;  = 1.00
+&lt; phi_{48 9} | phi_{48 9} &gt;  = 1.00
+&lt; phi_{48 10} | phi_{48 10} &gt;  = 1.00
+&lt; phi_{48 11} | phi_{48 11} &gt;  = 1.00
+&lt; phi_{48 12} | phi_{48 12} &gt;  = 1.00
+&lt; phi_{48 13} | phi_{48 13} &gt;  = 1.00
+&lt; phi_{48 14} | phi_{48 14} &gt;  = 1.00
+&lt; phi_{48 15} | phi_{48 15} &gt;  = 1.00
+&lt; phi_{48 16} | phi_{48 16} &gt;  = 1.00
+&lt; phi_{48 17} | phi_{48 17} &gt;  = 1.00
+&lt; phi_{48 18} | phi_{48 18} &gt;  = 1.00
+&lt; phi_{48 19} | phi_{48 19} &gt;  = 1.00
+&lt; phi_{48 20} | phi_{48 20} &gt;  = 1.00
+&lt; phi_{48 21} | phi_{48 21} &gt;  = 1.00
+&lt; phi_{48 22} | phi_{48 22} &gt;  = 1.00
+&lt; phi_{48 23} | phi_{48 23} &gt;  = 1.00
+&lt; phi_{48 24} | phi_{48 24} &gt;  = 1.00
+&lt; phi_{48 25} | phi_{48 25} &gt;  = 1.00
+&lt; phi_{48 26} | phi_{48 26} &gt;  = 1.00
+&lt; phi_{48 27} | phi_{48 27} &gt;  = 1.00
+&lt; phi_{48 28} | phi_{48 28} &gt;  = 1.00
+&lt; phi_{48 29} | phi_{48 29} &gt;  = 1.00
+&lt; phi_{48 30} | phi_{48 30} &gt;  = 1.00
+&lt; phi_{48 31} | phi_{48 31} &gt;  = 1.00
+&lt; phi_{48 32} | phi_{48 32} &gt;  = 1.00
+&lt; phi_{48 33} | phi_{48 33} &gt;  = 1.00
+&lt; phi_{48 34} | phi_{48 34} &gt;  = 1.00
+&lt; phi_{48 35} | phi_{48 35} &gt;  = 1.00
+&lt; phi_{48 36} | phi_{48 36} &gt;  = 1.00
+&lt; phi_{48 37} | phi_{48 37} &gt;  = 1.00
+&lt; phi_{48 38} | phi_{48 38} &gt;  = 1.00
+&lt; phi_{48 39} | phi_{48 39} &gt;  = 1.00
+&lt; phi_{48 40} | phi_{48 40} &gt;  = 1.00
+&lt; phi_{48 41} | phi_{48 41} &gt;  = 1.00
+&lt; phi_{48 42} | phi_{48 42} &gt;  = 1.00
+&lt; phi_{48 43} | phi_{48 43} &gt;  = 1.00
+&lt; phi_{48 44} | phi_{48 44} &gt;  = 1.00
+&lt; phi_{48 45} | phi_{48 45} &gt;  = 1.00
+&lt; phi_{48 46} | phi_{48 46} &gt;  = 1.00
+&lt; phi_{48 47} | phi_{48 47} &gt;  = 1.00
+&lt; phi_{48 48} | phi_{48 48} &gt;  = 1.00
+&lt; phi_{48 49} | phi_{48 49} &gt;  = 1.00
+&lt; phi_{49 1} | phi_{49 1} &gt;  = 1.00
+&lt; phi_{49 2} | phi_{49 2} &gt;  = 1.00
+&lt; phi_{49 3} | phi_{49 3} &gt;  = 1.00
+&lt; phi_{49 4} | phi_{49 4} &gt;  = 1.00
+&lt; phi_{49 5} | phi_{49 5} &gt;  = 1.00
+&lt; phi_{49 6} | phi_{49 6} &gt;  = 1.00
+&lt; phi_{49 7} | phi_{49 7} &gt;  = 1.00
+&lt; phi_{49 8} | phi_{49 8} &gt;  = 1.00
+&lt; phi_{49 9} | phi_{49 9} &gt;  = 1.00
+&lt; phi_{49 10} | phi_{49 10} &gt;  = 1.00
+&lt; phi_{49 11} | phi_{49 11} &gt;  = 1.00
+&lt; phi_{49 12} | phi_{49 12} &gt;  = 1.00
+&lt; phi_{49 13} | phi_{49 13} &gt;  = 1.00
+&lt; phi_{49 14} | phi_{49 14} &gt;  = 1.00
+&lt; phi_{49 15} | phi_{49 15} &gt;  = 1.00
+&lt; phi_{49 16} | phi_{49 16} &gt;  = 1.00
+&lt; phi_{49 17} | phi_{49 17} &gt;  = 1.00
+&lt; phi_{49 18} | phi_{49 18} &gt;  = 1.00
+&lt; phi_{49 19} | phi_{49 19} &gt;  = 1.00
+&lt; phi_{49 20} | phi_{49 20} &gt;  = 1.00
+&lt; phi_{49 21} | phi_{49 21} &gt;  = 1.00
+&lt; phi_{49 22} | phi_{49 22} &gt;  = 1.00
+&lt; phi_{49 23} | phi_{49 23} &gt;  = 1.00
+&lt; phi_{49 24} | phi_{49 24} &gt;  = 1.00
+&lt; phi_{49 25} | phi_{49 25} &gt;  = 1.00
+&lt; phi_{49 26} | phi_{49 26} &gt;  = 1.00
+&lt; phi_{49 27} | phi_{49 27} &gt;  = 1.00
+&lt; phi_{49 28} | phi_{49 28} &gt;  = 1.00
+&lt; phi_{49 29} | phi_{49 29} &gt;  = 1.00
+&lt; phi_{49 30} | phi_{49 30} &gt;  = 1.00
+&lt; phi_{49 31} | phi_{49 31} &gt;  = 1.00
+&lt; phi_{49 32} | phi_{49 32} &gt;  = 1.00
+&lt; phi_{49 33} | phi_{49 33} &gt;  = 1.00
+&lt; phi_{49 34} | phi_{49 34} &gt;  = 1.00
+&lt; phi_{49 35} | phi_{49 35} &gt;  = 1.00
+&lt; phi_{49 36} | phi_{49 36} &gt;  = 1.00
+&lt; phi_{49 37} | phi_{49 37} &gt;  = 1.00
+&lt; phi_{49 38} | phi_{49 38} &gt;  = 1.00
+&lt; phi_{49 39} | phi_{49 39} &gt;  = 1.00
+&lt; phi_{49 40} | phi_{49 40} &gt;  = 1.00
+&lt; phi_{49 41} | phi_{49 41} &gt;  = 1.00
+&lt; phi_{49 42} | phi_{49 42} &gt;  = 1.00
+&lt; phi_{49 43} | phi_{49 43} &gt;  = 1.00
+&lt; phi_{49 44} | phi_{49 44} &gt;  = 1.00
+&lt; phi_{49 45} | phi_{49 45} &gt;  = 1.00
+&lt; phi_{49 46} | phi_{49 46} &gt;  = 1.00
+&lt; phi_{49 47} | phi_{49 47} &gt;  = 1.00
+&lt; phi_{49 48} | phi_{49 48} &gt;  = 1.00
+&lt; phi_{49 49} | phi_{49 49} &gt;  = 1.00
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should now have a orthonormal set of functions spanning at least a <em>subspace</em> of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>. The final criterion of completeness is a bit cumbersome to test for, so we leave it out for now. Suffice to say, what we will do in the following is to approximate <span class="math notranslate nohighlight">\(\vert \Psi \rangle\)</span> in a truncated basis such that</p>
+<div class="math notranslate nohighlight">
+\[
+\vert \Psi \rangle \approx \sum_{n_x}^{N_x} \sum_{n_y}^{N_y} \varphi_{n_x, n_y} c_n.
+\]</div>
+<div class="admonition-discussion admonition">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>Mathematically speaking, does a truncated basis still formally qualify as a <em>basis</em>?</p></li>
+<li><p>What is the vector space spanned by a truncated basis?</p></li>
+</ul>
+</div>
+</section>
+<section id="projection">
+<h2>Projection<a class="headerlink" href="#projection" title="Permalink to this heading">#</a></h2>
+<p>Given a orthonormal trucanted basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, we can determine the expansion coefficients <span class="math notranslate nohighlight">\(c\)</span> by means of <em>projection</em>. In other words, we shall determine the components of <span class="math notranslate nohighlight">\(\vert \Psi \rangle\)</span> in the space spanned by <span class="math notranslate nohighlight">\(\{ \varphi_n \}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+c_m = \langle \varphi_m \vert \Psi \rangle.
+\]</div>
+<p>With our numerical setup, this is now done in a (somewhat slow) breeze:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">basis</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">basis</span><span class="p">)):</span>
+    <span class="n">phi_m</span> <span class="o">=</span> <span class="n">basis</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    <span class="n">c</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">phi_m</span><span class="p">,</span> <span class="n">psi</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>The coefficients by themselves are not of much interest, but you may have a look if you wish:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Coefficients of $</span><span class="se">\\</span><span class="s2">varphi_{n_x,n_y}$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nc</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">nc</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;nx&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;ny&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a6c1f7fcc5e3f4162cdd7c11f15b102fede1099c7b3a00f9e538829ba996c97d.png" src="../../_images/a6c1f7fcc5e3f4162cdd7c11f15b102fede1099c7b3a00f9e538829ba996c97d.png" />
+</div>
+</div>
+<p>The linear combination</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{n_x}^{N_x} \sum_{n_y}^{N_y} \varphi_{n_x, n_y} c_n \approx \vert \Psi \rangle
+\]</div>
+<p>should however now be quite interesting. If we have done everything correctly, we expect this linear combination to be an approximate representation of the photo of the young Dirac. Let’s have a look, and notice that there is no direct reference to <span class="math notranslate nohighlight">\(\vert \Psi \rangle\)</span> in the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">basis</span><span class="p">)):</span>
+    <span class="n">phi_m</span> <span class="o">=</span> <span class="n">basis</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    <span class="n">z</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">*</span><span class="n">phi_m</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;bone&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f4fdbb75074f054e472c3d0d217200d9dc74741655c61ead7bbce59bba8f508f.png" src="../../_images/f4fdbb75074f054e472c3d0d217200d9dc74741655c61ead7bbce59bba8f508f.png" />
+</div>
+</div>
+<p>For a side-by-side comparison, we include</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;bone&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ce15b838feb26111050dfb0fc9917ff54180985dae86f07ede2b0bb3b5f71327.png" src="../../_images/ce15b838feb26111050dfb0fc9917ff54180985dae86f07ede2b0bb3b5f71327.png" />
+</div>
+</div>
+<p>This is an <em>approximate representation</em>, but we managed to capture quite a lot of what goes on in the picture. This demonstration furthermore illuminates some concepts that is central in our quest for understanding the quantum molecular world using numerics. In the analytical case, the choice of basis is arbitrary as long as it is complete. When truncating, however, we would like to know how to refine our basis towards the exact result.</p>
+<p>If you would like to pursue this latter part in more detail, you should have a look on he completeness relation. Can you measure how well our truncated set span <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>?</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/quantum_mechanics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Quantum_thinking.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">How to think inside of the quantum world!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Classical%20hydrogen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Limitations of classical mechanics in chemistry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basis-expansions">Basis expansions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product-space">Inner product space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-truncated-basis">A truncated basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection">Projection</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Curious minds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

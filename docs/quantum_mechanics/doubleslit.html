@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>A double slit experiment &#8212; Open World Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/quantum_mechanics/doubleslit';</script>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/openworldlearning/openworldlearning.github.io/main/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="An encounter with the Schrödinger equation" href="schrodinger_equation.html" />
+    <link rel="prev" title="Limitations of classical mechanics in chemistry" href="Classical%20hydrogen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/owl_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/owl_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    What is Open World Learning?
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developers.html">Developers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../internals/getting_started.html">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../internals/workflow.html">Development workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/conventions.html">Conventions</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../internals/writing.html">Writing for students</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/literature.html">Literature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/markdown.html">Writing and styling documents and notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/github.html">Github</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../internals/github_uio.html">Github at the University</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../software/software.html">Software tailored for learning</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../software/gpr/AI_in_the_lab.html">AI in the lab with btjenesten.gpr</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/polynomial_regression.html">Polynomial regression and its restrictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/GPR_intro.html">An introduction to Gaussian process regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/Covariance.html">Covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/Kernels.html">Kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/gpr/quick_gpr_tutorial.html">Quick tutorial on the Gaussian process regression module from btjenesten</a></li>
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software/bubblebox/mdbox_tutorial.html">Molecular dynamics with BubbleBox.mdbox</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../software/braketlab/braketlab.html">Quantum mechanics with BraketLab</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../general_chemistry.html">General chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../thermpaths.html">Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/KE_to_Temp_math.html">How is <span class="math notranslate nohighlight">\(K_E =  \frac{3}{2} k_BT\)</span> for gas?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thermodynamics/KE_to_Temp_math_final.html">How does temperature relate to kinetic energy in gases?</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../qmpaths.html">Basic quantum mechanics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Quantum_thinking.html">How to think inside of the quantum world!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_combinations.html">Dirac notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Classical%20hydrogen.html">Limitations of classical mechanics in chemistry</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">A double slit experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schrodinger_equation.html">An encounter with the Schrödinger equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numeric_schrodinger_1d.html">Solving the Schrodinger equation numerically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigenfunctions_eigenstates.html">Eigenfunctions and eigenstates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hybridization.html">What is hybridization?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../experimental_paths.html">Bringing theory and experiment closer with computers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../experiment/experimental_data.html">Treating experimental data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experiment/Implementing%20AI%20in%20a%20Lab%20Setting.html">Treating experimental data</a></li>
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numerical_calculus.html">Numerical calculus</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numerical_calculus/numerical_integration.html">Numerical integration</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/openworldlearning/openworldlearning.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/openworldlearning/openworldlearning.github.io/issues/new?title=Issue%20on%20page%20%2Fdocs/quantum_mechanics/doubleslit.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/quantum_mechanics/doubleslit.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A double slit experiment</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-classical-wave-in-a-box">A classical wave in a box</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a-double-slit-experiment">
+<h1>A double slit experiment<a class="headerlink" href="#a-double-slit-experiment" title="Permalink to this heading">#</a></h1>
+<p><b>Author</b> Audun Skau Hansen <a href="mailto:a.s.hansen@kjemi.uio.no">✉️</a></p>
+<p>The Hylleraas Centre for Quantum Molecular Sciences, 2022</p>
+<hr class="docutils" />
+<p>Richard Feynman once famously claimed that exerything in quantum mechanics can be understood in light of the double slit experiment. In his own words, it <strong>“contains the only mystery”</strong> of quantum physics.</p>
+<p>If this is true, it is (perhaps) good news. It means that all we have to do to master quantum physics is to properly simulate the double slit experiment, and derive all insight from our results. So let’s do just that. And maybe we’ll steer clear of profound philosophical conundrums along the way.</p>
+<section id="a-classical-wave-in-a-box">
+<h2>A classical wave in a box<a class="headerlink" href="#a-classical-wave-in-a-box" title="Permalink to this heading">#</a></h2>
+<p>In the following simulations we shall use the wavebox extension of BubbleBox:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bubblebox</span> <span class="k">as</span> <span class="nn">bb</span>
+<span class="kn">from</span> <span class="nn">bubblebox.wavebox</span> <span class="kn">import</span> <span class="n">boundaries_edge</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">wavebox</span><span class="p">(</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">450</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+
+<span class="c1"># set initial state</span>
+<span class="c1">#b.u = np.exp(-500*((b.x[0][:, None] - 1.5)**2 + b.x[1][None,:]**2)) </span>
+
+
+<span class="k">def</span> <span class="nf">boundaries_single_slit</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">slitwidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">bo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="n">bo</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">slitwidth</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">slitwidth</span><span class="p">:]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">bo</span>
+    
+    
+<span class="k">def</span> <span class="nf">source</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="o">*</span><span class="p">((</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="kc">None</span><span class="p">,:]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    
+    
+<span class="n">b</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+
+<span class="c1"># set boundary conditions</span>
+<span class="n">b</span><span class="o">.</span><span class="n">set_neumann_boundary_conditions</span><span class="p">(</span><span class="n">boundaries_single_slit</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">resolution</span><span class="p">))</span>
+
+<span class="n">interference_pattern</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">):</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">advance</span><span class="p">()</span>
+    
+        <span class="n">interference_pattern</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">representation</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">interference_pattern</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/58ebdfa873781e190f4e589930a20e73db1f679ecbc5d5b935b45d7c427a2852.png" src="../../_images/58ebdfa873781e190f4e589930a20e73db1f679ecbc5d5b935b45d7c427a2852.png" />
+<img alt="../../_images/1d297d5f420895593bd01ba23f5b2cb20a8809270bb08ceac03409b7a1740079.png" src="../../_images/1d297d5f420895593bd01ba23f5b2cb20a8809270bb08ceac03409b7a1740079.png" />
+<img alt="../../_images/25698a8284f46aefe00e8b7b9ef2340c24d775a8bb6abd57c02339b6f06cae1b.png" src="../../_images/25698a8284f46aefe00e8b7b9ef2340c24d775a8bb6abd57c02339b6f06cae1b.png" />
+<img alt="../../_images/f0169eeb1595890d3b641dd7666d7f36209a1aa8c3c901918be90a68c48b3aeb.png" src="../../_images/f0169eeb1595890d3b641dd7666d7f36209a1aa8c3c901918be90a68c48b3aeb.png" />
+<img alt="../../_images/f65c86a370a85a88b4770e96478e330d1ea5613e99e67835a41b4c11b663925d.png" src="../../_images/f65c86a370a85a88b4770e96478e330d1ea5613e99e67835a41b4c11b663925d.png" />
+<img alt="../../_images/03af574ea91432451399e796dabf72cdac0d0f5a9bf75fc5c82641356e2050b7.png" src="../../_images/03af574ea91432451399e796dabf72cdac0d0f5a9bf75fc5c82641356e2050b7.png" />
+<img alt="../../_images/faed5cc8eb10c667bb90226610e6e51b12397990da8202ccba1bff516bb04ca9.png" src="../../_images/faed5cc8eb10c667bb90226610e6e51b12397990da8202ccba1bff516bb04ca9.png" />
+<img alt="../../_images/cfd7a3b804abc51dcc18967caee45c2a3fdab1577f68a2a57d2bdcfc786da14a.png" src="../../_images/cfd7a3b804abc51dcc18967caee45c2a3fdab1577f68a2a57d2bdcfc786da14a.png" />
+<img alt="../../_images/3da5ef091be48004971d6e95f9570e10ec9f1bc8cfda8c7b38367ba624082d1a.png" src="../../_images/3da5ef091be48004971d6e95f9570e10ec9f1bc8cfda8c7b38367ba624082d1a.png" />
+<img alt="../../_images/3c640990f174abc556bc020e308c7a15c90e02392922a76c907ac59a14b1a9c1.png" src="../../_images/3c640990f174abc556bc020e308c7a15c90e02392922a76c907ac59a14b1a9c1.png" />
+<img alt="../../_images/2d4d89d4066e945c7dc7a1873dc9acd164017a40987210166865d538caa9a700.png" src="../../_images/2d4d89d4066e945c7dc7a1873dc9acd164017a40987210166865d538caa9a700.png" />
+<img alt="../../_images/9eabf231d1707f435ebbc3b6d472fcec84a1331d578973c4f00d1ef17f3751a3.png" src="../../_images/9eabf231d1707f435ebbc3b6d472fcec84a1331d578973c4f00d1ef17f3751a3.png" />
+<img alt="../../_images/3b666f0b42b6e2a354e73cad06c8599459561737497f901d038df68a8e9a599a.png" src="../../_images/3b666f0b42b6e2a354e73cad06c8599459561737497f901d038df68a8e9a599a.png" />
+<img alt="../../_images/89534a7ad0831df2e7584aadb4d644b0b3797815c3a7655798decd17bab67c3f.png" src="../../_images/89534a7ad0831df2e7584aadb4d644b0b3797815c3a7655798decd17bab67c3f.png" />
+<img alt="../../_images/18813e8393f1ed442bc597bdf27977daa718e07eeeb0c247219f4df18ce66992.png" src="../../_images/18813e8393f1ed442bc597bdf27977daa718e07eeeb0c247219f4df18ce66992.png" />
+<img alt="../../_images/467f085b329732f4d3067cfe1f8cb063b11cb879497f88ca148127215595e27e.png" src="../../_images/467f085b329732f4d3067cfe1f8cb063b11cb879497f88ca148127215595e27e.png" />
+<img alt="../../_images/62eebb8ec77f9027c0fcb0878603f98596fa1e335067c4afbee6074b05c8de1f.png" src="../../_images/62eebb8ec77f9027c0fcb0878603f98596fa1e335067c4afbee6074b05c8de1f.png" />
+<img alt="../../_images/4330d920d5401bcc47f9d3e604368f35739482434c1348986c3f0bc6e3b07c83.png" src="../../_images/4330d920d5401bcc47f9d3e604368f35739482434c1348986c3f0bc6e3b07c83.png" />
+<img alt="../../_images/84f912097e4d1816a6fdd360469a1a648504e42a74a8f519d87c9b9565af7cfd.png" src="../../_images/84f912097e4d1816a6fdd360469a1a648504e42a74a8f519d87c9b9565af7cfd.png" />
+<img alt="../../_images/65a9bb42b8506a49c8dc9b5db3a916812ee30f9de704cf9fedc474d3a63ed5a7.png" src="../../_images/65a9bb42b8506a49c8dc9b5db3a916812ee30f9de704cf9fedc474d3a63ed5a7.png" />
+<img alt="../../_images/7e65925d93240dd415d35aefbb9aa5de725d5736617f254e5572810373c02fd8.png" src="../../_images/7e65925d93240dd415d35aefbb9aa5de725d5736617f254e5572810373c02fd8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boundaries_double_slit</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">slitwidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">slit_separation</span> <span class="o">=</span> <span class="mi">32</span><span class="p">):</span>
+    <span class="n">bo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="n">bo</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">:]</span><span class="o">=</span><span class="kc">True</span>
+    
+    
+    <span class="n">bo</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">slit_separation</span><span class="o">-</span><span class="n">slitwidth</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">slit_separation</span><span class="o">+</span><span class="n">slitwidth</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="n">bo</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">slit_separation</span><span class="o">-</span><span class="n">slitwidth</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">slit_separation</span><span class="o">+</span><span class="n">slitwidth</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="n">bo</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">bo</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">bo</span>
+    
+<span class="n">b</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">wavebox</span><span class="p">(</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">450</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+
+
+<span class="c1"># set initial state</span>
+<span class="c1">#b.u = np.exp(-500*((b.x[0][:, None] - 1.5)**2 + b.x[1][None,:]**2)) </span>
+
+<span class="c1">#b.potential = lambda </span>
+    
+<span class="k">def</span> <span class="nf">source</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="o">*</span><span class="p">((</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="kc">None</span><span class="p">,:]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+    
+<span class="c1"># set boundary conditions</span>
+<span class="n">b</span><span class="o">.</span><span class="n">set_neumann_boundary_conditions</span><span class="p">(</span><span class="n">boundaries_double_slit</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">resolution</span><span class="p">))</span>
+
+<span class="n">interference_pattern</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">):</span>
+        <span class="n">b</span><span class="o">.</span><span class="n">advance</span><span class="p">()</span>
+    
+        <span class="n">interference_pattern</span> <span class="o">+=</span> <span class="n">b</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">representation</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">interference_pattern</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/76933c4a9b37dc92f4cd5a3211d4c6bcf37266280a04570b201c291a3b5deb3a.png" src="../../_images/76933c4a9b37dc92f4cd5a3211d4c6bcf37266280a04570b201c291a3b5deb3a.png" />
+<img alt="../../_images/08cbfd88036259637c2730d64164f5723adb32c148ab07ae0f089908e526d6b0.png" src="../../_images/08cbfd88036259637c2730d64164f5723adb32c148ab07ae0f089908e526d6b0.png" />
+<img alt="../../_images/4a48dc02965034906463dad18200296ba806e4f9fbcaae45b3e2ea856e7867c3.png" src="../../_images/4a48dc02965034906463dad18200296ba806e4f9fbcaae45b3e2ea856e7867c3.png" />
+<img alt="../../_images/4243f9a4531e71f09f6198154e15a8e60b544847c72c6391490a708eb43452af.png" src="../../_images/4243f9a4531e71f09f6198154e15a8e60b544847c72c6391490a708eb43452af.png" />
+<img alt="../../_images/13788f3d414765db210cc39428a6ae610e0b90ee3bcc4459f9a055e31bebe947.png" src="../../_images/13788f3d414765db210cc39428a6ae610e0b90ee3bcc4459f9a055e31bebe947.png" />
+<img alt="../../_images/22ed32e8dec761bd64248ec225f50d0ec02b6b0ceba057df4d6c5a9a30613ed4.png" src="../../_images/22ed32e8dec761bd64248ec225f50d0ec02b6b0ceba057df4d6c5a9a30613ed4.png" />
+<img alt="../../_images/9348bc125e97cdac9619364efed237cd3ede18a5c9b00e02c17353cfb8d579df.png" src="../../_images/9348bc125e97cdac9619364efed237cd3ede18a5c9b00e02c17353cfb8d579df.png" />
+<img alt="../../_images/a8a1bfa97611f4df8c3fb3080f3a0e4cd8d05afdcfdab5b504286f54663b334f.png" src="../../_images/a8a1bfa97611f4df8c3fb3080f3a0e4cd8d05afdcfdab5b504286f54663b334f.png" />
+<img alt="../../_images/6d9d4e629c1a3ec622e171e87ae0f2ced66c50972037d8362bd498e97f75e765.png" src="../../_images/6d9d4e629c1a3ec622e171e87ae0f2ced66c50972037d8362bd498e97f75e765.png" />
+<img alt="../../_images/0a5adf96d6577a4826668ee3809a85e3dc3638f04e9f12fb3b04b9904e5a1d3f.png" src="../../_images/0a5adf96d6577a4826668ee3809a85e3dc3638f04e9f12fb3b04b9904e5a1d3f.png" />
+<img alt="../../_images/df29f6abf6fb9b12f7e00cbe76cd44d1e44206f50184fdf4b9d3fba4b3728090.png" src="../../_images/df29f6abf6fb9b12f7e00cbe76cd44d1e44206f50184fdf4b9d3fba4b3728090.png" />
+<img alt="../../_images/403134efe132b2dc7f9576c2330ab36376feeca9a3ed4ad964163ed71918b779.png" src="../../_images/403134efe132b2dc7f9576c2330ab36376feeca9a3ed4ad964163ed71918b779.png" />
+<img alt="../../_images/6eb8cf7bdff707a5716fcb1ca902c8f45ec9d256bf3b4a62070917b6846e2410.png" src="../../_images/6eb8cf7bdff707a5716fcb1ca902c8f45ec9d256bf3b4a62070917b6846e2410.png" />
+<img alt="../../_images/120a8d0bb1cbe7bb2cdf62908c40f6982658c9f16116b63cfd4a23fa770153a4.png" src="../../_images/120a8d0bb1cbe7bb2cdf62908c40f6982658c9f16116b63cfd4a23fa770153a4.png" />
+<img alt="../../_images/8826e18c016e5e59e6da97ed959fc60b5a69f28bb3e6fb54605cbad1e1fff093.png" src="../../_images/8826e18c016e5e59e6da97ed959fc60b5a69f28bb3e6fb54605cbad1e1fff093.png" />
+<img alt="../../_images/fa8a05be3bc7918f72ba2653d6c32e9c68377b188bbfd5a464b299c399278070.png" src="../../_images/fa8a05be3bc7918f72ba2653d6c32e9c68377b188bbfd5a464b299c399278070.png" />
+<img alt="../../_images/66633f51aed1e50738a74753c0509ee6d816f0d16d44724a36f191f976da76f8.png" src="../../_images/66633f51aed1e50738a74753c0509ee6d816f0d16d44724a36f191f976da76f8.png" />
+<img alt="../../_images/bf1bd2a91e638383a1d33540aaf027799011d8fcedbe7b316c63d27fbda7e5a2.png" src="../../_images/bf1bd2a91e638383a1d33540aaf027799011d8fcedbe7b316c63d27fbda7e5a2.png" />
+<img alt="../../_images/5d902a5ddf5d42dc976c5e36f65adb5e20156dd91ce74604ca837e88fc384ed5.png" src="../../_images/5d902a5ddf5d42dc976c5e36f65adb5e20156dd91ce74604ca837e88fc384ed5.png" />
+<img alt="../../_images/627ac59bbb9b37ef318de7c2bb9106c96fa6a4b0359663231d6e42b767b6c787.png" src="../../_images/627ac59bbb9b37ef318de7c2bb9106c96fa6a4b0359663231d6e42b767b6c787.png" />
+<img alt="../../_images/c52da037a6647a56722461302f4d129d4adc63ca26cc629c49e4bccdd6a10531.png" src="../../_images/c52da037a6647a56722461302f4d129d4adc63ca26cc629c49e4bccdd6a10531.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/quantum_mechanics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Classical%20hydrogen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Limitations of classical mechanics in chemistry</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="schrodinger_equation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">An encounter with the Schrödinger equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-classical-wave-in-a-box">A classical wave in a box</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Curious minds
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
